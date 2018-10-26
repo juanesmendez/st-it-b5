@@ -1,0 +1,79 @@
+
+-- RF1:
+
+-- INSERTO UINFROMACION A LA TABLA PROVEEDOR
+INSERT INTO PROVEEDOR VALUES (SUPERANDES_SEQUENCE.nextval,123456,'Proovedor 1');
+INSERT INTO PROVEEDOR VALUES (SUPERANDES_SEQUENCE.nextval,123457,'Proovedor 1');
+
+-- RF2:
+
+-- INSERTO INFORMACION A LA TABLA CATEGORIA
+INSERT INTO CATEGORIA VALUES (SUPERANDES_SEQUENCE.nextval,'Perecederos');
+INSERT INTO CATEGORIA VALUES (SUPERANDES_SEQUENCE.nextval,'Abarrotes');
+INSERT INTO CATEGORIA VALUES (SUPERANDES_SEQUENCE.nextval,'Muebles');
+
+-- INSERTO INFORMACION A LA TABLA TIPOPRODUCTO
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Carne',4);
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Verdura',4);
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Lacteo',4);
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Mantequilla',4);
+
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Trapeador',8);
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Escoba',8);
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Balde',8);
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Trapo',8);
+
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Silla',9);
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Mesa',9);
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Sofa',9);
+INSERT INTO TIPOPRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Sillon',9);
+-- INSERTO INFORMACION A LA TABLA PRODUCTO
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Punta de Anca', 'Marca Carne 1', 10, '1 filete de 200 gr.', 200, 'gr', 50, 210, '#ff333');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Lechuga', 'Marca Lechuga 1', 11, '1 lechuga completa sin arrancar', 50, 'gr', 30, 50, '#fa345');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Yogurt', 'Alpina', 12, '6 vasos de plastico con 200 ml de yogurt cada uno', 1200, 'ml', 1200, 500, '#aa333');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Margarina', 'La Fina', 13, '1 caja de plastico de 300 gr.', 300, 'gr', 300, 310, '#cc356');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Trapeador mechudo', 'Ultratrapeadores', 14, '1 trapeador envuelto en una bolsa de plastico', 500, 'gr', 500, 505, '#ccc33');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Escoba roja', 'Ultraescobas', 15, '1 escoba envuelta en una bolsa de plastico', 450, 'gr', 200, 455, '#ba333');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Balde cafe', 'Baldes SA', 16, '1 balde con capacidad de 200 ml', 100, 'gr', 350, 105, '#bb333');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Trapo verde', 'Trapos Asociados', 17, '1 trapo de color verde', 10, 'gr', 10, 10, '#ae333');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Silla reclinable', 'Tugo', 18, '1 silla reclinable de color azul', 1, 'gr', 600, 500, '#ff451');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Mesa de madera', 'Superficies S.A', 19, '1 mesa de madera grande', 1, 'gr', 800, 1000, '#abc33');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Sofa en forma de L', 'Muebles y Accesorios', 20, '1 sofa', 1, 'gr', 2000, 3000, '#ac983');
+INSERT INTO PRODUCTO VALUES (SUPERANDES_SEQUENCE.nextval, 'Sillon acolchonado', 'Muebles y Accesorios', 21, '1 sillon', 1, 'gr', 800, 1200, '#fe333');
+
+-- RF3
+-- INSERTO INFORMACION A LA TABLA CLIENTES
+INSERT INTO CLIENTE VALUES (1018500219, 'NATURAL','Juan Esteban Méndez Roys', 'je.mendez@uniandes.edu.co', null, null );
+INSERT INTO CLIENTE VALUES (5623801455, 'EMPRESA','TUGO', 'tugo@tugo.com', 'Cra 68B #78-71', null );
+
+--RF4 
+-- INSERTO INFROMACION A LA TABLA SUCURSAL
+
+INSERT INTO SUCURSAL VALUES (SUPERANDES_SEQUENCE.nextval, 'Bogotá', 'Cl. 73 #9-72', 'Superandes Cedritos');
+INSERT INTO SUCURSAL VALUES (SUPERANDES_SEQUENCE.nextval, 'Bogotá', 'Cra. 7 #11-10', 'Superandes Centro Histórico');
+INSERT INTO SUCURSAL VALUES (SUPERANDES_SEQUENCE.nextval, 'Medellin', 'Cl. 44 #69-38', 'Superandes Poblado');
+
+-- RF5
+-- INSERTO BODEGAS CON SU RESPECTIVA SUCURSAL. (INSERTO INFROMACION A LA TABLA BODEGA)
+
+INSERT INTO BODEGA VALUES (SUPERANDES_SEQUENCE.nextval, 38, 10, 500000, 10000);
+
+-- RF6
+-- INSERTO ESTANTES CON SU RESPECTIVA SUCURSAL. (INSERTO INFORMACION A LA TABLA ESTANTE)
+INSERT INTO ESTANTE VALUES (SUPERANDES_SEQUENCE.nextval, 38, 10, 40000, 8000,20);
+
+
+
+-------------------------------------
+SELECT * FROM PROVEEDOR;
+SELECT * FROM CATEGORIA;
+SELECT * FROM TIPOPRODUCTO;
+select * from producto;
+select * from cliente;
+SELECT * FROM SUCURSAL;
+SELECT * FROM BODEGA;
+select * from estante;
+select * from factura;
+
+
+commit;

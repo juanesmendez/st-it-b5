@@ -1,0 +1,24 @@
+{
+	"title": "Nombres de las tablas de Parranderos Uniandes para la aplicación A",
+	"unidadPersistencia": "Superandes",
+	"tablas":
+	[
+		"Superandes_sequence",
+		"BODEGA",
+		"CATEGORIA",
+		"CATEGORIASUCURSAL",
+		"CLIENTE",
+		"ESTANTE",
+		"FACTURA",
+		"FACTURAPRODUCTO",
+		"ORDEN",
+		"PRODUCTO",
+		"PRODUCTOBODEGA",
+		"PRODUCTOESTANTE",
+		"PROVEE",
+		"PROVEEDOR",
+		"SUCURSAL",
+		"TIPOPRODUCTO",
+		"VENDE"
+	]
+}

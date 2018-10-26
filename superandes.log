@@ -1,0 +1,222 @@
+00:50:55,357 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+00:50:55,358 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+00:50:55,389 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+00:51:16,009 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido de la sucursal 38 al proveedor 1
+00:51:18,123 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido: Orden[id=66, idProveedor=1, idSucursal=38, idProducto=23, cantidad=200, precio=500.0, estado=No entregado, fechaEsperadaEntrega=2018-01-10 00:11:00.0, fechaEntrega=null, calificacion=null]
+00:54:03,383 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+00:54:03,384 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+00:54:03,416 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+00:54:29,172 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido de la sucursal 38 al proveedor 1
+00:54:31,472 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido: Orden[id=67, idProveedor=1, idSucursal=38, idProducto=23, cantidad=200, precio=500.0, estado=No entregado, fechaEsperadaEntrega=2018-01-21 00:12:00.0, fechaEntrega=null, calificacion=null]
+01:04:52,112 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+01:04:52,113 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+01:04:52,138 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+01:05:09,179 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido de la sucursal 38 al proveedor 1
+01:05:10,781 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido: Orden[id=68, idProveedor=1, idSucursal=38, idProducto=23, cantidad=200, precio=500.0, estado=No entregado, fechaEsperadaEntrega=2018-01-21 00:12:00.0, fechaEntrega=null, calificacion=null]
+01:07:13,130 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+01:07:13,131 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+01:07:13,163 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+01:07:36,762 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido de la sucursal 38 al proveedor 1
+01:07:39,194 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido: Orden[id=69, idProveedor=1, idSucursal=38, idProducto=23, cantidad=200, precio=500.0, estado=No entregado, fechaEsperadaEntrega=1969-12-31 19:00:17.879, fechaEntrega=null, calificacion=null]
+01:17:54,601 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+01:17:54,602 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+01:17:54,641 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+01:18:18,226 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido de la sucursal 38 al proveedor 1
+01:18:20,765 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido: Orden[id=70, idProveedor=1, idSucursal=38, idProducto=23, cantidad=200, precio=500.0, estado=No entregado, fechaEsperadaEntrega=2018-12-12 00:00:00.0, fechaEntrega=null, calificacion=null]
+01:25:48,497 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+01:25:48,498 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+01:25:48,557 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+01:46:24,033 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+01:46:24,056 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+01:46:24,135 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+02:02:45,877 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+02:02:45,878 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+02:02:45,929 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+02:03:50,556 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando proveedor 4528204 con nombre Surtimax
+02:03:51,300 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando proveedor Proveedor [id=71, nit=4528204, nombre=Surtimax]
+02:36:41,035 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+02:36:41,036 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+02:36:41,076 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+02:37:00,173 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Generando los VO de Tipo Producto
+02:37:01,485 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Generando los VO de TipoProducto: 12 existentes
+02:38:16,640 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando producto Cebolla de marca Surtidora de verduras S.A
+02:38:20,240 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "INSERT INTO PRODUCTO values (?,?,?,?,?,?,?,?,?,?)".
+ORA-12899: value too large for column "ISIS2304B211820"."PRODUCTO"."MARCA" (actual: 25, maximum: 20)
+
+02:38:20,425 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando producto null
+02:39:56,997 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando producto Cebolla de marca Verduras S.A
+02:45:15,821 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "SELECT Superandes_sequence.nextval FROM DUAL".
+Closed Connection
+02:45:15,822 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando producto null
+02:45:50,966 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+02:45:50,967 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+02:45:51,066 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:41:12,667 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:41:12,669 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:41:12,718 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:42:00,269 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:42:00,270 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:42:00,316 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:42:36,304 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando proveedor 43729 con nombre Casablanca S.A
+12:42:39,156 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando proveedor Proveedor [id=81, nit=43729, nombre=Casablanca S.A]
+12:43:38,728 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando producto Cebolla de marca Verduras S.A
+12:43:41,537 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando producto Producto[id=82, nombre=Cebolla, marca=Verduras S.A, idTipoProducto=11, presentacion=Una cebolla, cantidad presentacion=1.0, unidad medida=gr, volumen empaque=7.0, peso empaque=100.0codigo de barras=#abc215]
+12:44:33,327 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando cliente: Mateo Granadoscon identificacion 1020826011
+12:44:33,941 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando cliente uniandes.isis2304.superandes.negocio.Cliente@10bbdaea
+12:46:02,791 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando sucursal Superandes Bocagrandeen Cartagena
+12:46:03,651 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando sucursal Sucursal [id=83, ciudad=Cartagena, direccion=Carrera 1 # 81 - 06, nombre=Superandes Bocagrande]
+12:46:30,953 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando bodega
+12:46:32,053 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "SELECT * FROM TIPOPRODUCTO INNER JOIN CATEGORIASUCURSAL ON TIPOPRODUCTO.idCategoria = CATEGORIASUCURSAL.idCategoria TIPOPRODUCTO.id = ?".
+ORA-00933: SQL command not properly ended
+
+12:46:32,650 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando bodega null
+12:47:35,780 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:47:35,781 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:47:35,908 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:47:59,990 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando bodega
+12:49:41,838 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando bodega
+12:49:59,595 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Generando los VO de Tipo Producto
+12:49:59,998 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Generando los VO de TipoProducto: 12 existentes
+12:51:08,893 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:51:08,894 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:51:08,928 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:51:10,937 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:51:10,937 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:51:10,979 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:51:12,624 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:51:12,625 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:51:12,662 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:10:20,343 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:10:20,344 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:10:20,429 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:12:28,541 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:12:28,542 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:12:28,586 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:12:30,082 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:12:30,088 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:12:30,294 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:12:55,956 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+16:13:05,557 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : SQL query "UPDATE (SELECT ESTANTE.id, ESTANTE.idSucursal, PRODUCTOESTANTE.idProducto, PRODUCTOESTANTE.cantidad FROM ESTANTE INNER JOIN PRODUCTOESTANTE ON ESTANTE.id = PRODUCTOESTANTE.idEstante WHERE ESTANTE.idSucursal = ? AND  PRODUCTOESTANTE.idProducto = ? ) T SET T.CANTIDAD = T.CANTIDAD - ?" requires 3 parameters yet none have been supplied
+
+16:13:05,757 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+16:22:57,161 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:22:57,168 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:22:57,227 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:23:19,119 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:23:19,121 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:23:19,156 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:23:48,800 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:23:48,801 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:23:48,840 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:24:25,256 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+16:24:37,977 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : SQL query "UPDATE (SELECT ESTANTE.id, ESTANTE.idSucursal, PRODUCTOESTANTE.idProducto, PRODUCTOESTANTE.cantidad FROM ESTANTE INNER JOIN PRODUCTOESTANTE ON ESTANTE.id = PRODUCTOESTANTE.idEstante WHERE ESTANTE.idSucursal = ? AND  PRODUCTOESTANTE.idProducto = ? ) T SET T.CANTIDAD = T.CANTIDAD - ?" requires 3 parameters yet none have been supplied
+
+16:24:38,180 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+16:31:45,529 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:31:45,530 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:31:45,582 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:32:20,233 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+16:32:23,419 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "SELECT * FROM CLIENTEWHERE id = ?".
+ORA-00933: SQL command not properly ended
+
+16:32:23,589 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+16:32:50,896 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:32:50,897 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:32:50,953 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:33:13,098 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+16:33:17,470 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "SELECT * FROM CLIENTEWHERE id = ?".
+ORA-00933: SQL command not properly ended
+
+16:33:17,660 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+16:33:40,793 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:33:40,794 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:33:40,942 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:34:07,188 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+16:34:11,378 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Query needs to return objects of type "uniandes.isis2304.superandes.negocio.Cliente" but it was impossible to set the field "ID" type "java.math.BigDecimal". The field should have either a public set/put method, or be public.
+
+16:34:11,526 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+16:40:45,652 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:40:45,653 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:40:45,739 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:41:06,742 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+16:41:09,840 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Query needs to return objects of type "uniandes.isis2304.superandes.negocio.Cliente" but it was impossible to set the field "ID" type "java.math.BigDecimal". The field should have either a public set/put method, or be public.
+
+16:41:10,019 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+16:41:46,078 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:41:46,079 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:41:46,193 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:42:22,558 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+16:43:26,257 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:43:26,258 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:43:26,313 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:43:42,920 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+16:43:45,711 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : SQL query "UPDATE (SELECT ESTANTE.id, ESTANTE.idSucursal, PRODUCTOESTANTE.idProducto, PRODUCTOESTANTE.cantidad FROM ESTANTE INNER JOIN PRODUCTOESTANTE ON ESTANTE.id = PRODUCTOESTANTE.idEstante WHERE ESTANTE.idSucursal = ? AND  PRODUCTOESTANTE.idProducto = ? ) T SET T.CANTIDAD = T.CANTIDAD - ?" requires 3 parameters yet none have been supplied
+
+16:43:48,554 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+17:06:54,488 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+17:06:54,491 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+17:06:54,540 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:07:37,289 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+17:07:43,645 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : SQL query "UPDATE (SELECT ESTANTE.id, ESTANTE.idSucursal, PRODUCTOESTANTE.idProducto, PRODUCTOESTANTE.cantidad FROM ESTANTE INNER JOIN PRODUCTOESTANTE ON ESTANTE.id = PRODUCTOESTANTE.idEstante WHERE ESTANTE.idSucursal = :idsucursal AND  PRODUCTOESTANTE.idProducto = :idproducto ) T SET T.CANTIDAD = T.CANTIDAD - :cantidad" requires 3 parameters yet none have been supplied
+
+17:07:43,825 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+17:23:40,018 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+17:23:40,018 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+17:23:40,081 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:25:07,697 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+17:25:07,698 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+17:25:08,159 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:25:30,176 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+17:25:41,365 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : SQL query "UPDATE (SELECT ESTANTE.id, ESTANTE.idSucursal, PRODUCTOESTANTE.idProducto, PRODUCTOESTANTE.cantidad FROM ESTANTE INNER JOIN PRODUCTOESTANTE ON ESTANTE.id = PRODUCTOESTANTE.idEstante WHERE ESTANTE.idSucursal = :idsucursal AND  PRODUCTOESTANTE.idProducto = :idproducto ) T SET T.CANTIDAD = T.CANTIDAD - :cantidad" requires 3 parameters yet none have been supplied
+
+17:25:41,521 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+17:28:34,718 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+17:28:34,720 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+17:28:34,777 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:29:01,766 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+17:29:07,461 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "INSERT INTO FACTURA VALUES (?,?,?,?,?".
+ORA-00917: missing comma
+
+17:29:07,609 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+17:29:58,150 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+17:29:58,151 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+17:29:58,242 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:30:16,052 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+17:30:17,549 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "INSERT INTO FACTURA VALUES (?,?,?,?,?".
+ORA-00917: missing comma
+
+17:30:17,707 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+17:31:34,470 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+17:31:34,471 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+17:31:34,525 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:31:51,812 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+17:31:53,404 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : SQL query "INSERT INTO FACTURAPRODUCTOVALUES (?,?,?)" requires 3 parameters yet none have been supplied
+
+17:31:53,500 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+17:32:25,667 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+17:32:25,668 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+17:32:25,735 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:32:47,500 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+17:32:51,957 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : SQL query "INSERT INTO FACTURAPRODUCTO VALUES (?,?,?)" requires 3 parameters yet none have been supplied
+
+17:32:52,124 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta null
+17:33:17,606 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+17:33:17,607 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+17:33:17,697 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:33:42,329 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+17:33:45,988 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta Factura[id=105, idCliente=1018500219, idSucursal=38, fecha=2018-10-02 17:33:45.619297, total=3500.0]
+09:48:54,006 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+09:48:54,007 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+09:48:54,043 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:49:20,192 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando proveedor 436237547 con nombre Andes VERDURAS
+09:49:20,430 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando proveedor Proveedor [id=121, nit=436237547, nombre=Andes VERDURAS]
+09:50:47,090 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando producto Galletas de marca Oreo
+09:50:47,157 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando producto Producto[id=122, nombre=Galletas, marca=Oreo, idTipoProducto=14, presentacion=Empaque azul, cantidad presentacion=1.0, unidad medida=gr, volumen empaque=100.0, peso empaque=100.0codigo de barras=124hh]
+09:51:28,939 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando cliente: Juan Rosalescon identificacion 2124812491
+09:51:28,958 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando cliente uniandes.isis2304.superandes.negocio.Cliente@7ae430c7
+09:52:09,044 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando sucursal Sucursal 3en Bogota
+09:52:10,468 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando sucursal Sucursal [id=123, ciudad=Bogota, direccion=Carrea 1 este , nombre=Sucursal 3]
+09:57:03,647 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido de la sucursal 38 al proveedor 1
+09:57:03,799 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando pedido: Orden[id=124, idProveedor=1, idSucursal=38, idProducto=23, cantidad=200, precio=600.0, estado=No entregado, fechaEsperadaEntrega=2018-12-12 00:00:00.0, fechaEntrega=null, calificacion=null]
+10:03:20,569 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando una venta en la sucursal: 38del producto 23
+10:03:20,640 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando la venta Factura[id=125, idCliente=1018500219, idSucursal=38, fecha=2018-10-08 10:03:20.615973, total=17500.0]

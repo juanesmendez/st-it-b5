@@ -1,0 +1,107 @@
+{
+	"title": "Aplicación transaccional de Superandes Uniandes",
+	"frameH": 600,
+	"frameW": 800,
+	"bannerPath": "./src/main/resources/config/logo.png",
+	"menuBar":
+	[
+		{ "menuTitle": "Mostrar",
+		  "options":
+			[
+				{
+					"label": "Sucursales",
+					"event": "mostrarSucursales"
+				},
+				{
+					"label": "Proveedores",
+					"event": "mostrarProveedores"
+				},
+				{
+					"label": "Categorias",
+					"event": "mostrarCategorias"
+				},
+				{
+					"label": "Tipo Productos",
+					"event": "mostrarTipoProductos"
+				},
+				{
+					"label": "Productos",
+					"event": "mostrarProductos"
+				}
+			]
+		},
+		{ "menuTitle": "Registrar",
+		  "options":
+			[
+				{
+					"label": "Proveedor",
+					"event": "registrarProveedor"
+				},
+				{
+					"label": "Categoria",
+					"event": "registrarCategoria"
+				},
+				{
+					"label": "Producto",
+					"event": "registrarProducto"
+				},
+				{
+					"label": "Cliente",
+					"event": "registrarCliente"
+				},
+				{
+					"label": "Sucursal",
+					"event": "registrarSucursal"
+				},
+				{
+					"label": "Bodega a sucursal",
+					"event": "registrarBodegaASucursal"
+				},
+				{
+					"label": "Estante en una sucursal",
+					"event": "registrarEstanteASucursal"
+				},
+				{
+					"label": "Pedido",
+					"event": "registrarPedido"
+				},
+				{
+					"label": "Llegada pedido",
+					"event": "registrarLlegadaPedido"
+				},
+				{
+					"label": "Venta",
+					"event": "registrarVenta"
+				}
+			]
+		},
+		{ "menuTitle": "Mantenimiento",
+		  "options":
+			[
+				{
+					"label": "Mostrar log Superandes",
+					"event": "mostrarLogSuperandes"
+				},
+				{
+					"label": "Mostrar log datanucleus",
+					"event": "mostrarLogDatanuecleus"
+				},
+				{
+					"label": "Limpiar log de Superandes",
+					"event": "limpiarLogSuperandes"
+				},
+				{
+					"label": "Limpiar log de datanucleus",
+					"event": "limpiarLogDatanucleus"
+				},
+				{
+					"label": "Limpiar Base de Datos",
+					"event": "limpiarBD"
+				}
+			]
+		}	
+				
+		
+	]
+}
+	
