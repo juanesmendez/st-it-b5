@@ -887,7 +887,30 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
+	
+	public List<Object[]> consultarDineroRecolectadoSucursales(Timestamp fechaInicio, Timestamp fechaFinal) {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
 
+		try {
+			tx.begin();
+			//Busco la orden en la base de datos
+			
+			List<Object[]> lista = sqlFactura.darDineroRecolectadoSucursales(pm,fechaInicio,fechaFinal);
+			tx.commit();
+			return lista;
+		}catch(Exception e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		
+	}
 
 	/**
 	 * Transacción para el generador de secuencia de Superandes
@@ -916,6 +939,8 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
 
 	
 

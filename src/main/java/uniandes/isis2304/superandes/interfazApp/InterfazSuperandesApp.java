@@ -860,6 +860,67 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 
 	}
+	
+	public void consultarDineroRecolectadoSucursales() {
+		
+		try {
+
+			JTextField fieldFechaInicio = new JTextField();
+			JTextField fieldFechaFinal =  new JTextField();
+			Timestamp fechaInicio;
+			Timestamp fechaFinal;
+			Object[] message = {
+
+					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
+					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal
+			};
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar ventas sucursales", JOptionPane.OK_CANCEL_OPTION);
+
+			if(option == JOptionPane.OK_OPTION) {
+				if(!fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
+					
+					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
+					int day = Integer.valueOf(t.nextToken());
+					int month = Integer.valueOf(t.nextToken());
+					int year = Integer.valueOf(t.nextToken());
+					
+					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
+					day = Integer.valueOf(t.nextToken());
+					month = Integer.valueOf(t.nextToken());
+					year = Integer.valueOf(t.nextToken());
+					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					
+					List<Object[]> lista = superandes.consultarDineroRecolectadoSucursales(fechaInicio,fechaFinal);
+					if(lista!=null) {
+						panelDatos.actualizarInterfaz(listarDineroSucursales(lista));
+					}
+					
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando ventas de sucursales", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				
+			}
+
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	private String listarDineroSucursales(List<Object[]> lista) {
+		// TODO Auto-generated method stub
+		String respuesta = "";
+		
+		for(Object[] object:lista) {
+			respuesta += "[Sucursal ="+object[0] + " totalDinero = "+object[1] + "]\n";
+		}
+		return respuesta;
+		
+	}
 
 	/* ****************************************************************
 	 * 			Métodos administrativos
