@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.google.gson.JsonObject;
+import com.oracle.tools.packager.Log;
 
 import oracle.net.aso.p;
 import uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes;
@@ -282,6 +283,12 @@ public class Superandes {
 		log.info("Registrando la venta " + factura);
 		return factura;
 		
+	}
+
+	public List<Object[]> consultarDineroRecolectadoSucursales(Timestamp fechaInicio, Timestamp fechaFinal) {
+		// TODO Auto-generated method stub
+		Log.info("Consultando ventas de sucursales entre "+fechaInicio.toString()+" y "+fechaFinal.toString());
+		return ps.consultarDineroRecolectadoSucursales(fechaInicio,fechaFinal);
 	}
 
 	

@@ -1,6 +1,7 @@
 package uniandes.isis2304.superandes.persistencia;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
@@ -44,5 +45,19 @@ class SQLFactura {
 		q.setParameters(idFactura,idCliente,idSucursal,fecha,total);
 		
 		return (long) q.executeUnique();
+	}
+
+	public List<Object[]> darDineroRecolectadoSucursales(PersistenceManager pm,Timestamp fechaInicio, Timestamp fechaFinal) {
+		// TODO Auto-generated method stub
+		
+		Query q = pm.newQuery(SQL,"SELECT idSucursal, SUM(total) "
+				+ "FROM "+ps.darTablaFacturas()+" "
+				+ "WHERE fecha BETWEEN ? AND ? "
+				+ "GROUP BY idSucursal "
+				+ "ORDER BY idSucursal");
+		q.setParameters(fechaInicio,fechaFinal);
+		//System.out.println(fechaInicio);
+		return (List<Object[]>) q.executeList();
+		
 	}
 }
