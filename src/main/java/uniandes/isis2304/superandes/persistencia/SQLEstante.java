@@ -1,5 +1,7 @@
 package uniandes.isis2304.superandes.persistencia;
 
+import java.util.List;
+
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
@@ -90,6 +92,22 @@ class SQLEstante {
 		Query q = pm.newQuery(SQL,sql);
 		q.setParameters(idSucursal,idProducto);
 		return q.executeUnique();
+	}
+
+	public List<Object[]> darIndiceOcupacionPorSucursal(PersistenceManager pm,int idSucursal) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT " + ps.darTablaEstantes() + ".id, J.totVol/"+ps.darTablaEstantes() + ".volumen *100, J." + "totPeso/" + ps.darTablaEstantes() + ".peso * 100 "
+				+ "FROM "
+				+ "(SELECT " + ps.darTablaEstantes() + ".id, NVL((SUM(" + ps.darTablaProductos() + ".volEmpaque * " + ps.darTablaProductoEstante() + ".cantidad)), 0) AS TOTVOL, NVL((SUM(" + ps.darTablaProductos() + ".pesoEmpaque * " + ps.darTablaProductoEstante() + ".cantidad)),0) AS TOTPESO "
+				+ "FROM " + ps.darTablaEstantes() + " "
+				+ "LEFT OUTER JOIN " + ps.darTablaProductoEstante() +" ON " + ps.darTablaEstantes() + ".id = " + ps.darTablaProductoEstante() + ".idEstante "
+				+ "LEFT OUTER JOIN " + ps.darTablaProductos() + " ON " + ps.darTablaProductoEstante() + ".idProducto =" + ps.darTablaProductos() + ".id "
+				+ "WHERE " + ps.darTablaEstantes() + ".idSucursal = ? "
+				+ "GROUP BY " + ps.darTablaEstantes() + ".id) J "
+				+ "INNER JOIN " + ps.darTablaEstantes() +" ON J.id = " + ps.darTablaEstantes() + ".id";
+		Query q = pm.newQuery(SQL,sql);
+		q.setParameters(idSucursal);
+		return q.executeList();
 	}
 
 	

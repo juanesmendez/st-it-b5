@@ -911,6 +911,45 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 
 	}
+	
+	public void consultarIndiceOcupacionEstanteYBodegasSucursal() {
+		try {
+
+			JTextField fieldSucursal = new JTextField();
+			
+			Object[] message = {
+
+					"Digite el id de la sucursal: ", fieldSucursal
+			};
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar indice ocupacion de bodegas y estantes de una sucursal", JOptionPane.OK_CANCEL_OPTION);
+
+			if(option == JOptionPane.OK_OPTION) {
+				if(!fieldSucursal.getText().equals("")) {
+
+					List<Object[]> estantes= superandes.consultarIndiceOcupacionEstantesPorSucursal(Integer.valueOf(fieldSucursal.getText()));
+					List<Object[]> bodegas = superandes.consultarIndiceOcupacionBodegasPorSucursal(Integer.valueOf(fieldSucursal.getText()));
+					if(estantes!=null /*estantes!=null*/) {
+						//panelDatos.actualizarInterfaz(listarDineroSucursales(lista));
+						panelDatos.actualizarInterfaz(listarIndicesEstantesYBodegas(estantes,bodegas));
+					}
+
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando ventas de sucursales", JOptionPane.ERROR_MESSAGE);
+				}
+
+
+			}
+
+
+
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error consultando indice ocupacion bodegas  y  estantes de una sucursal", JOptionPane.ERROR_MESSAGE);
+
+			e.printStackTrace();
+		}
+	}
+
+	
 
 	public void consultarComprasProveedores() {
 		try {
@@ -1221,6 +1260,20 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 		return respuesta;
 
+	}
+	
+	private String listarIndicesEstantesYBodegas(List<Object[]> estantes,List<Object[]> bodegas) {
+		// TODO Auto-generated method stub
+		String respuesta = "";
+
+		for(Object[] object:estantes) {
+			respuesta += "[Estante ="+object[0] + " indiceVolumen = "+object[1] + "% " + "indicePeso = "+ object[2] + "%" + "]\n";
+		}
+		respuesta += "\n";
+		for(Object[] object:bodegas) {
+			respuesta += "[Bodega ="+object[0] + " indiceVolumen = "+object[1] + "% " + "indicePeso = "+ object[2] + "%" + "]\n";
+		}
+		return respuesta;
 	}
 
 	/* ****************************************************************

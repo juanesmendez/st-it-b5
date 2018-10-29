@@ -13,7 +13,7 @@ import oracle.net.aso.p;
 import uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes;
 
 public class Superandes {
-	
+
 	/* ****************************************************************
 	 * 			Constantes
 	 *****************************************************************/
@@ -28,7 +28,7 @@ public class Superandes {
 	 * El manejador de persistencia
 	 */
 	private PersistenciaSuperandes ps;
-	
+
 	/* ****************************************************************
 	 * 			Métodos
 	 *****************************************************************/
@@ -39,7 +39,7 @@ public class Superandes {
 	{
 		ps = PersistenciaSuperandes.getInstance ();
 	}
-	
+
 	/**
 	 * El constructor que recibe los nombres de las tablas en tableConfig
 	 * @param tableConfig - Objeto Json con los nombres de las tablas y de la unidad de persistencia
@@ -48,7 +48,7 @@ public class Superandes {
 	{
 		ps = PersistenciaSuperandes.getInstance (tableConfig);
 	}
-	
+
 	/**
 	 * Cierra la conexión con la base de datos (Unidad de persistencia)
 	 */
@@ -56,8 +56,8 @@ public class Superandes {
 	{
 		ps.cerrarUnidadPersistencia ();
 	}
-	
-	
+
+
 	/**
 	 * Encuentra todos las sucursales en superandes
 	 * Adiciona entradas al log de la aplicación
@@ -66,11 +66,11 @@ public class Superandes {
 	public List<Sucursal> darSucursales() {
 		// TODO Auto-generated method stub
 		log.info ("Consultando Sucursales");
-        List<Sucursal> sucursales = ps.darSucursales ();	
-        log.info ("Consultando Sucursales: " + sucursales.size() + " existentes");
-        return sucursales;
+		List<Sucursal> sucursales = ps.darSucursales ();	
+		log.info ("Consultando Sucursales: " + sucursales.size() + " existentes");
+		return sucursales;
 	}
-	
+
 	/**
 	 * Encuentra todos las sucursales en Superandes y los devuelve como una lista de VOSucursal
 	 * Adiciona entradas al log de la aplicación
@@ -79,13 +79,13 @@ public class Superandes {
 	public List<VOSucursal> darVOSucursales ()
 	{
 		log.info ("Generando los VO de Sucursales");        
-        List<VOSucursal> voSucursales = new LinkedList<VOSucursal> ();
-        for (Sucursal s : ps.darSucursales())
-        {
-        	voSucursales.add (s);
-        }
-        log.info ("Generando los VO de Sucursales: " + voSucursales.size() + " existentes");
-        return voSucursales;
+		List<VOSucursal> voSucursales = new LinkedList<VOSucursal> ();
+		for (Sucursal s : ps.darSucursales())
+		{
+			voSucursales.add (s);
+		}
+		log.info ("Generando los VO de Sucursales: " + voSucursales.size() + " existentes");
+		return voSucursales;
 	}
 	/**
 	 * Encuentra todos los proveedores en superandes
@@ -95,9 +95,9 @@ public class Superandes {
 	public List<Proveedor> darProveedores() {
 		// TODO Auto-generated method stub
 		log.info ("Consultando Proveedores");
-        List<Proveedor> proveedores = ps.darProveedores();	
-        log.info ("Consultando Proveedores: " + proveedores.size() + " existentes");
-        return proveedores;
+		List<Proveedor> proveedores = ps.darProveedores();	
+		log.info ("Consultando Proveedores: " + proveedores.size() + " existentes");
+		return proveedores;
 	}
 	/**
 	 * Encuentra todos lss categorias en superandes
@@ -107,9 +107,9 @@ public class Superandes {
 	public List<Categoria> darCategorias() {
 		// TODO Auto-generated method stub
 		log.info ("Consultando Categorias");
-        List<Categoria> categorias = ps.darCategorias();	
-        log.info ("Consultando Categorias: " + categorias.size() + " existentes");
-        return categorias;
+		List<Categoria> categorias = ps.darCategorias();	
+		log.info ("Consultando Categorias: " + categorias.size() + " existentes");
+		return categorias;
 	}
 	/**
 	 * Encuentra todos los tipo de producto en superandes
@@ -119,9 +119,9 @@ public class Superandes {
 	public List<TipoProducto> darTipoProductos() {
 		// TODO Auto-generated method stub
 		log.info ("Consultando TipoProductos");
-        List<TipoProducto> tipoProductos= ps.darTipoProductos();	
-        log.info ("Consultando TipoProductos: " + tipoProductos.size() + " existentes");
-        return tipoProductos;
+		List<TipoProducto> tipoProductos= ps.darTipoProductos();	
+		log.info ("Consultando TipoProductos: " + tipoProductos.size() + " existentes");
+		return tipoProductos;
 	}
 	/**
 	 * Encuentra todos los productos en superandes
@@ -131,9 +131,9 @@ public class Superandes {
 	public List<Producto> darProductos() {
 		// TODO Auto-generated method stub
 		log.info ("Consultando Productos");
-        List<Producto> productos= ps.darProductos();	
-        log.info ("Consultando Productos: " + productos.size() + " existentes");
-        return productos;
+		List<Producto> productos= ps.darProductos();	
+		log.info ("Consultando Productos: " + productos.size() + " existentes");
+		return productos;
 	}
 	/**
 	 * Encuentra todos los proveedores en Superandes y los devuelve como una lista de VOProveedor
@@ -143,13 +143,13 @@ public class Superandes {
 	public List<VOProveedor> darVOProveedores() {
 		// TODO Auto-generated method stub
 		log.info ("Generando los VO de Proveedores");        
-        List<VOProveedor> voProveedores= new LinkedList<VOProveedor> ();
-        for (Proveedor p : ps.darProveedores())
-        {
-        	voProveedores.add (p);
-        }
-        log.info ("Generando los VO de Proveedores: " + voProveedores.size() + " existentes");
-        return voProveedores;
+		List<VOProveedor> voProveedores= new LinkedList<VOProveedor> ();
+		for (Proveedor p : ps.darProveedores())
+		{
+			voProveedores.add (p);
+		}
+		log.info ("Generando los VO de Proveedores: " + voProveedores.size() + " existentes");
+		return voProveedores;
 	}
 	/**
 	 * Encuentra todos las categorias en Superandes y los devuelve como una lista de VOCategoria
@@ -159,13 +159,13 @@ public class Superandes {
 	public List<VOCategoria> darVOCategorias() {
 		// TODO Auto-generated method stub
 		log.info ("Generando los VO de Categorias");        
-        List<VOCategoria> voCategorias= new LinkedList<VOCategoria> ();
-        for (Categoria c : ps.darCategorias())
-        {
-        	voCategorias.add (c);
-        }
-        log.info ("Generando los VO de Categorias: " + voCategorias.size() + " existentes");
-        return voCategorias;
+		List<VOCategoria> voCategorias= new LinkedList<VOCategoria> ();
+		for (Categoria c : ps.darCategorias())
+		{
+			voCategorias.add (c);
+		}
+		log.info ("Generando los VO de Categorias: " + voCategorias.size() + " existentes");
+		return voCategorias;
 	}
 	/**
 	 * Encuentra todos los tipos de productos en Superandes y los devuelve como una lista de VOTipoProducto
@@ -175,13 +175,13 @@ public class Superandes {
 	public List<VOTipoProducto> darVOTipoProductos() {
 		// TODO Auto-generated method stub
 		log.info ("Generando los VO de Tipo Producto");        
-        List<VOTipoProducto> voTipoProductos= new LinkedList<VOTipoProducto> ();
-        for (TipoProducto tp : ps.darTipoProductos())
-        {
-        	voTipoProductos.add (tp);
-        }
-        log.info ("Generando los VO de TipoProducto: " + voTipoProductos.size() + " existentes");
-        return voTipoProductos;
+		List<VOTipoProducto> voTipoProductos= new LinkedList<VOTipoProducto> ();
+		for (TipoProducto tp : ps.darTipoProductos())
+		{
+			voTipoProductos.add (tp);
+		}
+		log.info ("Generando los VO de TipoProducto: " + voTipoProductos.size() + " existentes");
+		return voTipoProductos;
 	}
 	/**
 	 * Encuentra todos los productos en Superandes y los devuelve como una lista de VOProducto
@@ -191,15 +191,15 @@ public class Superandes {
 	public List<VOProducto> darVOProductos() {
 		// TODO Auto-generated method stub
 		log.info ("Generando los VO de Producto");        
-        List<VOProducto> voProductos= new LinkedList<VOProducto> ();
-        for (Producto p : ps.darProductos())
-        {
-        	voProductos.add (p);
-        }
-        log.info ("Generando los VO de Producto: " + voProductos.size() + " existentes");
-        return voProductos;
+		List<VOProducto> voProductos= new LinkedList<VOProducto> ();
+		for (Producto p : ps.darProductos())
+		{
+			voProductos.add (p);
+		}
+		log.info ("Generando los VO de Producto: " + voProductos.size() + " existentes");
+		return voProductos;
 	}
-	
+
 	public List<VOOrden> darVOOrdenes() {
 		// TODO Auto-generated method stub
 		log.info("Generando los VO de Ordenes");
@@ -217,9 +217,9 @@ public class Superandes {
 		Proveedor proveedor = ps.registrarProveedor(nit,nombreProveedor);
 		log.info("Registrando proveedor "+proveedor);
 		return proveedor;
-		
+
 	}
-	
+
 	public Categoria registrarCategoria(String nombre) {
 		// TODO Auto-generated method stub
 		log.info("Registrando categoria con nombre "+nombre);
@@ -227,7 +227,7 @@ public class Superandes {
 		log.info("Registrando categoria "+categoria);
 		return categoria;
 	}
-	
+
 	public Producto registrarProducto(String nombre, String marca, long idTipoproducto, String presentacion,
 			double cantPres, String uniMed, double volEmpaque, double pesoEmpaque, String codBarras) {
 		// TODO Auto-generated method stub
@@ -236,7 +236,7 @@ public class Superandes {
 		log.info("Registrando producto "+producto);
 		return producto;
 	}
-	
+
 	public Cliente registrarCliente(long identificacion, String tipo, String nombre, String correo, String direccion) {
 		// TODO Auto-generated method stub
 		log.info("Registrando cliente: "+ nombre+ "con identificacion "+ identificacion);
@@ -244,7 +244,7 @@ public class Superandes {
 		log.info("Registrando cliente " + cliente);
 		return cliente;
 	}
-	
+
 	public Sucursal registrarSucursal(String ciudad, String direccion, String nombre) {
 		// TODO Auto-generated method stub
 		log.info("Registrando sucursal "+ nombre + "en "+ ciudad);
@@ -252,7 +252,7 @@ public class Superandes {
 		log.info("Registrando sucursal " + sucursal);
 		return sucursal;
 	}
-	
+
 	public Bodega registrarBodega(long idSucursal, long idTipoProducto, double volumen, double peso) throws Exception {
 		// TODO Auto-generated method stub
 		log.info("Registrando bodega");
@@ -260,7 +260,7 @@ public class Superandes {
 		log.info("Registrando bodega " + bodega );
 		return bodega;
 	}
-	
+
 	public Estante registrarEstante(long idSucursal, long idTipoProducto, double volumen, double peso,
 			int niveAbastecimiento) throws Exception {
 		log.info("Registrando estante");
@@ -269,7 +269,7 @@ public class Superandes {
 		log.info("Registrando estante" + estante);
 		return estante;
 	}
-	
+
 	public Orden registrarPedido(long idProveedor, long idSucursal, long idProducto, double precio,
 			Timestamp fecha) throws Exception {
 		// TODO Auto-generated method stub
@@ -283,7 +283,7 @@ public class Superandes {
 		// TODO Auto-generated method stub
 		log.info("Registrando la llegada de un pedido");
 		ps.registrarLlegadaPedido(idOrden,cantidad,calificacion);
-		
+
 		log.info("Registrando la llegada del pedido "+ idOrden);
 	}
 
@@ -293,7 +293,7 @@ public class Superandes {
 		Factura factura = ps.registrarVenta(idSucursal,idProducto,idCliente,numUnidades);
 		log.info("Registrando la venta " + factura);
 		return factura;
-		
+
 	}
 
 	public List<Object[]> consultarDineroRecolectadoSucursales(Timestamp fechaInicio, Timestamp fechaFinal) {
@@ -305,32 +305,46 @@ public class Superandes {
 	public List<VOFactura> consultarVentasUsuarioEnRango(String idUsuario,Timestamp fechaInicio, Timestamp fechaFinal) {
 		// TODO Auto-generated method stub
 		Log.info("Consultando ventas a usuario entre "+fechaInicio.toString()+" y "+fechaFinal.toString());
-		
+
 		List<VOFactura> voFacturas= new LinkedList<VOFactura> ();
-        for (Factura f : ps.consultarVentasUsuarioEnRango(idUsuario,fechaInicio,fechaFinal))
-        {
-        	voFacturas.add (f);
-        }
+		for (Factura f : ps.consultarVentasUsuarioEnRango(idUsuario,fechaInicio,fechaFinal))
+		{
+			voFacturas.add (f);
+		}
 		return voFacturas;
 	}
 
-	
+	public List<Object[]> consultarIndiceOcupacionEstantesPorSucursal(int  idSucursal) throws Exception {
+		// TODO Auto-generated method stub
+		Log.info("Consultando indice de ocupacion de estantes de la sucursal "+idSucursal);
 
-	
+		return ps.consultarIndiceOcupacionEstantesPorSucursal(idSucursal);
+	}
 
-	
+	public List<Object[]> consultarIndiceOcupacionBodegasPorSucursal(int idSucursal) throws Exception {
+		// TODO Auto-generated method stub
+		Log.info("Consultando indice de ocupacion de bodegas de la sucursal "+idSucursal);
 
-	
+		return ps.consultarIndiceOcupacionBodegasPorSucursal(idSucursal);
+	}
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

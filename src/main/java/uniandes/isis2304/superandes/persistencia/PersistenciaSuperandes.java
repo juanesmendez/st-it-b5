@@ -36,6 +36,7 @@ import uniandes.isis2304.superandes.negocio.VOFactura;
 import uniandes.isis2304.superandes.negocio.VOOrden;
 import uniandes.isis2304.superandes.negocio.VOProducto;
 import uniandes.isis2304.superandes.negocio.VOProvee;
+import uniandes.isis2304.superandes.negocio.VOSucursal;
 import uniandes.isis2304.superandes.negocio.VOVende;
 import uniandes.isis2304.superandes.negocio.Vende;
 
@@ -918,6 +919,58 @@ public class PersistenciaSuperandes {
 		
 	}
 	
+	public List<Object[]> consultarIndiceOcupacionEstantesPorSucursal(int idSucursal) throws Exception {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			//Busco la orden en la base de datos
+			VOSucursal s = (VOSucursal)sqlSucursal.darSucursal(pm, idSucursal);
+			if(s==null) {
+				throw new Exception("La sucursal no existe");
+			}
+			List<Object[]> lista = sqlEstante.darIndiceOcupacionPorSucursal(pm,idSucursal);
+			tx.commit();
+			return lista;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public List<Object[]> consultarIndiceOcupacionBodegasPorSucursal(int idSucursal) throws Exception {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			//Busco la orden en la base de datos
+			VOSucursal s = (VOSucursal)sqlSucursal.darSucursal(pm, idSucursal);
+			if(s==null) {
+				throw new Exception("La sucursal no existe");
+			}
+			List<Object[]> lista = sqlBodega.darIndiceOcupacionPorSucursal(pm,idSucursal);
+			tx.commit();
+			return lista;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
 	public List<Factura> consultarVentasUsuarioEnRango(String idUsuario,Timestamp fechaInicio, Timestamp fechaFinal) {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -968,6 +1021,10 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
+
+	
 
 	
 
