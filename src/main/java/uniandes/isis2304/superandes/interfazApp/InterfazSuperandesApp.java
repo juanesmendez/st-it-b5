@@ -17,6 +17,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -350,11 +351,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			Object message[] = {
 					"Digite el NIT del proveedor a registrar: ", fieldNit,
 					"Digite el nombre del nuevo proveedor: ", fieldNombreProveedor
-					
+
 			};
 			int option = JOptionPane.showConfirmDialog (this, message, "Registrar proveedor", JOptionPane.OK_CANCEL_OPTION);
 			if(option == JOptionPane.OK_OPTION) {
-				
+
 				if(!fieldNit.getText().toString().equals("") && !fieldNombreProveedor.getText().toString().equals("")) {
 					VOProveedor proveedor= superandes.registrarProveedor(Long.valueOf(fieldNit.getText().toString()), fieldNombreProveedor.getText().toString());
 					if(proveedor != null) {
@@ -367,8 +368,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error registrando proveedor", JOptionPane.ERROR_MESSAGE);
 				}
-				
-				
+
+
 			}
 
 
@@ -382,17 +383,17 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 
 	}
-	
+
 	public void registrarCategoria() {
 		try {
 			JTextField fieldNombreCategoria = new JTextField();
 			Object message[] = {
 					"Ingrese el nombre de la categoria: ", fieldNombreCategoria
-					
+
 			};
 			int option = JOptionPane.showConfirmDialog (this, message, "Registrar categoria", JOptionPane.OK_CANCEL_OPTION);
 			if(option == JOptionPane.OK_OPTION) {
-				
+
 				if(!fieldNombreCategoria.getText().toString().equals("")) {
 					VOCategoria categoria= superandes.registrarCategoria(fieldNombreCategoria.getText().toString());
 					if(categoria != null) {
@@ -405,8 +406,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error registrando categoria", JOptionPane.ERROR_MESSAGE);
 				}
-				
-				
+
+
 			}
 
 		}catch(Exception e) {
@@ -414,7 +415,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 	}
 	public void registrarProducto() {
 		try {
@@ -430,7 +431,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			JTextField fieldPesoEmpaque= new JTextField();
 			JTextField fieldCodBarras = new JTextField();
 
-			
+
 			Object message[] = {
 					"Ingrese el nombre del nuevo producto: ", fieldNombre,
 					"Ingrese la marca del nuevo producto: ", fieldMarca,
@@ -466,8 +467,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 						panelDatos.actualizarInterfaz(resultado);
 					}
 				}
-				
-				
+
+
 			}
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error registrando pedido", JOptionPane.ERROR_MESSAGE);
@@ -485,14 +486,14 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			JTextField fieldCorreo = new JTextField();
 			JTextField fieldDireccion  = new JTextField();
 
-			
+
 			Object message[] = {
 					"Ingrese la identificacion del cliente: ", fieldIdentificacion,
 					"Escoga el tipo de cliente: ", comboTipo,
 					"Ingrese el nombre del cliente: ", fieldNombre,
 					"Ingrese un correo electronico: ", fieldCorreo,
 					"Ingrese la direccion del cliente (Campo obligatorio para empresas):  ", fieldDireccion
-					
+
 			};
 			int option = JOptionPane.showConfirmDialog (this, message, "Registrar cliente", JOptionPane.OK_CANCEL_OPTION);
 			if(option == JOptionPane.OK_OPTION) {
@@ -507,7 +508,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					}else {
 						direccion = null;
 					}
-					
+
 					VOCliente cliente = superandes.registrarCliente(identificacion,tipo,nombre,correo,direccion);
 					if(cliente != null) {
 						JOptionPane.showMessageDialog(this, "Se registro el cliente con exito!", "Registro de cliente exitoso", JOptionPane.INFORMATION_MESSAGE);
@@ -519,26 +520,26 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos. (Direccion es obligatorio para empresas)", "Error registrando cliente", JOptionPane.ERROR_MESSAGE);
 				}
-				
-				
+
+
 			}
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error registrando cliente", JOptionPane.ERROR_MESSAGE);
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public void registrarSucursal() {
-		
+
 		try {
 			JTextField fieldCiudad = new JTextField();
 			JTextField fieldDireccion  = new JTextField();
 			JTextField fieldNombre = new JTextField();
-			
 
-			
+
+
 			Object message[] = {
 					"Ingrese la ciudad de la sucursal: ", fieldCiudad,
 					"Ingrese la direccion de la sucursal: ", fieldDireccion,
@@ -547,12 +548,12 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			int option = JOptionPane.showConfirmDialog (this, message, "Registrar sucursal", JOptionPane.OK_CANCEL_OPTION);
 			if(option == JOptionPane.OK_OPTION) {
 				if(!fieldCiudad.getText().toString().equals("") && !fieldNombre.getText().toString().equals("") && !fieldDireccion.getText().toString().equals("")) {
-					
-					
+
+
 					String ciudad = fieldCiudad.getText().toString();
 					String direccion = fieldDireccion.getText().toString();
 					String nombre = fieldNombre.getText().toString();
-					
+
 					VOSucursal sucursal = superandes.registrarSucursal(ciudad,direccion,nombre);
 					if(sucursal != null) {
 						JOptionPane.showMessageDialog(this, "Se registro la sucursal con exito!", "Registro de sucursal exitoso", JOptionPane.INFORMATION_MESSAGE);
@@ -564,8 +565,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos.", "Error registrando Sucursal", JOptionPane.ERROR_MESSAGE);
 				}
-				
-				
+
+
 			}
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error registrando sucursal", JOptionPane.ERROR_MESSAGE);
@@ -573,16 +574,16 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void registrarBodegaASucursal() {
-		
+
 		try {
 			JTextField fieldIdSucursal = new JTextField();
 			JTextField fieldIdTipoProducto  = new JTextField();
 			JTextField fieldVolumen = new JTextField();
 			JTextField fieldPeso = new JTextField();
 
-			
+
 			Object message[] = {
 					"Ingrese el ID de la sucursal a la que se el registrara la bodega: ", fieldIdSucursal,
 					"Ingrese el ID del tipo de producto que almacenara la bodega: ", fieldIdTipoProducto,
@@ -593,13 +594,13 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			if(option == JOptionPane.OK_OPTION) {
 				if(!fieldIdSucursal.getText().toString().equals("") && !fieldIdTipoProducto.getText().toString().equals("") && !fieldVolumen.getText().toString().equals("") &&
 						!fieldPeso.getText().toString().equals("")) {
-					
-					
+
+
 					long idSucursal = Long.valueOf(fieldIdSucursal.getText().toString());
 					long idTipoProducto = Long.valueOf(fieldIdTipoProducto.getText().toString());
 					double volumen = Long.valueOf(fieldVolumen.getText().toString());
 					double peso = Long.valueOf(fieldPeso.getText().toString());
-					
+
 					VOBodega bodega = superandes.registrarBodega(idSucursal,idTipoProducto,volumen,peso);
 					if(bodega != null) {
 						JOptionPane.showMessageDialog(this, "Se registro la bodega de la sucursal con exito!", "Registro de la de bodega a sucursal exitoso", JOptionPane.INFORMATION_MESSAGE);
@@ -611,17 +612,17 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos.", "Error registrando bodega", JOptionPane.ERROR_MESSAGE);
 				}
-				
-				
+
+
 			}
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error registrando bodega a sucursal", JOptionPane.ERROR_MESSAGE);
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public void registrarEstanteASucursal() {
 		try {
 			JTextField fieldIdSucursal = new JTextField();
@@ -629,7 +630,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			JTextField fieldVolumen = new JTextField();
 			JTextField fieldPeso = new JTextField();
 			JTextField fieldNivAbastecimiento = new JTextField();
-			
+
 			Object message[] = {
 					"Ingrese el ID de la sucursal a la que se el registrara el estante: ", fieldIdSucursal,
 					"Ingrese el ID del tipo de producto que almacenara el estante: ", fieldIdTipoProducto,
@@ -641,14 +642,14 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			if(option == JOptionPane.OK_OPTION) {
 				if(!fieldIdSucursal.getText().toString().equals("") && !fieldIdTipoProducto.getText().toString().equals("") && !fieldVolumen.getText().toString().equals("") &&
 						!fieldPeso.getText().toString().equals("") && !fieldNivAbastecimiento.getText().toString().equals("")) {
-					
-					
+
+
 					long idSucursal = Long.valueOf(fieldIdSucursal.getText().toString());
 					long idTipoProducto = Long.valueOf(fieldIdTipoProducto.getText().toString());
 					double volumen = Long.valueOf(fieldVolumen.getText().toString());
 					double peso = Long.valueOf(fieldPeso.getText().toString());
 					int niveAbastecimiento = Integer.valueOf(fieldNivAbastecimiento.getText().toString());
-					
+
 					VOEstante estante= superandes.registrarEstante(idSucursal,idTipoProducto,volumen,peso,niveAbastecimiento);
 					if(estante != null) {
 						JOptionPane.showMessageDialog(this, "Se registro el estante de la sucursal con exito!", "Registro del estante a sucursal exitoso", JOptionPane.INFORMATION_MESSAGE);
@@ -660,17 +661,17 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos.", "Error registrando estante", JOptionPane.ERROR_MESSAGE);
 				}
-				
-				
+
+
 			}
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error registrando estante a sucursal", JOptionPane.ERROR_MESSAGE);
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	/**
 	 * Registra un pedido de una sucursal de superandes a un proveedor
 	 */
@@ -745,19 +746,19 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 
 	}
-	
+
 	/**
 	 * Registra la venta de un producto en superandes
 	 */
 	public void registrarVenta() {
-		
+
 		try {
 			JTextField fieldIdSucursal = new JTextField();
 			JTextField fieldIdProducto = new JTextField();
 			JTextField fieldIdCliente = new JTextField();
 			JTextField fieldNumUnidades = new JTextField();
 			Object message[] = {
-					"Digite el ID de la sucursal que esta solictitando un pedido: ", fieldIdSucursal,
+					"Digite el ID de la sucursal: ", fieldIdSucursal,
 					"Digite el ID del producto: ", fieldIdProducto,
 					"Digite la identificacion del cliente: ", fieldIdCliente,
 					"Digite el numero de unidades que desea comprar: ", fieldNumUnidades
@@ -773,7 +774,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					long idCliente  = Long.valueOf(fieldIdCliente.getText().toString());
 					long numUnidades = Integer.valueOf(fieldNumUnidades.getText().toString());
 
-					
+
 					VOFactura factura = superandes.registrarVenta(idSucursal,idProducto,idCliente,numUnidades);
 					if(factura != null) {
 						JOptionPane.showMessageDialog(this, "Se registro la venta con exito!", "Registro de venta exitoso", JOptionPane.INFORMATION_MESSAGE);
@@ -797,7 +798,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 	}
 	/**
 	 * Registra la llegada de un pedido de una sucursal a un proveedor
@@ -816,7 +817,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 					"Digite el ID del pedido: ", fieldIdOrden,
 					"Digite la cantidad de productos que llegó en el pedido:",fieldCantidad,
-					"Digite la calificacion que le dara al pedido (Excelente, Bueno, Capetable, Malo): ", fieldCalificacion
+					"Digite la calificacion que le dara al pedido (Excelente, Bueno, Aceptable, Malo): ", fieldCalificacion
 			};
 			int option = JOptionPane.showConfirmDialog (this, message, "Registrar pedido", JOptionPane.OK_CANCEL_OPTION);
 
@@ -860,9 +861,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 
 	}
-	
+
 	public void consultarDineroRecolectadoSucursales() {
-		
+
 		try {
 
 			JTextField fieldFechaInicio = new JTextField();
@@ -878,28 +879,91 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 			if(option == JOptionPane.OK_OPTION) {
 				if(!fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
-					
+
 					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
 					int day = Integer.valueOf(t.nextToken());
 					int month = Integer.valueOf(t.nextToken());
 					int year = Integer.valueOf(t.nextToken());
-					
+
 					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
 					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
 					day = Integer.valueOf(t.nextToken());
 					month = Integer.valueOf(t.nextToken());
 					year = Integer.valueOf(t.nextToken());
 					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
-					
+
 					List<Object[]> lista = superandes.consultarDineroRecolectadoSucursales(fechaInicio,fechaFinal);
 					if(lista!=null) {
 						panelDatos.actualizarInterfaz(listarDineroSucursales(lista));
 					}
-					
+
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando ventas de sucursales", JOptionPane.ERROR_MESSAGE);
 				}
+
+
+			}
+
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void consultarComprasProveedores() {
+		try {
+			List<VOOrden> ordenes = superandes.darVOOrdenes();
+			String resultado = null;
+			//Collections.sort(ordenes);
+			resultado = listarOrdenes(ordenes);
+			panelDatos.actualizarInterfaz(resultado);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void consultarVentasUsuarioEnRango() {
+		
+		try {
+
+			JTextField fieldIdUsuario= new JTextField();
+			JTextField fieldFechaInicio =  new JTextField();
+			JTextField fieldFechaFinal =  new JTextField();
+			Timestamp fechaInicio;
+			Timestamp fechaFinal;
+			Object[] message = {
+					"Digite la identificación del usuario: ",fieldIdUsuario,
+					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
+					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal
+			};
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar ventas usuario en rango", JOptionPane.OK_CANCEL_OPTION);
+			
+			if(option == JOptionPane.OK_OPTION) {
 				
+				if(!fieldIdUsuario.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
+
+					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
+					int day = Integer.valueOf(t.nextToken());
+					int month = Integer.valueOf(t.nextToken());
+					int year = Integer.valueOf(t.nextToken());
+
+					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
+					day = Integer.valueOf(t.nextToken());
+					month = Integer.valueOf(t.nextToken());
+					year = Integer.valueOf(t.nextToken());
+					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+
+					List<VOFactura> lista = superandes.consultarVentasUsuarioEnRango(fieldIdUsuario.getText(),fechaInicio,fechaFinal);
+					if(lista!=null) {
+						panelDatos.actualizarInterfaz(listarFacturas(lista));
+					}
+
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando ventas de sucursales", JOptionPane.ERROR_MESSAGE);
+				}
 				
 			}
 
@@ -910,17 +974,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 		
 	}
+	
 
-	private String listarDineroSucursales(List<Object[]> lista) {
-		// TODO Auto-generated method stub
-		String respuesta = "";
-		
-		for(Object[] object:lista) {
-			respuesta += "[Sucursal ="+object[0] + " totalDinero = "+object[1] + "]\n";
-		}
-		return respuesta;
-		
-	}
+
+
+	
 
 	/* ****************************************************************
 	 * 			Métodos administrativos
@@ -1123,6 +1181,46 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			resp += i++ + ". " + p.toString() + "\n";
 		}
 		return resp;
+	}
+	
+	private String listarOrdenes(List<VOOrden> ordenes) {
+		// TODO Auto-generated method stub
+		String resp = "Las ordenes existentes son:\n";
+		
+		int i = 1;
+		for (VOOrden o: ordenes)
+		{
+			resp += i++ + ". " + o.toString() + "\n";
+		}
+		return resp;
+	}
+	
+	private String listarFacturas(List<VOFactura> facturas) {
+		// TODO Auto-generated method stub
+		String resp = "Las facturas existentes son:\n";
+		
+		int i = 1;
+		for (VOFactura p : facturas)
+		{
+			resp += i++ + ". " + p.toString() + "\n";
+		}
+		return resp;
+	}
+
+	/**
+	 * Genera una cadena de caracteres con la informacion de el dinero recolectado por cada sucursal
+	 * @param lista
+	 * @return
+	 */
+	private String listarDineroSucursales(List<Object[]> lista) {
+		// TODO Auto-generated method stub
+		String respuesta = "";
+
+		for(Object[] object:lista) {
+			respuesta += "[Sucursal ="+object[0] + " totalDinero = "+object[1] + "]\n";
+		}
+		return respuesta;
+
 	}
 
 	/* ****************************************************************

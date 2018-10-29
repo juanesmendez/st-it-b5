@@ -32,6 +32,7 @@ import uniandes.isis2304.superandes.negocio.Proveedor;
 import uniandes.isis2304.superandes.negocio.Sucursal;
 import uniandes.isis2304.superandes.negocio.TipoProducto;
 import uniandes.isis2304.superandes.negocio.VOBodega;
+import uniandes.isis2304.superandes.negocio.VOFactura;
 import uniandes.isis2304.superandes.negocio.VOOrden;
 import uniandes.isis2304.superandes.negocio.VOProducto;
 import uniandes.isis2304.superandes.negocio.VOProvee;
@@ -416,6 +417,11 @@ public class PersistenciaSuperandes {
 	public List<Producto> darProductos() {
 		// TODO Auto-generated method stub
 		return (List<Producto>) sqlProducto.darProductos(pmf.getPersistenceManager());
+	}
+	
+	public List<Orden> darOrdenes() {
+		// TODO Auto-generated method stub
+		return (List<Orden>) sqlOrden.darOrdenes(pmf.getPersistenceManager());
 	}
 	/**
 	 * Registra un Proveedor en la base de datos de Superandes
@@ -911,6 +917,29 @@ public class PersistenciaSuperandes {
 		}
 		
 	}
+	
+	public List<Factura> consultarVentasUsuarioEnRango(String idUsuario,Timestamp fechaInicio, Timestamp fechaFinal) {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			//Busco la orden en la base de datos
+			
+			List<Factura> lista = sqlFactura.darVentasUsuarioEnRango(pm,idUsuario,fechaInicio,fechaFinal);
+			tx.commit();
+			return lista;
+		}catch(Exception e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
 
 	/**
 	 * Transacción para el generador de secuencia de Superandes
@@ -939,6 +968,12 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
+
+	
+
+	
 
 	
 

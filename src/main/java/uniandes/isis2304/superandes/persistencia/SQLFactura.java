@@ -6,6 +6,8 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
+import uniandes.isis2304.superandes.negocio.Factura;
+
 class SQLFactura {
 	/* ****************************************************************
 	 * 			Constantes
@@ -59,5 +61,14 @@ class SQLFactura {
 		//System.out.println(fechaInicio);
 		return (List<Object[]>) q.executeList();
 		
+	}
+
+	public List<Factura> darVentasUsuarioEnRango(PersistenceManager pm, String idUsuario,Timestamp fechaInicio, Timestamp fechaFinal) {
+		// TODO Auto-generated method stub
+		Query q = pm.newQuery(SQL,"SELECT * FROM "+ps.darTablaFacturas() + " "
+								+ "WHERE idCliente = ? AND fecha BETWEEN ? AND ?");
+		q.setParameters(idUsuario,fechaInicio,fechaFinal);
+		q.setResultClass(Factura.class);
+		return (List<Factura> )q.executeList();
 	}
 }
