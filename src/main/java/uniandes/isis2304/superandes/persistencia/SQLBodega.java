@@ -95,5 +95,23 @@ class SQLBodega {
 		return (Object) q.executeUnique();
 	}
 
+	public List<Object[]> darIndiceOcupacionPorSucursal(PersistenceManager pm, int idSucursal) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT " + ps.darTablaBodegas() + ".id, J.totVol/"+ps.darTablaBodegas() + ".volumen *100, J." + "totPeso/" + ps.darTablaBodegas() + ".peso * 100 "
+				+ "FROM "
+				+ "(SELECT " + ps.darTablaBodegas() + ".id, NVL((SUM(" + ps.darTablaProductos() + ".volEmpaque * " + ps.darTablaProductoBodega() + ".cantidad)), 0) AS TOTVOL, NVL((SUM(" + ps.darTablaProductos() + ".pesoEmpaque * " + ps.darTablaProductoBodega() + ".cantidad)),0) AS TOTPESO "
+				+ "FROM " + ps.darTablaBodegas() + " "
+				+ "LEFT OUTER JOIN " + ps.darTablaProductoBodega() +" ON " + ps.darTablaBodegas() + ".id = " + ps.darTablaProductoBodega() + ".idBodega "
+				+ "LEFT OUTER JOIN " + ps.darTablaProductos() + " ON " + ps.darTablaProductoBodega() + ".idProducto =" + ps.darTablaProductos() + ".id "
+				+ "WHERE " + ps.darTablaBodegas() + ".idSucursal = ? "
+				+ "GROUP BY " + ps.darTablaBodegas() + ".id) J "
+				+ "INNER JOIN " + ps.darTablaBodegas() +" ON J.id = " + ps.darTablaBodegas() + ".id";
+		Query q = pm.newQuery(SQL,sql);
+		q.setParameters(idSucursal);
+		return q.executeList();
+	}
+
+	
+
 	
 }

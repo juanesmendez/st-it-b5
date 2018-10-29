@@ -83,6 +83,10 @@
 					"event": "consultarDineroRecolectadoSucursales"
 				},
 				{
+					"label": "Indice ocupacion estantes y bodegas de una sucursal",
+					"event": "consultarIndiceOcupacionEstanteYBodegasSucursal"
+				},
+				{
 					"label": "Compras a proveedores",
 					"event": "consultarComprasProveedores"
 				},
