@@ -1,6 +1,7 @@
 package uniandes.isis2304.superandes.persistencia;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
@@ -60,5 +61,12 @@ class SQLOrden {
 		Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaOrden() + " SET fechaEntrega = ? AND calificacion = ?");
 		q.setParameters(fecha,calificacion);
 		return (long) q.executeUnique();
+	}
+
+	public List<Orden> darOrdenes(PersistenceManager pm) {
+		// TODO Auto-generated method stub
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + ps.darTablaOrden());
+		q.setResultClass(Orden.class);
+		return (List<Orden>) q.executeList();
 	}
 }

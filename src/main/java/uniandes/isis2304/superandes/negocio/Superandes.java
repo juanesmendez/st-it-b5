@@ -199,6 +199,17 @@ public class Superandes {
         log.info ("Generando los VO de Producto: " + voProductos.size() + " existentes");
         return voProductos;
 	}
+	
+	public List<VOOrden> darVOOrdenes() {
+		// TODO Auto-generated method stub
+		log.info("Generando los VO de Ordenes");
+		List<VOOrden> voOrdenes = new LinkedList<VOOrden>();
+		for(Orden o: ps.darOrdenes()) {
+			voOrdenes.add(o);
+		}
+		log.info("Generando los VO de Orden: "+voOrdenes.size() + " existentes");
+		return voOrdenes;
+	}
 
 	public Proveedor registrarProveedor(long nit, String nombreProveedor) {
 		// TODO Auto-generated method stub
@@ -290,6 +301,22 @@ public class Superandes {
 		Log.info("Consultando ventas de sucursales entre "+fechaInicio.toString()+" y "+fechaFinal.toString());
 		return ps.consultarDineroRecolectadoSucursales(fechaInicio,fechaFinal);
 	}
+
+	public List<VOFactura> consultarVentasUsuarioEnRango(String idUsuario,Timestamp fechaInicio, Timestamp fechaFinal) {
+		// TODO Auto-generated method stub
+		Log.info("Consultando ventas a usuario entre "+fechaInicio.toString()+" y "+fechaFinal.toString());
+		
+		List<VOFactura> voFacturas= new LinkedList<VOFactura> ();
+        for (Factura f : ps.consultarVentasUsuarioEnRango(idUsuario,fechaInicio,fechaFinal))
+        {
+        	voFacturas.add (f);
+        }
+		return voFacturas;
+	}
+
+	
+
+	
 
 	
 

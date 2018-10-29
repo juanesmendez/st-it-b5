@@ -81,6 +81,14 @@
 				{
 					"label": "Dinero recolectado sucursales",
 					"event": "consultarDineroRecolectadoSucursales"
+				},
+				{
+					"label": "Compras a proveedores",
+					"event": "consultarComprasProveedores"
+				},
+				{
+					"label": "Ventas a un usuario en rangod de fechas",
+					"event": "consultarVentasUsuarioEnRango"
 				}
 			]
 		},
