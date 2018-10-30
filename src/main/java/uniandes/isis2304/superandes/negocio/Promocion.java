@@ -1,5 +1,7 @@
 package uniandes.isis2304.superandes.negocio;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -40,12 +42,17 @@ public class Promocion implements VOPromocion {
     /**
      * La fecha de inicio de la promoción.
      */
-    private Date fechaInicio;
+    private Timestamp fechaInicio;
 
     /**
      * La fecha de fin de la promoción.
      */
-    private Date fechaFin;
+    private Timestamp fechaFin;
+
+    /**
+     * La cantidad de productos que se han vendido con la promoción.
+     */
+    private int cantidadProductosVendidos;
 
     /* ****************************************************************
      * 			Métodos
@@ -61,8 +68,8 @@ public class Promocion implements VOPromocion {
         this.setIdProducto(0);
         this.setCantidadProductos(0);
         this.setDisponible(false);
-        this.setFechaInicio(new Date());
-        this.setFechaFin(new Date());
+        this.setFechaInicio(null);
+        this.setFechaFin(null);
     }
 
     /**
@@ -75,7 +82,7 @@ public class Promocion implements VOPromocion {
      * @param fechaInicio - La fecha de inicio de la promoción.
      * @param fechaFin - La fecha de fin de la promoción.
      */
-    public Promocion(long id, long idProveedor, long idProducto, int cantidadProductos, boolean disponible, Date fechaInicio, Date fechaFin)
+    public Promocion(long id, long idProveedor, long idProducto, int cantidadProductos, boolean disponible, Timestamp fechaInicio, Timestamp fechaFin)
     {
         this.setId(id);
         this.setIdProveedor(idProveedor);
@@ -127,7 +134,7 @@ public class Promocion implements VOPromocion {
      *
      * @return La fecha de inicio de la promoción.
      */
-    public Date getFechaInicio() {
+    public Timestamp getFechaInicio() {
         return fechaInicio;
     }
 
@@ -136,7 +143,7 @@ public class Promocion implements VOPromocion {
      *
      * @param fechaInicio - La fecha de inicio de la promoción.
      */
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(Timestamp fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
@@ -145,7 +152,7 @@ public class Promocion implements VOPromocion {
      *
      * @return La fecha de fin de la promoción.
      */
-    public Date getFechaFin() {
+    public Timestamp getFechaFin() {
         return fechaFin;
     }
 
@@ -154,7 +161,7 @@ public class Promocion implements VOPromocion {
      *
      * @param fechaFin - La fecha de fin de la promoción.
      */
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(Timestamp fechaFin) {
         this.fechaFin = fechaFin;
     }
 
@@ -211,8 +218,22 @@ public class Promocion implements VOPromocion {
         this.disponible = disponible;
     }
 
-
-
+    /**
+     * Retorna la cantidad de productos que se han vendido con la promoción.
+     *
+     * @return La cantidad de productos que se han vendido con la promoción.
+     */
+    public int getCantidadProductosVendidos() {
+        return cantidadProductosVendidos;
+    }
+    /**
+     * Asigna la cantidad de productos que se han vendido con la promoción.
+     *
+     * @param cantidadProductosVendidos - La cantidad de productos que se han vendido con la promoción.
+     */
+    public void setCantidadProductosVendidos(int cantidadProductosVendidos) {
+        this.cantidadProductosVendidos = cantidadProductosVendidos;
+    }
 
 
 }

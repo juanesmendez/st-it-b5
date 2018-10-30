@@ -145,6 +145,16 @@ public class PersistenciaSuperandes {
 	 */
 	private SQLVende sqlVende;
 
+	/**
+	 * Atributo para el acceso a tabla PROMOCION en la base de datos
+	 */
+	private SQLPromocion sqlPromocion;
+
+	/**
+	 * Atributo para el acceso a tabla CARRITOCOMPRAS en la base de datos
+	 */
+	private SQLCarritoCompras sqlCarritoCompras;
+
 	private PersistenciaSuperandes ()
 	{
 		pmf = JDOHelper.getPersistenceManagerFactory("Superandes");		
@@ -253,6 +263,8 @@ public class PersistenciaSuperandes {
 		sqlSucursal = new SQLSucursal(this);
 		sqlTipoProducto = new SQLTipoProducto(this);
 		sqlVende = new SQLVende(this);
+		sqlPromocion = new SQLPromocion(this);
+		sqlCarritoCompras = new SQLCarritoCompras(this);
 		sqlUtil = new SQLUtil(this);
 
 	}
@@ -377,6 +389,37 @@ public class PersistenciaSuperandes {
 	public String darTablaVende() {
 		// TODO Auto-generated method stub
 		return tablas.get(16);
+	}
+	/**
+	 * @return La cadena de caracteres con el nombre de la tabla PROMOCIÓN de superandes
+	 */
+	public String darTablaPromocion() {
+		// TODO Auto-generated method stub
+		return tablas.get(17);
+	}
+
+	/**
+	 * @return La cadena de caracteres con el nombre de la tabla PROMOCIÓNSUCURSAL de superandes
+	 */
+	public String darTablaPromocionSucursal() {
+		// TODO Auto-generated method stub
+		return tablas.get(18);
+	}
+
+	/**
+	 * @return La cadena de caracteres con el nombre de la tabla PROMOCIÓNSUCURSAL de superandes
+	 */
+	public String darTablaCarritoCompras() {
+		// TODO Auto-generated method stub
+		return tablas.get(19);
+	}
+
+	/**
+	 * @return La cadena de caracteres con el nombre de la tabla ProductoCarrito de superandes
+	 */
+	public String darTablaProductoCarrito() {
+		// TODO Auto-generated method stub
+		return tablas.get(20);
 	}
 
 	/**
