@@ -1,5 +1,7 @@
 package uniandes.isis2304.superandes.persistencia;
 
+import java.util.List;
+
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
@@ -43,5 +45,18 @@ class SQLVende {
 		q.setParameters(idSucursal,idProducto);
 		q.setResultClass(Vende.class);
 		return (Vende) q.executeUnique();
+	}
+
+	public List<Object[]> darProductosDisponiblesSucursal(PersistenceManager pm, int idSucursal) {
+		// TODO Auto-generated method stub
+		String sql = "SELECT " + ps.darTablaVende() + ".idProducto, " + ps.darTablaProductos() + ".nombre, " + ps.darTablaVende() + ".precio, " + ps.darTablaProductoEstante() + ".cantidad "
+				+ "FROM " + ps.darTablaEstantes() + " "
+				+ "INNER JOIN " + ps.darTablaProductoEstante() + " ON " + ps.darTablaEstantes() + ".id = " + ps.darTablaProductoEstante() + ".idEstante "
+				+ "INNER JOIN " + ps.darTablaVende() + " ON " + ps.darTablaProductoEstante() + ".idProducto = " + ps.darTablaVende() + ".idProducto "
+				+ "INNER JOIN " + ps.darTablaProductos() + " ON " + ps.darTablaVende() + ".idProducto = " + ps.darTablaProductos() + ".id "
+				+ "WHERE " + ps.darTablaVende() + ".idSucursal = ?";    
+		Query q = pm.newQuery(SQL, sql);
+		q.setParameters(idSucursal);
+		return q.executeList();
 	}
 }

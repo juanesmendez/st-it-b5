@@ -1,7 +1,7 @@
 {
 	"title": "Aplicación transaccional de Superandes Uniandes",
-	"frameH": 600,
-	"frameW": 800,
+	"frameH": 800,
+	"frameW": 1200,
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
@@ -95,6 +95,16 @@
 					"event": "consultarVentasUsuarioEnRango"
 				}
 			]
+		},
+		{ "menuTitle":"Carrito de compras",
+			"options":
+			[
+				{
+					"label": "Solicitar carrito de compras",
+					"event": "crearCarritoDeCompras"
+				}
+			]
+			
 		},
 		{ "menuTitle": "Mantenimiento",
 		  "options":

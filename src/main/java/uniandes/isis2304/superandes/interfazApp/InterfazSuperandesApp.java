@@ -31,6 +31,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -44,7 +45,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
-
 
 import javafx.scene.control.skin.TableHeaderRow;
 import uniandes.isis2304.superandes.negocio.Sucursal;
@@ -106,6 +106,12 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 	 * Panel de despliegue de interacción para los requerimientos
 	 */
 	private PanelDatos panelDatos;
+	/**
+	 * Panel de despliegue de la interaccion con el carrito de compras de un cliente
+	 */
+	private PanelCarrito panelCarrito;
+	
+	private PanelAgregarProducto panelAgregarProducto;
 
 	/**
 	 * Menú de la aplicación
@@ -140,7 +146,19 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		setLayout (new BorderLayout());
 		add (new JLabel (new ImageIcon (path)), BorderLayout.NORTH );          
 		add( panelDatos, BorderLayout.CENTER );        
+
+		//---------------------------------------------------------------------------------
+		/*
+		panelCarrito = new PanelCarrito(this);
+
+		add (panelCarrito,BorderLayout.EAST);*/
+		//add(new PanelCarrito(),BorderLayout.EAST);
+
+
+		panelCarrito = new PanelCarrito();
+		add(panelCarrito,BorderLayout.EAST);
 	}
+
 
 	/* ****************************************************************
 	 * 			Métodos de configuración de la interfaz
@@ -240,6 +258,86 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			menuBar.add( menu );
 		}        
 		setJMenuBar ( menuBar );	
+	}
+
+	public void crearCarritoDeCompras() {
+		try {
+			JTextField fieldSucursal = new JTextField();
+			JTextField fieldIdCliente = new JTextField();
+			JTextField fieldIdCarrito = new JTextField();
+			int idSucursal;
+			int idCliente;
+			int idCarrito;
+			Object message[] = {
+					"Digite el ID de la sucursal donde hara compras:", fieldSucursal,
+					"Digite el ID del cliente que agarrara un carrito:", fieldIdCliente,
+					"Digite el ID del carrito que agarrara el cliente:", fieldIdCarrito
+
+			};
+			int option = JOptionPane.showConfirmDialog (this, message, "Solicitar Carrito de Compras", JOptionPane.OK_CANCEL_OPTION);
+			if(option == JOptionPane.OK_OPTION) {
+
+
+				if(!fieldSucursal.getText().equals("") && !fieldIdCliente.getText().equals("") && !fieldIdCarrito.getText().equals("")) {
+					idSucursal = Integer.valueOf(fieldSucursal.getText());
+					idCliente = Integer.valueOf(fieldIdCliente.getText());
+					idCarrito = Integer.valueOf(fieldIdCarrito.getText());
+					
+					superandes.agarrarCarrito(idSucursal,idCliente,idCarrito);
+					
+					remove(panelCarrito);
+					panelCarrito = new PanelCarrito(this, idSucursal,idCliente,idCarrito);
+					add(panelCarrito, BorderLayout.EAST);
+					revalidate();
+				}
+			}
+
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error registrando proveedor", JOptionPane.ERROR_MESSAGE);
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void agregarProductoCarrito(int idSucursal,int idCliente,int idCarrito) {
+		
+		try {
+			//Busco en la base de datos la tabla vende y la cruzo para obtener una lista de productos validos para la compra
+			List<Object[]> productos = superandes.darProductosDisponiblesSucursal(idSucursal);
+			
+			for(Object[] o:productos) {
+				System.out.println(o[0]);
+				System.out.println(o[1]);
+			}
+			
+			panelAgregarProducto = new PanelAgregarProducto(productos);
+			panelAgregarProducto.setVisible(true);
+			panelAgregarProducto.requestFocus();
+			//JOptionPane.showInputDialog(panelAgregarProducto);
+			
+			
+			
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error adicionando producto al carrito", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void abandonarCarrito() {
+		
+		try {
+			remove(panelCarrito);
+			panelCarrito = new PanelCarrito();
+			add (panelCarrito,BorderLayout.EAST);
+			revalidate();
+			
+			//Aca iran mas acciones con respecto a la devolucion de los rpoductos a sus estantes
+			//Se limpiara la tabla del carrito para que no este ocupado
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error abandonando carrito", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -911,12 +1009,12 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 
 	}
-	
+
 	public void consultarIndiceOcupacionEstanteYBodegasSucursal() {
 		try {
 
 			JTextField fieldSucursal = new JTextField();
-			
+
 			Object[] message = {
 
 					"Digite el id de la sucursal: ", fieldSucursal
@@ -949,7 +1047,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 	}
 
-	
+
 
 	public void consultarComprasProveedores() {
 		try {
@@ -962,9 +1060,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void consultarVentasUsuarioEnRango() {
-		
+
 		try {
 
 			JTextField fieldIdUsuario= new JTextField();
@@ -978,9 +1076,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal
 			};
 			int option = JOptionPane.showConfirmDialog (this, message, "Consultar ventas usuario en rango", JOptionPane.OK_CANCEL_OPTION);
-			
+
 			if(option == JOptionPane.OK_OPTION) {
-				
+
 				if(!fieldIdUsuario.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
 
 					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
@@ -1003,7 +1101,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando ventas de sucursales", JOptionPane.ERROR_MESSAGE);
 				}
-				
+
 			}
 
 
@@ -1011,13 +1109,13 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
 
 
 
-	
+
+
 
 	/* ****************************************************************
 	 * 			Métodos administrativos
@@ -1221,11 +1319,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 		return resp;
 	}
-	
+
 	private String listarOrdenes(List<VOOrden> ordenes) {
 		// TODO Auto-generated method stub
 		String resp = "Las ordenes existentes son:\n";
-		
+
 		int i = 1;
 		for (VOOrden o: ordenes)
 		{
@@ -1233,11 +1331,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 		return resp;
 	}
-	
+
 	private String listarFacturas(List<VOFactura> facturas) {
 		// TODO Auto-generated method stub
 		String resp = "Las facturas existentes son:\n";
-		
+
 		int i = 1;
 		for (VOFactura p : facturas)
 		{
@@ -1261,7 +1359,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		return respuesta;
 
 	}
-	
+
 	private String listarIndicesEstantesYBodegas(List<Object[]> estantes,List<Object[]> bodegas) {
 		// TODO Auto-generated method stub
 		String respuesta = "";
