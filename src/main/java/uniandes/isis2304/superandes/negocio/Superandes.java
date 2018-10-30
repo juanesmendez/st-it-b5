@@ -136,6 +136,19 @@ public class Superandes {
 		return productos;
 	}
 	/**
+	 * Encuentra los productos disponibles para la venta de la sucursal dada. Es decir que se encuentren en estantes y que la
+	 * sucursal efectivamente venda esos productos
+	 * @param idSucursal- el identificador de la sucursal
+	 */
+	public List<Object[]> darProductosDisponiblesSucursal(int idSucursal) {
+		// TODO Auto-generated method stub
+		log.info("Consultando los productos disponibles de la sucursal " + idSucursal);
+		List<Object[]> productos = ps.darProductosDisponiblesSucursal(idSucursal);
+		log.info ("Consultando productos disponibles de la sucursal: "+ idSucursal+ " total productos:" +  productos.size() + " existentes");
+		return productos;
+	}
+	
+	/**
 	 * Encuentra todos los proveedores en Superandes y los devuelve como una lista de VOProveedor
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos VOProveedor con todos los proveedores que conoce la aplicación, llenos con su información básica
@@ -327,6 +340,15 @@ public class Superandes {
 
 		return ps.consultarIndiceOcupacionBodegasPorSucursal(idSucursal);
 	}
+
+	public void agarrarCarrito(int idSucursal, int idCliente, int idCarrito) throws Exception {
+		// TODO Auto-generated method stub
+		Log.info("Agarrando el carrito " + idCarrito + " para el cliente" + idCliente + " en la sucursal " + idSucursal);
+		
+		ps.agarrarCarrito(idSucursal,idCliente,idCarrito);
+	}
+
+
 
 
 

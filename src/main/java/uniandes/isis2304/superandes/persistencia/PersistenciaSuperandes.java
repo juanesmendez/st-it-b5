@@ -32,6 +32,7 @@ import uniandes.isis2304.superandes.negocio.Proveedor;
 import uniandes.isis2304.superandes.negocio.Sucursal;
 import uniandes.isis2304.superandes.negocio.TipoProducto;
 import uniandes.isis2304.superandes.negocio.VOBodega;
+import uniandes.isis2304.superandes.negocio.VOCliente;
 import uniandes.isis2304.superandes.negocio.VOFactura;
 import uniandes.isis2304.superandes.negocio.VOOrden;
 import uniandes.isis2304.superandes.negocio.VOProducto;
@@ -1037,6 +1038,62 @@ public class PersistenciaSuperandes {
 		}
 	}
 
+	public void agarrarCarrito(int idSucursal, int idCliente, int idCarrito) throws Exception {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			//Busco la orden en la base de datos
+			
+			VOSucursal sucursal = sqlSucursal.darSucursal(pm, idSucursal);
+			if(sucursal == null) {
+				throw new Exception ("La sucursal no existe.");
+			}
+			
+			Object cliente = sqlCliente.darCliente(pm, idCliente);
+			if(cliente == null) {
+				throw new Exception ("El cliente no se encuentra en la base de datos de Superandes.");
+			}
+			//Añadir validación de que el carrito existe y modificar tablas
+			
+			tx.commit();
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public List<Object[]> darProductosDisponiblesSucursal(int idSucursal) {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			
+			List<Object[]> productos = sqlVende.darProductosDisponiblesSucursal(pm,idSucursal);
+			
+			
+			tx.commit();
+			return productos;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	
 	/**
 	 * Transacción para el generador de secuencia de Superandes
 	 * Adiciona entradas al log de la aplicación
@@ -1064,6 +1121,10 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
+
+	
 
 	
 
