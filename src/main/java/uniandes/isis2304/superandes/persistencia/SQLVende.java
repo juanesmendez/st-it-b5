@@ -38,7 +38,16 @@ class SQLVende {
 	{
 		this.ps = ps;
 	}
-
+	
+	public long agregarVende(PersistenceManager pm,long idSucursal, long idProducto, double precioProducto, double precioUniMedida,
+			int nivReorden, int cantRecompra) {
+		// TODO Auto-generated method stub
+		Query q = pm.newQuery(SQL, "INSERT INTO " + ps.darTablaVende() + " VALUES (?,?,?,?,?,?)");
+		q.setParameters(idSucursal,idProducto,precioProducto,precioUniMedida,nivReorden,cantRecompra);
+		
+		return (long) q.executeUnique();
+	}
+	
 	public Vende darPorIdSucursalYIdProducto(PersistenceManager pm, long idSucursal, long idProducto) {
 		// TODO Auto-generated method stub
 		Query q = pm.newQuery(SQL,"SELECT * FROM "+ps.darTablaVende()+" WHERE idSucursal = ? AND idProducto = ?");
@@ -59,4 +68,6 @@ class SQLVende {
 		q.setParameters(idSucursal);
 		return q.executeList();
 	}
+
+	
 }
