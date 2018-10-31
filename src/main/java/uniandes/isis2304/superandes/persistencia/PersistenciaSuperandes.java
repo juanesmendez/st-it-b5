@@ -22,6 +22,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import uniandes.isis2304.superandes.negocio.Bodega;
+import uniandes.isis2304.superandes.negocio.CarritoCompras;
 import uniandes.isis2304.superandes.negocio.Categoria;
 import uniandes.isis2304.superandes.negocio.Cliente;
 import uniandes.isis2304.superandes.negocio.Estante;
@@ -984,6 +985,39 @@ public class PersistenciaSuperandes {
 		}
 	}
 	
+	public CarritoCompras registrarCarritoSucursal(int idSucursal) throws Exception {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			
+			Sucursal sucursal = sqlSucursal.darSucursal(pm,idSucursal);
+			if(sucursal == null) {
+				throw new Exception("La sucursal no existe");
+			}
+			
+			
+			
+			//long tuplasInsertadas = sqlCarritoCompras.agregarCarritoCompras(pm, id, estado, idCliente)
+			long idCarrito = nextval();
+			sqlCarritoCompras.agregarCarritoCompras(pm, idCarrito, "DISPONIBLE",  (long)idSucursal);
+			tx.commit();
+			return new CarritoCompras(idCarrito, "DISPONIBLE", idSucursal);
+			
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	
 	public List<Object[]> consultarDineroRecolectadoSucursales(Timestamp fechaInicio, Timestamp fechaFinal) {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -1169,6 +1203,8 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
 
 	
 
