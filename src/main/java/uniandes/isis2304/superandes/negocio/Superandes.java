@@ -249,6 +249,15 @@ public class Superandes {
 		log.info("Registrando producto "+producto);
 		return producto;
 	}
+	
+	public Vende registrarProductoEnSucursal(long idProducto, long idSucursal, double precioProducto,
+			double precioUniMedida, int nivReorden, int cantRecompra) throws Exception {
+		// TODO Auto-generated method stub
+		log.info("Registrando producto "+idProducto +" en sucursal " + idSucursal);
+		Vende vende = ps.registrarProductoEnSucursal(idProducto,idSucursal,precioProducto,precioUniMedida,nivReorden,cantRecompra);
+		log.info("Registrando producto "+idProducto +" en sucursal " + idSucursal);
+		return vende;
+	}
 
 	public Cliente registrarCliente(long identificacion, String tipo, String nombre, String correo, String direccion) {
 		// TODO Auto-generated method stub
@@ -347,6 +356,8 @@ public class Superandes {
 		
 		ps.agarrarCarrito(idSucursal,idCliente,idCarrito);
 	}
+
+
 
 
 

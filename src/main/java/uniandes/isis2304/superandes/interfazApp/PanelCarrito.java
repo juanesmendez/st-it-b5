@@ -65,7 +65,7 @@ public class PanelCarrito extends JPanel {
 		setBorder(new TitledBorder("Carrito de compras"));
 		setLayout(new BorderLayout());
 
-		JTextArea textArea = new JTextArea("No se ha agarrado ningun carrito de compras");
+		JTextArea textArea = new JTextArea("No se ha agarrado ningún carrito de compras");
 		textArea.setEditable(false);
 		add (new JScrollPane(textArea), BorderLayout.CENTER);
 

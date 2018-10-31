@@ -564,6 +564,50 @@ public class PersistenciaSuperandes {
 		return null;
 	}
 	/**
+	 * registra una tupla en la tabla Vende de la base de datos de Superandes
+	 * @param idProducto - El identificador del producto
+	 * @param idSucursal- El identificador de la sucursal
+	 * @param precioProducto - El precio del producto
+	 * @param precioUniMedida - El precio por unidad de medida del producto
+	 * @param nivReorden - El nivel de reorden del producto
+	 * @param cantRecompra - La cantidad de recompra del producto
+	 * @return - El objeto Vende con toda la información de la tupla creada
+	 * @throws Exception 
+	 */
+	public Vende registrarProductoEnSucursal(long idProducto, long idSucursal, double precioProducto,
+			double precioUniMedida, int nivReorden, int cantRecompra) throws Exception {
+		// TODO Auto-generated method stub
+		
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try {
+			tx.begin();
+			Sucursal sucursal = sqlSucursal.darSucursal(pm,idSucursal);
+			if(sucursal == null) {
+				throw new Exception("La sucursal no existe");
+			}
+			Producto producto = sqlProducto.darProducto(pm, idProducto);
+			if(producto == null) {
+				throw new Exception("El producto no existe");
+			}
+			long tuplasInsertadas = sqlVende.agregarVende(pm,idSucursal,idProducto,precioProducto,precioUniMedida,nivReorden,cantRecompra);
+			
+			log.trace ("Inserción en la tabla vende: " + idProducto + ": " + tuplasInsertadas + " tuplas insertadas");
+			tx.commit();
+			return new Vende(idSucursal, idProducto, precioProducto, precioUniMedida, nivReorden, cantRecompra);
+			
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		return null;
+	}
+	/**
 	 * Registra un cliente en la base de datos de superandes
 	 * @param identificacion - La identificacion del cliente
 	 * @param tipo - El tipo de cliente (Natural, empresa)
@@ -1121,6 +1165,8 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
 
 	
 

@@ -59,6 +59,7 @@ import uniandes.isis2304.superandes.negocio.VOProducto;
 import uniandes.isis2304.superandes.negocio.VOProveedor;
 import uniandes.isis2304.superandes.negocio.VOSucursal;
 import uniandes.isis2304.superandes.negocio.VOTipoProducto;
+import uniandes.isis2304.superandes.negocio.VOVende;
 
 
 public class InterfazSuperandesApp extends JFrame implements ActionListener{
@@ -310,7 +311,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				System.out.println(o[1]);
 			}
 			
-			panelAgregarProducto = new PanelAgregarProducto(productos);
+			panelAgregarProducto = new PanelAgregarProducto(this,productos);
 			panelAgregarProducto.setVisible(true);
 			panelAgregarProducto.requestFocus();
 			//JOptionPane.showInputDialog(panelAgregarProducto);
@@ -564,6 +565,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 						resultado += "\n Operación terminada";
 						panelDatos.actualizarInterfaz(resultado);
 					}
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error registrando categoria", JOptionPane.ERROR_MESSAGE);
 				}
 
 
@@ -574,6 +577,67 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace();
 		}
 	}
+	
+	public void registrarProductoEnSucursal() {
+		
+		
+		try {
+			JTextField fieldIdProducto = new JTextField();
+			JTextField fieldIdSucursal = new JTextField();
+			JTextField fieldPrecioProducto= new JTextField();
+			JTextField fieldPrecioUniMedida = new JTextField();
+			JTextField fieldNivReorden= new JTextField();
+			JTextField fieldCantRecompra = new JTextField();
+			long idProducto;
+			long idSucursal;
+			double precioProducto;
+			double precioUniMedida;
+			int nivReorden;
+			int cantRecompra;
+			Object message[] = {
+					"Ingrese el ID de la sucursal: ", fieldIdSucursal,
+					"Ingrese el ID del producto: ", fieldIdProducto,
+					"Ingrese el precio al que se vendera el prducto: ", fieldPrecioProducto,
+					"Ingrese el precio por unidad de medida: ", fieldPrecioUniMedida,
+					"Ingrese el nivel de reorden: ", fieldNivReorden,
+					"Ingrese la cantidad de recompra: ", fieldCantRecompra
+			};
+			int option = JOptionPane.showConfirmDialog (this, message, "Registrar producto a sucursal", JOptionPane.OK_CANCEL_OPTION);
+			if(option == JOptionPane.OK_OPTION) {
+				if(!fieldIdProducto.getText().equals("") && !fieldIdSucursal.getText().equals("") && !fieldPrecioProducto.getText().equals("") && !fieldPrecioUniMedida.getText().equals("")
+						&& !fieldNivReorden.getText().equals("") && !fieldCantRecompra.getText().equals("")) {
+					
+					idProducto = Long.valueOf(fieldIdProducto.getText());
+					idSucursal = Long.valueOf(fieldIdSucursal.getText());
+					precioProducto = Double.valueOf(fieldPrecioProducto.getText());
+					precioUniMedida = Double.valueOf(fieldPrecioUniMedida.getText());
+					nivReorden = Integer.valueOf(fieldNivReorden.getText());
+					cantRecompra = Integer.valueOf(fieldCantRecompra.getText());
+					
+					VOVende vende = superandes.registrarProductoEnSucursal(idProducto,idSucursal,precioProducto,precioUniMedida,nivReorden,cantRecompra);
+					if(vende != null) {
+						JOptionPane.showMessageDialog(this, "Se registro el producto a la sucursal con exito!", "Registro de producto en sucursal exitoso", JOptionPane.INFORMATION_MESSAGE);
+						String resultado = "En registrarProductoEnSucursal\n\n";
+						resultado += "Producto registrado exitosamente en la sucursal: " + vende;
+						resultado += "\n Operación terminada";
+						panelDatos.actualizarInterfaz(resultado);
+					}
+					
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error registrando categoria", JOptionPane.ERROR_MESSAGE);
+				}
+
+
+			}
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error registrando pedido", JOptionPane.ERROR_MESSAGE);
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	public void registrarCliente() {
 		try {
 			JTextField fieldIdentificacion = new JTextField();
