@@ -50,6 +50,7 @@ import javafx.scene.control.skin.TableHeaderRow;
 import uniandes.isis2304.superandes.negocio.Sucursal;
 import uniandes.isis2304.superandes.negocio.Superandes;
 import uniandes.isis2304.superandes.negocio.VOBodega;
+import uniandes.isis2304.superandes.negocio.VOCarritoCompras;
 import uniandes.isis2304.superandes.negocio.VOCategoria;
 import uniandes.isis2304.superandes.negocio.VOCliente;
 import uniandes.isis2304.superandes.negocio.VOEstante;
@@ -223,6 +224,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		setTitle( titulo );
 		setSize ( ancho, alto);        
 	}
+	
+	
 
 	/**
 	 * Método para crear el menú de la aplicación con base em el objeto JSON leído
@@ -260,7 +263,44 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}        
 		setJMenuBar ( menuBar );	
 	}
+	
+	public void registrarCarritoSucursal() {
+		
+		try {
+			JTextField fieldSucursal = new JTextField();
+			int idSucursal;
+			Object message[] = {
+					"Digite el ID de la sucursal donde estará el carrito:", fieldSucursal
 
+			};
+			int option = JOptionPane.showConfirmDialog (this, message, "Registrar carrito de compras en sucursal", JOptionPane.OK_CANCEL_OPTION);
+			if(option == JOptionPane.OK_OPTION) {
+
+
+				if(!fieldSucursal.getText().equals("")) {
+					idSucursal = Integer.valueOf(fieldSucursal.getText());
+					
+					VOCarritoCompras carrito = superandes.registrarCarritoSucursal(idSucursal);
+					if(carrito != null) {
+						JOptionPane.showMessageDialog(this, "Se registró el carrito en la sucursal con éxito!", "Registro de carrito en sucursal exitoso", JOptionPane.INFORMATION_MESSAGE);
+						String resultado = "En registrarCarritoSucursal\n\n";
+						resultado += "Carrito registrado exitosamente en la sucursal "+idSucursal+": " + carrito;
+						resultado += "\n Operación terminada";
+						panelDatos.actualizarInterfaz(resultado);
+					}
+					
+				}
+			}
+
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error registrando proveedor", JOptionPane.ERROR_MESSAGE);
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
 	public void crearCarritoDeCompras() {
 		try {
 			JTextField fieldSucursal = new JTextField();
