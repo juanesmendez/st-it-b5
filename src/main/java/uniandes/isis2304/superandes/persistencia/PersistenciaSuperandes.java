@@ -418,7 +418,7 @@ public class PersistenciaSuperandes {
 	/**
 	 * @return La cadena de caracteres con el nombre de la tabla ProductoCarrito de superandes
 	 */
-	public String darTablaProductoCarrito() {
+	public String darTablaVendeCarrito() {
 		// TODO Auto-generated method stub
 		return tablas.get(20);
 	}
