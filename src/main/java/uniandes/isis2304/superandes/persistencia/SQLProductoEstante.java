@@ -56,4 +56,11 @@ public class SQLProductoEstante {
 		
 		return (long)q.executeUnique();
 	}
+
+	public long actualizarCantidadCarrito(PersistenceManager pm, long idEstante, long idProducto, int cantidad) {
+
+        Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaProductoEstante () + " SET  cantidad = ? where id = ? AND idProducto = ? ");
+        q.setParameters(cantidad, idEstante, idProducto);
+        return (long) q.executeUnique();
+	}
 }
