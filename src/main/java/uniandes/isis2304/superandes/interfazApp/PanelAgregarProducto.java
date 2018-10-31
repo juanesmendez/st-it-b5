@@ -57,7 +57,7 @@ public class PanelAgregarProducto extends JFrame{
 		setBackground(Color.WHITE);
 		setTitle("Adicionar productos");
 		
-		columnas = new String[]{"ID Producto", "Nombre","Precio","Unidades Disponibles"};
+		columnas = new String[]{"ID Producto", "Nombre","Precio","Unidades Disponibles","Estante"};
 		tabla = new JTable(transformarMatriz(productos), columnas);
 		listSelectionModel = tabla.getSelectionModel();
 		
@@ -117,7 +117,10 @@ public class PanelAgregarProducto extends JFrame{
 				// TODO Auto-generated method stub
 				int fila = tabla.getSelectedRow();
 				if(fila != -1 && !fieldCantidad.getText().equals("")) {
-					
+					int cantidadTotal = Integer.valueOf(tabla.getValueAt(fila, 3).toString());
+					int cantidad = Integer.valueOf(fieldCantidad.getText());
+					System.out.println("IDESTANTE: "+tabla.getValueAt(fila, 4).toString());
+					//tabla.getValueAt(fila, column)
 				}else {
 					
 					JOptionPane.showMessageDialog((((JPanel)(JPanel)((JButton)e.getSource()).getParent()).getParent()).getParent(), "Se debe seleccionar una fila de la tabla para continuar", "Error agregando producto", JOptionPane.ERROR_MESSAGE);
@@ -128,13 +131,14 @@ public class PanelAgregarProducto extends JFrame{
 	}
 
 	public Object[][] transformarMatriz(List<Object[]> productos) {
-		Object[][] matriz = new Object[productos.size()][4];
+		Object[][] matriz = new Object[productos.size()][5];
 		int cont=0;
 		for(Object[] tupla:productos) {
 			matriz[cont][0] = tupla[0];
 			matriz[cont][1] = tupla[1];
 			matriz[cont][2] = tupla[2];
 			matriz[cont][3] = tupla[3];
+			matriz[cont][4] = tupla[4];
 			cont++;
 		}
 		return matriz;

@@ -58,7 +58,7 @@ class SQLVende {
 
 	public List<Object[]> darProductosDisponiblesSucursal(PersistenceManager pm, int idSucursal) {
 		// TODO Auto-generated method stub
-		String sql = "SELECT " + ps.darTablaVende() + ".idProducto, " + ps.darTablaProductos() + ".nombre, " + ps.darTablaVende() + ".precio, " + ps.darTablaProductoEstante() + ".cantidad "
+		String sql = "SELECT " + ps.darTablaVende() + ".idProducto, " + ps.darTablaProductos() + ".nombre, " + ps.darTablaVende() + ".precio, " + ps.darTablaProductoEstante() + ".cantidad, " + ps.darTablaProductoEstante() + ".idEstante " 
 				+ "FROM " + ps.darTablaEstantes() + " "
 				+ "INNER JOIN " + ps.darTablaProductoEstante() + " ON " + ps.darTablaEstantes() + ".id = " + ps.darTablaProductoEstante() + ".idEstante "
 				+ "INNER JOIN " + ps.darTablaVende() + " ON " + ps.darTablaProductoEstante() + ".idProducto = " + ps.darTablaVende() + ".idProducto "
