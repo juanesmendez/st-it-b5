@@ -83,5 +83,11 @@ public class Vende implements VOVende{
 		this.cantRecompra = cantRecompra;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Vende[idSucursal="+idSucursal+", idProducto="+idProducto+", precio="+precio+", precioUniMedida="+precioUniMedida+
+				", nivReorden="+nivReorden+", cantidad recompra="+cantRecompra+"]";
+	}
 	
 }

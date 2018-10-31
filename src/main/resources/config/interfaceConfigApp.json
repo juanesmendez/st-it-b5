@@ -46,6 +46,10 @@
 					"event": "registrarProducto"
 				},
 				{
+					"label": "Producto en una sucursal",
+					"event": "registrarProductoEnSucursal"
+				},
+				{
 					"label": "Cliente",
 					"event": "registrarCliente"
 				},

@@ -9,6 +9,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -20,6 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -32,6 +35,7 @@ import uniandes.isis2304.superandes.negocio.Item;
 
 public class PanelAgregarProducto extends JFrame{
 	
+	private InterfazSuperandesApp padre;
 	//private JPanel mainPanel;
 	private JTable tabla;
 	ListSelectionModel listSelectionModel;
@@ -43,8 +47,8 @@ public class PanelAgregarProducto extends JFrame{
 	private JTextField fieldCantidad;
 	private List<Object[]> productos;
 	
-	public PanelAgregarProducto(List<Object[]> productos) {
-		
+	public PanelAgregarProducto(InterfazSuperandesApp padre,List<Object[]> productos) {
+		this.padre = padre;
 		this.productos = new ArrayList<>(productos); //CHEQUEAR
 		setLayout(new BorderLayout());
 		setSize(400,400);
@@ -105,6 +109,22 @@ public class PanelAgregarProducto extends JFrame{
 				fieldCantidad.setText(tabla.getValueAt(fila, 3).toString());
 			}
 		});
+		
+		botonAgregarProducto.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int fila = tabla.getSelectedRow();
+				if(fila != -1 && !fieldCantidad.getText().equals("")) {
+					
+				}else {
+					
+					JOptionPane.showMessageDialog((((JPanel)(JPanel)((JButton)e.getSource()).getParent()).getParent()).getParent(), "Se debe seleccionar una fila de la tabla para continuar", "Error agregando producto", JOptionPane.ERROR_MESSAGE);
+					dispose();
+				}
+			}
+		});
 	}
 
 	public Object[][] transformarMatriz(List<Object[]> productos) {
@@ -120,5 +140,10 @@ public class PanelAgregarProducto extends JFrame{
 		return matriz;
 	}
 	
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		super.dispose();
+	}
 	
 }
