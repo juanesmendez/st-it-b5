@@ -317,6 +317,13 @@ public class Superandes {
 		return factura;
 
 	}
+	
+	public CarritoCompras registrarCarritoSucursal(int idSucursal) throws Exception {
+		// TODO Auto-generated method stub
+		log.info("Registrando un carrito de compras en la sucursal: " + idSucursal);
+		CarritoCompras carrito = ps.registrarCarritoSucursal(idSucursal);
+		return carrito;
+	}
 
 	public List<Object[]> consultarDineroRecolectadoSucursales(Timestamp fechaInicio, Timestamp fechaFinal) {
 		// TODO Auto-generated method stub
@@ -356,6 +363,8 @@ public class Superandes {
 		
 		ps.agarrarCarrito(idSucursal,idCliente,idCarrito);
 	}
+
+	
 
 
 

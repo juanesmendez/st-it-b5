@@ -62,6 +62,13 @@ public class CarritoCompras implements VOCarritoCompras {
         this.setIdCliente(idCliente);
         this.setIdSucursal(idSucursal);
     }
+    
+    public CarritoCompras(long id, String estado, long idSucursal)
+    {
+        this.setId(id);
+        this.setEstado(estado);
+        this.setIdSucursal(idSucursal);
+    }
     /**
      * Retorna el identificador del carrito de compras.
      *
@@ -132,5 +139,11 @@ public class CarritoCompras implements VOCarritoCompras {
      */
     public void setIdSucursal(long idSucursal) {
         this.idSucursal = idSucursal;
+    }
+    
+    @Override
+    public String toString() {
+    	// TODO Auto-generated method stub
+    	return "CarritoCompras [id=" + id + ", estado=" + estado + ", idCliente=" + idCliente +", idSucursal="+idSucursal+"]";
     }
 }
