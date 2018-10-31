@@ -37,17 +37,17 @@ public class SQLCarritoCompras {
         this.ps = ps;
     }
 
-    public long agregarCarritoCompras(PersistenceManager pm, long id, String estado, long idCliente)
+    public long agregarCarritoCompras(PersistenceManager pm, long id, String estado, long idCliente, long idSucursal)
     {
-        Query q = pm.newQuery(SQL, "INSERT INTO " + ps.darTablaCarritoCompras () + "(id, estado, idCliente) values (?, ?, ? )");
-        q.setParameters(id, estado, idCliente);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + ps.darTablaCarritoCompras () + "(id, estado, idCliente, idSucursal) values (?, ?, ?, ?)");
+        q.setParameters(id, estado, idCliente, idSucursal);
         return (long) q.executeUnique();
     }
 
-    public long actualizarCarritoCompras(PersistenceManager pm, long id, String estado, long idCliente)
+    public long actualizarCarritoCompras(PersistenceManager pm, long id, String estado, long idCliente, long idSucursal)
     {
-        Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaCarritoCompras () + " SET  estado = ?, idCliente = ?) where id = ?");
-        q.setParameters(estado, idCliente, id);
+        Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaCarritoCompras () + " SET  estado = ?, idCliente = ?, idSucursal = ?) where id = ?");
+        q.setParameters(estado, idCliente, idSucursal, id);
         return (long) q.executeUnique();
     }
 
