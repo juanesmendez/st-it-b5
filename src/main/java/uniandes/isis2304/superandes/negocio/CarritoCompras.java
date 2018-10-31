@@ -27,6 +27,12 @@ public class CarritoCompras implements VOCarritoCompras {
      */
     private long idCliente;
 
+    /**
+     * El identificador ÚNICO de la sucursal.
+     */
+    private long idSucursal;
+
+
     /* ****************************************************************
      * 			Métodos
      *****************************************************************/
@@ -39,19 +45,22 @@ public class CarritoCompras implements VOCarritoCompras {
         this.setId(0);
         this.setEstado(null);
         this.setIdCliente(0);
+        this.setIdSucursal(0);
     }
     /**
      * Constructor con valores.
      * @param id - El identificador del carrito de compras.
      * @param estado - El estado del carrito de compras.
      * @param idCliente - El identificador del cliente dueño del carrito de compras.
+     * @param idSucursal - El identificador de la sucursal.
      */
 
-    public CarritoCompras(long id, String estado, long idCliente)
+    public CarritoCompras(long id, String estado, long idCliente, long idSucursal)
     {
         this.setId(id);
         this.setEstado(estado);
         this.setIdCliente(idCliente);
+        this.setIdSucursal(idSucursal);
     }
     /**
      * Retorna el identificador del carrito de compras.
@@ -105,5 +114,23 @@ public class CarritoCompras implements VOCarritoCompras {
      */
     public void setIdCliente(long idCliente) {
         this.idCliente = idCliente;
+    }
+
+    /**
+     * Retorna el identificador de la sucursal del carro de compras.
+     *
+     * @return El identificador de la sucursal del carro de compras.
+     */
+    public long getIdSucursal() {
+        return idSucursal;
+    }
+
+    /**
+     * Asigna el identificador de la sucursal del carro de compras.
+     *
+     * @param idSucursal - El identificador de la sucursal del carro de compras.
+     */
+    public void setIdSucursal(long idSucursal) {
+        this.idSucursal = idSucursal;
     }
 }

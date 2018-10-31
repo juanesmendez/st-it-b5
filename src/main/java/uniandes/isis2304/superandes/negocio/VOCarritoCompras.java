@@ -4,5 +4,5 @@ public interface VOCarritoCompras {
     long getId();
     String getEstado();
     long getIdCliente();
-
+    long getIdSucursal();
 }
