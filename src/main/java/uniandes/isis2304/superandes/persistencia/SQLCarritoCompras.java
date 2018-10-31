@@ -59,11 +59,11 @@ public class SQLCarritoCompras {
     }
 
 
-    public CarritoCompras darCarritoComprasPorId (PersistenceManager pm, Long idFactura)
+    public CarritoCompras darCarritoComprasPorId (PersistenceManager pm, long idCarrito)
     {
         Query q = pm.newQuery(SQL, "SELECT * FROM " + ps.darTablaCarritoCompras() + " WHERE id = ?");
         q.setResultClass(CarritoCompras.class);
-        q.setParameters(idFactura);
+        q.setParameters(idCarrito);
         return (CarritoCompras) q.executeUnique();
     }
 

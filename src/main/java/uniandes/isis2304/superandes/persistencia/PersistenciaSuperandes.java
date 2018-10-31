@@ -32,6 +32,7 @@ import uniandes.isis2304.superandes.negocio.Proveedor;
 import uniandes.isis2304.superandes.negocio.Sucursal;
 import uniandes.isis2304.superandes.negocio.TipoProducto;
 import uniandes.isis2304.superandes.negocio.VOBodega;
+import uniandes.isis2304.superandes.negocio.VOCarritoCompras;
 import uniandes.isis2304.superandes.negocio.VOCliente;
 import uniandes.isis2304.superandes.negocio.VOFactura;
 import uniandes.isis2304.superandes.negocio.VOOrden;
@@ -1101,7 +1102,10 @@ public class PersistenciaSuperandes {
 				throw new Exception ("El cliente no se encuentra en la base de datos de Superandes.");
 			}
 			//Añadir validación de que el carrito existe y modificar tablas
-			
+			VOCarritoCompras carrito = sqlCarritoCompras.darCarritoComprasPorId(pm, idCarrito);
+			if(carrito == null) {
+				throw new Exception ("El carrito de compras no existe en la sucursal "+idSucursal);
+			}
 			tx.commit();
 		}catch(javax.jdo.JDOException e) {
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
