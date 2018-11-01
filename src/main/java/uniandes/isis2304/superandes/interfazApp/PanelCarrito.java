@@ -3,6 +3,7 @@ package uniandes.isis2304.superandes.interfazApp;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -102,10 +103,7 @@ public class PanelCarrito extends JPanel {
 		//-----
 		items = new ArrayList<>();
 		//-----
-		this.productos = new JTable(transformarMatriz(items), columnas);
-		//this.productos = new JTable(new DefaultTableModel(null,columnas));
-
-		this.scrollPane = new JScrollPane(productos);
+		crearTablaProductos(items);
 
 
 		setBorder(new TitledBorder("Carrito de compras"));
@@ -165,6 +163,14 @@ public class PanelCarrito extends JPanel {
 		});
 		
 	}
+	
+	public void crearTablaProductos(List<Item> items) {
+		this.productos = new JTable(transformarMatriz(items), columnas);
+		this.productos.getTableHeader().setBackground(new Color(73, 191, 214));
+		this.productos.getTableHeader().setFont(new Font(productos.getFont().getName(), Font.BOLD, productos.getFont().getSize()));
+		this.scrollPane = new JScrollPane(productos);
+		add(scrollPane, BorderLayout.CENTER);
+	}
 
 	public Object[][] transformarMatriz(List<Item> items) {
 		Object[][] matriz = new Object[items.size()][5];
@@ -201,19 +207,25 @@ public class PanelCarrito extends JPanel {
 			System.out.println(item);
 			items.add(item);
 		}
+		this.items = items;
 		actualizarLabelTotal(items);
-		Object[][] matriz = transformarMatriz(items);
 		remove(scrollPane);
+		crearTablaProductos(items);
+		/*
 		productos = new JTable(matriz, this.columnas);
+		productos.getTableHeader().setBackground(new Color(73, 191, 214));
+		this.productos.getTableHeader().setFont(new Font(productos.getFont().getName(), Font.BOLD, productos.getFont().getSize()));
 		scrollPane = new JScrollPane(productos);
-		add(scrollPane, BorderLayout.CENTER);
-		
+		*/
 	}
 
 
-	private void actualizarLabelTotal(List<Item> items2) {
+	private void actualizarLabelTotal(List<Item> items) {
 		// TODO Auto-generated method stub
-		this.labelTotalCarrito.setText("TOTAL: "+String.valueOf(calcularTotalCarrito(items)));
+		this.labelTotalCarrito.setText("TOTAL: $"+String.valueOf(calcularTotalCarrito(items)) + " COP");
+		this.labelTotalCarrito.setFont(new Font("Courier New", Font.BOLD, 13));
+		this.labelTotalCarrito.setForeground(new Color(210, 85, 51));;
+		//this.labelTotalCarrito.revalidate();
 	}
 
 	public double calcularTotalCarrito(List<Item> items) {
@@ -221,6 +233,7 @@ public class PanelCarrito extends JPanel {
 		for(VOItem i:items) {
 			total += i.getSubTotal();
 		}
+		System.out.println("TOTAL CARRITO: "+total);
 		return total;
 	}
 	
