@@ -112,7 +112,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 	 * Panel de despliegue de la interaccion con el carrito de compras de un cliente
 	 */
 	private PanelCarrito panelCarrito;
-	
+
 	private PanelAgregarProducto panelAgregarProducto;
 
 	/**
@@ -159,7 +159,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 		panelCarrito = new PanelCarrito();
 		add(panelCarrito,BorderLayout.EAST);
-		
+
 		panelAgregarProducto = new PanelAgregarProducto(this);
 	}
 
@@ -226,11 +226,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		setTitle( titulo );
 		setSize ( ancho, alto);        
 	}
-	
+
 	public PanelAgregarProducto getPanelAgregarProducto() {
 		return panelAgregarProducto;
 	}
-	
+
 
 	/**
 	 * Método para crear el menú de la aplicación con base em el objeto JSON leído
@@ -268,9 +268,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}        
 		setJMenuBar ( menuBar );	
 	}
-	
+
 	public void registrarCarritoSucursal() {
-		
+
 		try {
 			JTextField fieldSucursal = new JTextField();
 			int idSucursal;
@@ -284,7 +284,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 				if(!fieldSucursal.getText().equals("")) {
 					idSucursal = Integer.valueOf(fieldSucursal.getText());
-					
+
 					VOCarritoCompras carrito = superandes.registrarCarritoSucursal(idSucursal);
 					if(carrito != null) {
 						JOptionPane.showMessageDialog(this, "Se registró el carrito en la sucursal con éxito!", "Registro de carrito en sucursal exitoso", JOptionPane.INFORMATION_MESSAGE);
@@ -293,7 +293,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 						resultado += "\n Operación terminada";
 						panelDatos.actualizarInterfaz(resultado);
 					}
-					
+
 				}
 			}
 
@@ -302,10 +302,10 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
-	
+
 	public void crearCarritoDeCompras() {
 		try {
 			JTextField fieldSucursal = new JTextField();
@@ -328,14 +328,14 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					idSucursal = Integer.valueOf(fieldSucursal.getText());
 					idCliente = Integer.valueOf(fieldIdCliente.getText());
 					idCarrito = Integer.valueOf(fieldIdCarrito.getText());
-					
+
 					superandes.agarrarCarrito(idSucursal,idCliente,idCarrito);
-					
+
 					remove(panelCarrito);
 					panelCarrito = new PanelCarrito(this, idSucursal,idCliente,idCarrito);
 					add(panelCarrito, BorderLayout.EAST);
 					revalidate();
-					
+
 					JOptionPane.showMessageDialog(this, "Se agarró el carrito con exito! :)", "Exito agarrando carrito", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
@@ -346,78 +346,83 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void agregarProductoCarritoPanel(int idSucursal,int idCliente,int idCarrito) {
-		
+
 		try {
 			//Busco en la base de datos la tabla vende y la cruzo para obtener una lista de productos validos para la compra
 			List<Object[]> productos = superandes.darProductosDisponiblesSucursal(idSucursal);
-			
+
 			for(Object[] o:productos) {
 				System.out.println(o[0]);
 				System.out.println(o[1]);
 			}
-			
 			panelAgregarProducto = new PanelAgregarProducto(this, productos, (long)idCliente, (long)idCarrito, (long)idSucursal);
 			panelAgregarProducto.setVisible(true);
 			panelAgregarProducto.requestFocus();
 			//JOptionPane.showInputDialog(panelAgregarProducto);
-			
-			
-			
+
+
+
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error adicionando producto al carrito", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal, 
 			int cantidadCarrito, int idEstante, int idProducto) {
-		
+
 		try {
 			List<Object[]> listaItems = superandes.adicionarProductoACarrito(idCliente,idCarrito,idSucursal,cantidadCarrito,idEstante,idProducto);
-			
+
 			//Añadir llamado a metodo sql que hace joins para poder mostrar items en carrito
 			panelCarrito.actualizarTablaProductos(listaItems);
-			
+
 			panelAgregarProducto.dispose();
 			panelCarrito.repaint();
 			panelCarrito.revalidate();
-			
+
 			//TODO chequear comoc errar el panel de agregarproducto
-			
+
 		}catch(Exception e) {
+			List<Object[]> productos = superandes.darProductosDisponiblesSucursal((int)idSucursal);
+			panelAgregarProducto.dispose();
+
+			panelAgregarProducto = new PanelAgregarProducto(this, productos, (long)idCliente, (long)idCarrito, (long)idSucursal);
+			panelAgregarProducto.setVisible(true);
+			panelAgregarProducto.requestFocus();
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error adicionando producto al carrito", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public void devolverProductoCarrito(int idProducto, int cantidadCarrito, int idEstante) {
 		try {
 			List<Object[]> listaItems = superandes.devolverProductoCarrito(idProducto,panelCarrito.getIdCarrito(),cantidadCarrito,idEstante);
-			
+
 			//Añadir llamado a metodo sql que hace joins para poder mostrar items en carrito
 			panelCarrito.actualizarTablaProductos(listaItems);
 			panelCarrito.repaint();
 			panelCarrito.revalidate();
-			
+
 			//TODO chequear comoc errar el panel de agregarproducto
-			
+
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error adicionando producto al carrito", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void abandonarCarrito() {
-		
+
 		try {
 			remove(panelCarrito);
 			panelCarrito = new PanelCarrito();
 			add (panelCarrito,BorderLayout.EAST);
 			revalidate();
-			
+
 			//Aca iran mas acciones con respecto a la devolucion de los rpoductos a sus estantes
 			//Se limpiara la tabla del carrito para que no este ocupado
 		}catch(Exception e) {
@@ -662,10 +667,10 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void registrarProductoEnSucursal() {
-		
-		
+
+
 		try {
 			JTextField fieldIdProducto = new JTextField();
 			JTextField fieldIdSucursal = new JTextField();
@@ -691,14 +696,14 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			if(option == JOptionPane.OK_OPTION) {
 				if(!fieldIdProducto.getText().equals("") && !fieldIdSucursal.getText().equals("") && !fieldPrecioProducto.getText().equals("") && !fieldPrecioUniMedida.getText().equals("")
 						&& !fieldNivReorden.getText().equals("") && !fieldCantRecompra.getText().equals("")) {
-					
+
 					idProducto = Long.valueOf(fieldIdProducto.getText());
 					idSucursal = Long.valueOf(fieldIdSucursal.getText());
 					precioProducto = Double.valueOf(fieldPrecioProducto.getText());
 					precioUniMedida = Double.valueOf(fieldPrecioUniMedida.getText());
 					nivReorden = Integer.valueOf(fieldNivReorden.getText());
 					cantRecompra = Integer.valueOf(fieldCantRecompra.getText());
-					
+
 					VOVende vende = superandes.registrarProductoEnSucursal(idProducto,idSucursal,precioProducto,precioUniMedida,nivReorden,cantRecompra);
 					if(vende != null) {
 						JOptionPane.showMessageDialog(this, "Se registro el producto a la sucursal con exito!", "Registro de producto en sucursal exitoso", JOptionPane.INFORMATION_MESSAGE);
@@ -707,7 +712,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 						resultado += "\n Operación terminada";
 						panelDatos.actualizarInterfaz(resultado);
 					}
-					
+
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error registrando categoria", JOptionPane.ERROR_MESSAGE);
 				}
@@ -719,10 +724,10 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	
+
+
 	public void registrarCliente() {
 		try {
 			JTextField fieldIdentificacion = new JTextField();
@@ -1570,8 +1575,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 	}
 
 
-	
 
 
-	
+
+
 }

@@ -69,7 +69,7 @@ public class SQLProductoEstante {
 	{
 		  Query q = pm.newQuery(SQL, "SELECT cantidad FROM " + ps.darTablaProductoEstante () + " where idEstante = ? AND idProducto = ? ");
 	        q.setParameters(idEstante, idProducto);
-	        return (int) ((BigDecimal)((Object[])q.executeUnique())[0]).intValue();
+	        return ((BigDecimal) q.executeUnique()).intValue();
 	        
 	}
 }
