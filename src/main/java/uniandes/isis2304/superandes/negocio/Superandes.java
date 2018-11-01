@@ -363,12 +363,12 @@ public class Superandes {
 		ps.agarrarCarrito(idSucursal,idCliente,idCarrito);
 	}
 
-	public List<Object[]> adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal, int cantidadTotal,
+	public List<Object[]> adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal, 
 			int cantidadCarrito, int idEstante, int idProducto) throws Exception {
 		
 		log.info("Adicionando el producto " + idProducto + "al carrito " + idCarrito + " del cliente " + idCliente);
 		
-		return (List<Object[]>)ps.adicionarProductoACarrito(idCliente,idCarrito,idSucursal,cantidadTotal,cantidadCarrito,idEstante,idProducto);
+		return (List<Object[]>)ps.adicionarProductoACarrito(idCliente,idCarrito,idSucursal,cantidadCarrito,idEstante,idProducto);
 	}
 
 	public List<Object[]> devolverProductoCarrito(int idProducto, int idCarrito, int cantidadCarrito, int idEstante) throws Exception {
