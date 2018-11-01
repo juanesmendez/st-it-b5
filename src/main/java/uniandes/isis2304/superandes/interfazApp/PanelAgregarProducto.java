@@ -110,7 +110,7 @@ public class PanelAgregarProducto extends JFrame{
 		
 		add(new JScrollPane(tabla),BorderLayout.CENTER);
 		add(panelInferior, BorderLayout.SOUTH);
-		
+		getRootPane().setDefaultButton(botonAgregarProducto);
 		listeners();
 	}
 	
