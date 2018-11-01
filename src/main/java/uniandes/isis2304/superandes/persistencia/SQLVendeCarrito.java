@@ -77,7 +77,7 @@ public class SQLVendeCarrito {
 	
 	public List<Object[]> darListaItemsParaBorrar(PersistenceManager pm, long idCarrito)
 	{
-		String sql = "SELECT " + ps.darTablaVendeCarrito() + ".idProducto AS IDPRODUCTO, " +ps.darTablaEstantes() +".Id AS ESTANTE "+ ps.darTablaProductos() + ".NOMBRE AS NOMBRE, " + ps.darTablaVendeCarrito() + ".cantidadcarrito AS CANTIDAD, " + ps.darTablaVende() + ".precio AS PRECIO, ("  + ps.darTablaVende() + ".PRECIO * " + ps.darTablaVendeCarrito() + ".CANTIDADCARRITO) AS SUBTOTAL " + 
+		String sql = "SELECT " + ps.darTablaVendeCarrito() + ".idProducto AS IDPRODUCTO, " +ps.darTablaEstantes() +".Id AS ESTANTE, "+ ps.darTablaProductos() + ".NOMBRE AS NOMBRE, " + ps.darTablaVendeCarrito() + ".cantidadcarrito AS CANTIDAD, " + ps.darTablaVende() + ".precio AS PRECIO, ("  + ps.darTablaVende() + ".PRECIO * " + ps.darTablaVendeCarrito() + ".CANTIDADCARRITO) AS SUBTOTAL " + 
 				"FROM((" + ps.darTablaVendeCarrito() + " "+ 
 				"INNER JOIN " + ps.darTablaCarritoCompras() + " ON "+ ps.darTablaCarritoCompras() + ".id = " + ps.darTablaVendeCarrito() + ".idCarrito " + 
 				"INNER JOIN " + ps.darTablaVende() + " ON " + ps.darTablaCarritoCompras() + ".idSucursal = "+ ps.darTablaVende() + ".idSucursal AND " + ps.darTablaVende() + ".idProducto = " + ps.darTablaVendeCarrito() + ".idProducto) " + 
@@ -86,7 +86,7 @@ public class SQLVendeCarrito {
 				"WHERE " + ps.darTablaCarritoCompras() + ".id = ?";
 		Query q = pm.newQuery(SQL,sql);
 		q.setParameters(idCarrito);
-		return q.executeList();
+		return (List<Object[]>)q.executeList();
 	}
     
 }
