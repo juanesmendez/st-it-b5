@@ -64,6 +64,13 @@ public class SQLCarritoCompras {
         q.setParameters(estado, idCliente, id);
         return (long) q.executeUnique();
     }
+    
+    public long actualizarCarritoComprasAbandonado(PersistenceManager pm, long id, String estado)
+    {
+        Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaCarritoCompras () + " SET  estado = ?, idCliente = null WHERE id = ?");
+        q.setParameters(estado, id);
+        return (long) q.executeUnique();
+    }
 
     public long eliminarCarritoCompras(PersistenceManager pm,long id)
     {

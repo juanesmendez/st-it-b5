@@ -372,10 +372,14 @@ public class Superandes {
 	}
 
 	public List<Object[]> devolverProductoCarrito(int idProducto, int idCarrito, int cantidadCarrito, int idEstante) throws Exception {
-		// TODO Auto-generated method stub
 		log.info("Devolviendo el producto " + idProducto + "del carrito " + idCarrito);
 		
 		return (List<Object[]>) ps.devolverProductoCarrito(idProducto,idCarrito,cantidadCarrito,idEstante);
+	}
+
+	public void abandonarCarrito(int idCarrito) {
+		log.info("Abandonando el carrito " + idCarrito);
+		ps.abandonarCarrito(idCarrito);
 	}
 
 	

@@ -418,6 +418,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 	public void abandonarCarrito() {
 
 		try {
+			superandes.abandonarCarrito(this.panelCarrito.getIdCarrito());
+			
+			
+			
+			
 			remove(panelCarrito);
 			panelCarrito = new PanelCarrito();
 			add (panelCarrito,BorderLayout.EAST);

@@ -1240,7 +1240,44 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
+	
+	public void abandonarCarrito(int idCarrito) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
 
+		try {
+			tx.begin();
+			List<Object[]> listaItemsABorrar = sqlVendeCarrito.darListaItemsParaBorrar(pm, idCarrito);
+			for(Object[] obj:listaItemsABorrar){
+				//Campos de la consulta
+				long idProducto = ((BigDecimal) obj[0]).longValue();
+				long idEstante = ((BigDecimal) obj[1]).longValue();
+				String nombre = (String) obj[2];
+				int cantidadCarrito = ((BigDecimal) obj[3]).intValue();
+				double precio = ((BigDecimal) obj[4]).doubleValue();
+				double subtotal = ((BigDecimal) obj[5]).doubleValue();
+				
+				
+				int cantidadEnEstante = sqlProductoEstante.darCantidadProducto(pm, idEstante, idProducto);
+				int cantidadNueva = cantidadEnEstante + cantidadCarrito;
+				long tuplasActualizadas = sqlProductoEstante.actualizarCantidadEstantePorCarrito(pm, (long)idEstante, (long)idProducto, cantidadNueva);
+				long tuplasBorradas = sqlVendeCarrito.eliminarVendeCarrito(pm, idCarrito, idProducto);
+			}
+			sqlCarritoCompras.actualizarCarritoComprasAbandonado(pm, idCarrito, "DISPONIBLE");
+			
+			tx.commit();
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+		
+	}
+
+	
 	
 	public List<Object[]> darProductosDisponiblesSucursal(int idSucursal) {
 		// TODO Auto-generated method stub
@@ -1294,6 +1331,7 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
 
 	
 

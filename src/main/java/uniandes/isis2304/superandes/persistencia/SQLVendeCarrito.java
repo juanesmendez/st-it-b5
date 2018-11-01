@@ -57,7 +57,6 @@ public class SQLVendeCarrito {
     }
     
     public long eliminarVendeCarrito(PersistenceManager pm, int idCarrito, long idProducto) {
-		// TODO Auto-generated method stub
     	
     	Query q = pm.newQuery(SQL, "DELETE FROM " + ps.darTablaVendeCarrito() + " WHERE idCarrito = ? AND idProducto = ?");
     	q.setParameters(idCarrito,idProducto);
@@ -65,8 +64,6 @@ public class SQLVendeCarrito {
 	}
 
 	public List<Object[]> darListaItems(PersistenceManager pm,long idCarrito) {
-		// TODO Auto-generated method stub
-
 		String sql = "SELECT " + ps.darTablaVendeCarrito() + ".idProducto AS IDPRODUCTO, " + ps.darTablaProductos() + ".NOMBRE AS NOMBRE, " + ps.darTablaVendeCarrito() + ".cantidadcarrito AS CANTIDAD, " + ps.darTablaVende() + ".precio AS PRECIO, ("  + ps.darTablaVende() + ".PRECIO * " + ps.darTablaVendeCarrito() + ".CANTIDADCARRITO) AS SUBTOTAL " + 
 				"FROM((" + ps.darTablaVendeCarrito() + " "+ 
 				"INNER JOIN " + ps.darTablaCarritoCompras() + " ON "+ ps.darTablaCarritoCompras() + ".id = " + ps.darTablaVendeCarrito() + ".idCarrito " + 
@@ -77,8 +74,19 @@ public class SQLVendeCarrito {
 		q.setParameters(idCarrito);
 		return q.executeList();
 	}
-
 	
-
+	public List<Object[]> darListaItemsParaBorrar(PersistenceManager pm, long idCarrito)
+	{
+		String sql = "SELECT " + ps.darTablaVendeCarrito() + ".idProducto AS IDPRODUCTO, " +ps.darTablaEstantes() +".Id AS ESTANTE "+ ps.darTablaProductos() + ".NOMBRE AS NOMBRE, " + ps.darTablaVendeCarrito() + ".cantidadcarrito AS CANTIDAD, " + ps.darTablaVende() + ".precio AS PRECIO, ("  + ps.darTablaVende() + ".PRECIO * " + ps.darTablaVendeCarrito() + ".CANTIDADCARRITO) AS SUBTOTAL " + 
+				"FROM((" + ps.darTablaVendeCarrito() + " "+ 
+				"INNER JOIN " + ps.darTablaCarritoCompras() + " ON "+ ps.darTablaCarritoCompras() + ".id = " + ps.darTablaVendeCarrito() + ".idCarrito " + 
+				"INNER JOIN " + ps.darTablaVende() + " ON " + ps.darTablaCarritoCompras() + ".idSucursal = "+ ps.darTablaVende() + ".idSucursal AND " + ps.darTablaVende() + ".idProducto = " + ps.darTablaVendeCarrito() + ".idProducto) " + 
+				"INNER JOIN " + ps.darTablaProductos() + " ON " + ps.darTablaVendeCarrito() + ".idProducto = " + ps.darTablaProductos() + ".id) " + 
+				"INNER JOIN " + ps.darTablaEstantes() + " ON " + ps.darTablaEstantes() + ".idSucursal = " + ps.darTablaCarritoCompras() + ".idSucursal AND " + ps.darTablaEstantes() + ".idTipoProducto = " + ps.darTablaProductos() + ".idTipoProducto" +
+				"WHERE " + ps.darTablaCarritoCompras() + ".id = ?";
+		Query q = pm.newQuery(SQL,sql);
+		q.setParameters(idCarrito);
+		return q.executeList();
+	}
     
 }
