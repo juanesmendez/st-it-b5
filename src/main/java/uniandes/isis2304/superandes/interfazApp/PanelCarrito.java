@@ -138,13 +138,11 @@ public class PanelCarrito extends JPanel {
 
 	
 	private void listeners() {
-		// TODO Auto-generated method stub
 		
 		botonAbandonar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				int option = JOptionPane.showConfirmDialog(parent, "Esta seguro que desea abandonar el carrito?", "Abandonar carrito", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
 				
 				if(option == JOptionPane.OK_OPTION) {
@@ -157,11 +155,39 @@ public class PanelCarrito extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				parent.agregarProductoCarritoPanel(idSucursal,idCliente,idCarrito);
 			}
 		});
 		
+		botonEliminar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int fila = productos.getSelectedRow();
+				if(fila != -1 ) {
+					List<Object[]> listaProductosPanelAgregar = parent.getPanelAgregarProducto().getListaProductos();
+					int idProducto = Integer.valueOf(productos.getValueAt(fila, 0).toString());
+					int cantidadCarrito = Integer.valueOf(productos.getValueAt(fila, 2).toString());
+					int idEstante = -1;
+					int cantidadEnEstante = -1;
+					for(Object[] obj:listaProductosPanelAgregar) {
+						if(Integer.valueOf(obj[0].toString()) == idProducto) {
+							idEstante = Integer.valueOf(obj[4].toString());
+							cantidadEnEstante = Integer.valueOf(obj[3].toString());
+						}
+					}
+					System.out.println("ID ESTANTE: "+idEstante);
+					parent.devolverProductoCarrito(idProducto,cantidadCarrito,idEstante,cantidadEnEstante);
+				}else {
+					JOptionPane.showMessageDialog(parent, "Se debe seleccionar una fila de la tabla para continuar", "Error eliminando producto del carrito", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
+		
+	}
+	
+	public int getIdCarrito() {
+		return this.idCarrito;
 	}
 	
 	public void crearTablaProductos(List<Item> items) {
@@ -195,22 +221,35 @@ public class PanelCarrito extends JPanel {
 	public void actualizarTablaProductos(List<Object[]> listaItems) {
 		//TODO
 		List<Item> items = new ArrayList<>();
-		for(int i = 0;i<listaItems.size();i++) {
-			
-			long idProducto = ((BigDecimal) listaItems.get(i)[0]).longValue();
-			String nombre = (String) listaItems.get(i)[1];
-			int cantidad = ((BigDecimal) listaItems.get(i)[2]).intValue();
-			double precio = ((BigDecimal) listaItems.get(i)[3]).doubleValue();
-			double subTotal = ((BigDecimal) listaItems.get(i)[4]).doubleValue();
-			
-			Item item = new Item(idProducto, nombre, cantidad, precio, subTotal);
-			System.out.println(item);
-			items.add(item);
+		
+		if(listaItems != null) {
+			for(int i = 0;i<listaItems.size();i++) {
+				
+				long idProducto = ((BigDecimal) listaItems.get(i)[0]).longValue();
+				String nombre = (String) listaItems.get(i)[1];
+				int cantidad = ((BigDecimal) listaItems.get(i)[2]).intValue();
+				double precio = ((BigDecimal) listaItems.get(i)[3]).doubleValue();
+				double subTotal = ((BigDecimal) listaItems.get(i)[4]).doubleValue();
+				
+				Item item = new Item(idProducto, nombre, cantidad, precio, subTotal);
+				System.out.println(item);
+				items.add(item);
+			}
+			this.items = items;
+			actualizarLabelTotal(items);
+			remove(scrollPane);
+			crearTablaProductos(items);
+		}else {
+			this.items = items;
+			this.labelTotalCarrito.setText("TOTAL: $0");
+			this.labelTotalCarrito.setFont(new Font("Courier New", Font.BOLD, 13));
+			this.labelTotalCarrito.setForeground(new Color(210, 85, 51));;
 		}
-		this.items = items;
-		actualizarLabelTotal(items);
-		remove(scrollPane);
-		crearTablaProductos(items);
+		
+		
+		
+		
+		
 		/*
 		productos = new JTable(matriz, this.columnas);
 		productos.getTableHeader().setBackground(new Color(73, 191, 214));

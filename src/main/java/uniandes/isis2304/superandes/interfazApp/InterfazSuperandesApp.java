@@ -159,6 +159,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 		panelCarrito = new PanelCarrito();
 		add(panelCarrito,BorderLayout.EAST);
+		
+		panelAgregarProducto = new PanelAgregarProducto(this);
 	}
 
 
@@ -225,6 +227,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		setSize ( ancho, alto);        
 	}
 	
+	public PanelAgregarProducto getPanelAgregarProducto() {
+		return panelAgregarProducto;
+	}
 	
 
 	/**
@@ -388,6 +393,22 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		
 	}
 	
+	public void devolverProductoCarrito(int idProducto, int cantidadCarrito, int idEstante,int cantidadEnEstante) {
+		try {
+			List<Object[]> listaItems = superandes.devolverProductoCarrito(idProducto,panelCarrito.getIdCarrito(),cantidadCarrito,idEstante,cantidadEnEstante);
+			
+			//Añadir llamado a metodo sql que hace joins para poder mostrar items en carrito
+			panelCarrito.actualizarTablaProductos(listaItems);
+			panelCarrito.repaint();
+			panelCarrito.revalidate();
+			
+			//TODO chequear comoc errar el panel de agregarproducto
+			
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error adicionando producto al carrito", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+	}
 	
 	public void abandonarCarrito() {
 		
@@ -1547,6 +1568,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace( );
 		}
 	}
+
+
+	
 
 
 	

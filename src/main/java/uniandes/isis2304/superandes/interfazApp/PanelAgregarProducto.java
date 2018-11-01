@@ -3,6 +3,7 @@ package uniandes.isis2304.superandes.interfazApp;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -51,6 +52,11 @@ public class PanelAgregarProducto extends JFrame{
 	private long idCarrito;
 	private long idSucursal;
 	
+	public PanelAgregarProducto(InterfazSuperandesApp padre) {
+		this.padre = padre;
+		this.productos = new ArrayList<>();
+	}
+	
 	public PanelAgregarProducto(InterfazSuperandesApp padre,List<Object[]> productos, long idCliente, long idCarrito,long idSucursal) {
 		this.padre = padre;
 		this.productos = new ArrayList<>(productos); //CHEQUEAR
@@ -66,6 +72,9 @@ public class PanelAgregarProducto extends JFrame{
 		
 		columnas = new String[]{"ID Producto", "Nombre","Precio","Unidades Disponibles","Estante"};
 		tabla = new JTable(transformarMatriz(productos), columnas);
+		tabla.getTableHeader().setBackground(new Color(73, 191, 214));
+		//tabla.getTableHeader().setBackground(new Color(120,91,166));
+		tabla.getTableHeader().setFont(new Font(tabla.getFont().getName(), Font.BOLD, tabla.getFont().getSize()));
 		listSelectionModel = tabla.getSelectionModel();
 		
 		botonAgregarProducto = new JButton("Agregar");
@@ -127,7 +136,7 @@ public class PanelAgregarProducto extends JFrame{
 					int cantidadCarrito = Integer.valueOf(fieldCantidad.getText());
 					int idEstante = Integer.valueOf(tabla.getValueAt(fila, 4).toString());
 					int idProducto = Integer.valueOf(tabla.getValueAt(fila, 0).toString());
-					System.out.println("IDESTANTE: "+tabla.getValueAt(fila, 4).toString());
+					//System.out.println("IDESTANTE: "+tabla.getValueAt(fila, 4).toString());
 					
 					padre.adicionarProductoACarrito(idCliente,idCarrito,idSucursal, cantidadTotal,cantidadCarrito,idEstante,idProducto);
 					//tabla.getValueAt(fila, column)
@@ -152,6 +161,10 @@ public class PanelAgregarProducto extends JFrame{
 			cont++;
 		}
 		return matriz;
+	}
+	
+	public List<Object[]> getListaProductos(){
+		return this.productos;
 	}
 	
 	@Override

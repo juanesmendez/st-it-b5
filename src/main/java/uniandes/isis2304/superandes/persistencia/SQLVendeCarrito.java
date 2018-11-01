@@ -55,6 +55,14 @@ public class SQLVendeCarrito {
             return (long) b.executeUnique();
         }
     }
+    
+    public long eliminarVendeCarrito(PersistenceManager pm, int idCarrito, long idProducto) {
+		// TODO Auto-generated method stub
+    	
+    	Query q = pm.newQuery(SQL, "DELETE FROM " + ps.darTablaVendeCarrito() + " WHERE idCarrito = ? AND idProducto = ?");
+    	q.setParameters(idCarrito,idProducto);
+		return (long)q.executeUnique();
+	}
 
 	public List<Object[]> darListaItems(PersistenceManager pm,long idCarrito) {
 		// TODO Auto-generated method stub
@@ -69,6 +77,8 @@ public class SQLVendeCarrito {
 		q.setParameters(idCarrito);
 		return q.executeList();
 	}
+
+	
 
     
 }
