@@ -7,7 +7,6 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.google.gson.JsonObject;
-import com.oracle.tools.packager.Log;
 
 import oracle.net.aso.p;
 import uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes;
@@ -327,13 +326,13 @@ public class Superandes {
 
 	public List<Object[]> consultarDineroRecolectadoSucursales(Timestamp fechaInicio, Timestamp fechaFinal) {
 		// TODO Auto-generated method stub
-		Log.info("Consultando ventas de sucursales entre "+fechaInicio.toString()+" y "+fechaFinal.toString());
+		log.info("Consultando ventas de sucursales entre "+fechaInicio.toString()+" y "+fechaFinal.toString());
 		return ps.consultarDineroRecolectadoSucursales(fechaInicio,fechaFinal);
 	}
 
 	public List<VOFactura> consultarVentasUsuarioEnRango(String idUsuario,Timestamp fechaInicio, Timestamp fechaFinal) {
 		// TODO Auto-generated method stub
-		Log.info("Consultando ventas a usuario entre "+fechaInicio.toString()+" y "+fechaFinal.toString());
+		log.info("Consultando ventas a usuario entre "+fechaInicio.toString()+" y "+fechaFinal.toString());
 
 		List<VOFactura> voFacturas= new LinkedList<VOFactura> ();
 		for (Factura f : ps.consultarVentasUsuarioEnRango(idUsuario,fechaInicio,fechaFinal))
@@ -345,21 +344,21 @@ public class Superandes {
 
 	public List<Object[]> consultarIndiceOcupacionEstantesPorSucursal(int  idSucursal) throws Exception {
 		// TODO Auto-generated method stub
-		Log.info("Consultando indice de ocupacion de estantes de la sucursal "+idSucursal);
+		log.info("Consultando indice de ocupacion de estantes de la sucursal "+idSucursal);
 
 		return ps.consultarIndiceOcupacionEstantesPorSucursal(idSucursal);
 	}
 
 	public List<Object[]> consultarIndiceOcupacionBodegasPorSucursal(int idSucursal) throws Exception {
 		// TODO Auto-generated method stub
-		Log.info("Consultando indice de ocupacion de bodegas de la sucursal "+idSucursal);
+		log.info("Consultando indice de ocupacion de bodegas de la sucursal "+idSucursal);
 
 		return ps.consultarIndiceOcupacionBodegasPorSucursal(idSucursal);
 	}
 
 	public void agarrarCarrito(int idSucursal, int idCliente, int idCarrito) throws Exception {
 		// TODO Auto-generated method stub
-		Log.info("Agarrando el carrito " + idCarrito + " para el cliente" + idCliente + " en la sucursal " + idSucursal);
+		log.info("Agarrando el carrito " + idCarrito + " para el cliente" + idCliente + " en la sucursal " + idSucursal);
 		
 		ps.agarrarCarrito(idSucursal,idCliente,idCarrito);
 	}
@@ -367,7 +366,7 @@ public class Superandes {
 	public List<Object[]> adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal, int cantidadTotal,
 			int cantidadCarrito, int idEstante, int idProducto) throws Exception {
 		
-		Log.info("Adicionando el producto " + idProducto + "al carrito " + idCarrito + " del cliente " + idCliente);
+		log.info("Adicionando el producto " + idProducto + "al carrito " + idCarrito + " del cliente " + idCliente);
 		
 		return (List<Object[]>)ps.adicionarProductoACarrito(idCliente,idCarrito,idSucursal,cantidadTotal,cantidadCarrito,idEstante,idProducto);
 	}

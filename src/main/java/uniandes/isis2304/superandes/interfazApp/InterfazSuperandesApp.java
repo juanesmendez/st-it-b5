@@ -46,7 +46,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
-import javafx.scene.control.skin.TableHeaderRow;
 import uniandes.isis2304.superandes.negocio.Item;
 import uniandes.isis2304.superandes.negocio.Sucursal;
 import uniandes.isis2304.superandes.negocio.Superandes;
@@ -1510,7 +1509,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 	/**
 	 * Método para la ejecución de los eventos que enlazan el menú con los métodos de negocio
 	 * Invoca al método correspondiente según el evento recibido
-	 * @param pEvento - El evento del usuario
+	 * @param sEvento - El evento del usuario
 	 */
 	@Override
 	public void actionPerformed(ActionEvent sEvento) {
