@@ -53,8 +53,15 @@ public class SQLCarritoCompras {
 
     public long actualizarCarritoCompras(PersistenceManager pm, long id, String estado, long idCliente, long idSucursal)
     {
-        Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaCarritoCompras () + " SET  estado = ?, idCliente = ?, idSucursal = ?) where id = ?");
+        Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaCarritoCompras () + " SET  estado = ?, idCliente = ?, idSucursal = ? WHERE id = ?");
         q.setParameters(estado, idCliente, idSucursal, id);
+        return (long) q.executeUnique();
+    }
+    
+    public long actualizarCarritoComprasEstadoYIdCliente(PersistenceManager pm, long id, String estado, long idCliente)
+    {
+        Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaCarritoCompras () + " SET  estado = ?, idCliente = ? WHERE id = ?");
+        q.setParameters(estado, idCliente, id);
         return (long) q.executeUnique();
     }
 
@@ -72,6 +79,13 @@ public class SQLCarritoCompras {
         q.setResultClass(CarritoCompras.class);
         q.setParameters(idCarrito);
         return (CarritoCompras) q.executeUnique();
+    }
+    
+    public Object[] darObjetoCarritoComprasPorId (PersistenceManager pm, long idCarrito)
+    {
+        Query q = pm.newQuery(SQL, "SELECT * FROM " + ps.darTablaCarritoCompras() + " WHERE id = ?");
+        q.setParameters(idCarrito);
+        return (Object[])q.executeUnique();
     }
 
     public List<CarritoCompras> darCarritosCompras (PersistenceManager pm)
