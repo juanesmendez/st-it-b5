@@ -40,17 +40,17 @@ public class SQLVendeCarrito {
 
     public long agregarVendeCarrito(PersistenceManager pm, long idCarrito, long idProducto, int cantidadCarrito)
     {
-        Query q = pm.newQuery(SQL, "SELECT * FROM" + ps.darTablaVendeCarrito () + "WHERE idCarrito = ? AND idProducto = ?");
+        Query q = pm.newQuery(SQL, "SELECT * FROM " + ps.darTablaVendeCarrito () + " WHERE idCarrito = ? AND idProducto = ?");
         q.setParameters(idCarrito, idProducto);
-        long existe = (long) q.executeUnique();
-        if (existe != 0)
+   
+        if (q.executeList().size()!=0)
         {
             Query a = pm.newQuery(SQL, "UPDATE " + ps.darTablaVendeCarrito () + " SET cantidadCarrito = cantidadCarrito + ? WHERE idCarrito = ? AND idProducto = ? ");
             a.setParameters(cantidadCarrito, idCarrito, idProducto);
             return (long) a.executeUnique();
         }
         else {
-            Query b = pm.newQuery(SQL, "INSERT INTO " + ps.darTablaVendeCarrito() + "(idCarrito, idProducto, cantidadCarrito) values (?, ?, ?)");
+            Query b = pm.newQuery(SQL, "INSERT INTO " + ps.darTablaVendeCarrito() + " (idCarrito, idProducto, cantidadCarrito) values (?, ?, ?)");
             b.setParameters(idCarrito, idProducto, cantidadCarrito);
             return (long) b.executeUnique();
         }
