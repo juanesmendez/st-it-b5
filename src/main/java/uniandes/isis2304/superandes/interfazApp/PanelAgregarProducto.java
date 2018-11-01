@@ -132,13 +132,13 @@ public class PanelAgregarProducto extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				int fila = tabla.getSelectedRow();
 				if(fila != -1 && !fieldCantidad.getText().equals("")) {
-					int cantidadTotal = Integer.valueOf(tabla.getValueAt(fila, 3).toString());
+
 					int cantidadCarrito = Integer.valueOf(fieldCantidad.getText());
 					int idEstante = Integer.valueOf(tabla.getValueAt(fila, 4).toString());
 					int idProducto = Integer.valueOf(tabla.getValueAt(fila, 0).toString());
 					//System.out.println("IDESTANTE: "+tabla.getValueAt(fila, 4).toString());
 					
-					padre.adicionarProductoACarrito(idCliente,idCarrito,idSucursal, cantidadTotal,cantidadCarrito,idEstante,idProducto);
+					padre.adicionarProductoACarrito(idCliente,idCarrito,idSucursal, cantidadCarrito,idEstante,idProducto);
 					//tabla.getValueAt(fila, column)
 				}else {
 					

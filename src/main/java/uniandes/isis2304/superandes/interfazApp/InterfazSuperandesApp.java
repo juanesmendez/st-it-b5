@@ -371,11 +371,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 	}
 	
-	public void adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal, int cantidadTotal,
+	public void adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal, 
 			int cantidadCarrito, int idEstante, int idProducto) {
 		
 		try {
-			List<Object[]> listaItems = superandes.adicionarProductoACarrito(idCliente,idCarrito,idSucursal,cantidadTotal,cantidadCarrito,idEstante,idProducto);
+			List<Object[]> listaItems = superandes.adicionarProductoACarrito(idCliente,idCarrito,idSucursal,cantidadCarrito,idEstante,idProducto);
 			
 			//Añadir llamado a metodo sql que hace joins para poder mostrar items en carrito
 			panelCarrito.actualizarTablaProductos(listaItems);

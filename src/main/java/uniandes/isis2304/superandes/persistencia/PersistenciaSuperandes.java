@@ -1172,14 +1172,14 @@ public class PersistenciaSuperandes {
 		}
 	}
 	
-	public List<Object[]>  adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal, int cantidadTotal,
+	public List<Object[]>  adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal,
 			int cantidadCarrito, int idEstante, int idProducto) throws Exception {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 
 		try {
 			tx.begin();
-			
+			int cantidadTotal = sqlProductoEstante.darCantidadProducto(pm, idEstante, idProducto);
 			int cantidadNueva = cantidadTotal-cantidadCarrito;
 			if(cantidadNueva < 0 ) {
 				throw new Exception("La cantidad solicitada supera la cantidad disponible en estante");
