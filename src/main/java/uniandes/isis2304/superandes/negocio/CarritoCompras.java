@@ -1,5 +1,7 @@
 package uniandes.isis2304.superandes.negocio;
 
+import java.math.BigDecimal;
+
 /**
  * Clase para modelar el concepto CARRITOCOMPRAS del negocio de SuperAndes.
  *
@@ -43,7 +45,7 @@ public class CarritoCompras implements VOCarritoCompras {
     public CarritoCompras()
     {
         this.setId(0);
-        this.setEstado(null);
+        this.setEstado("");
         this.setIdCliente(0);
         this.setIdSucursal(0);
     }
@@ -55,20 +57,22 @@ public class CarritoCompras implements VOCarritoCompras {
      * @param idSucursal - El identificador de la sucursal.
      */
 
-    public CarritoCompras(long id, String estado, long idCliente, long idSucursal)
+    public CarritoCompras(long id, String estado, Long idCliente, long idSucursal)
     {
-        this.setId(id);
-        this.setEstado(estado);
-        this.setIdCliente(idCliente);
-        this.setIdSucursal(idSucursal);
+        this.id = id;
+        this.estado = estado;
+        this.idCliente = idCliente==null? -1:idCliente;
+        this.idSucursal = idSucursal;
     }
     
-    public CarritoCompras(long id, String estado, long idSucursal)
+    public CarritoCompras(long id, String estado,  long idSucursal)
     {
-        this.setId(id);
-        this.setEstado(estado);
-        this.setIdSucursal(idSucursal);
+        this.id = id;
+        this.estado = estado;
+        this.idSucursal = idSucursal;
     }
+    
+   
     /**
      * Retorna el identificador del carrito de compras.
      *
@@ -140,6 +144,14 @@ public class CarritoCompras implements VOCarritoCompras {
     public void setIdSucursal(long idSucursal) {
         this.idSucursal = idSucursal;
     }
+    
+	public void convertirACarrito(Object[] object) {
+		this.id = object[0] == null ? -1 :((BigDecimal) object[0]).longValue();
+		this.estado = object[1] ==null ? "" :(String)object[1];
+		this.idCliente = object[2] == null ? -1 :((BigDecimal) object[2]).longValue();
+		this.idSucursal = object[3] == null ? -1 :((BigDecimal) object[3]).longValue();
+	}
+    
     
     @Override
     public String toString() {

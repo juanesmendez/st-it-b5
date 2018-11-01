@@ -364,6 +364,14 @@ public class Superandes {
 		ps.agarrarCarrito(idSucursal,idCliente,idCarrito);
 	}
 
+	public List<Object[]> adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal, int cantidadTotal,
+			int cantidadCarrito, int idEstante, int idProducto) throws Exception {
+		
+		Log.info("Adicionando el producto " + idProducto + "al carrito " + idCarrito + " del cliente " + idCliente);
+		
+		return (List<Object[]>)ps.adicionarProductoACarrito(idCliente,idCarrito,idSucursal,cantidadTotal,cantidadCarrito,idEstante,idProducto);
+	}
+
 	
 
 

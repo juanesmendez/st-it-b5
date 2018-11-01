@@ -5,4 +5,6 @@ public interface VOCarritoCompras {
     String getEstado();
     long getIdCliente();
     long getIdSucursal();
+	void convertirACarrito(Object[] object);
+
 }
