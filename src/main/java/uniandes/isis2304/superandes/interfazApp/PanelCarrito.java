@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 import uniandes.isis2304.superandes.negocio.Item;
+import uniandes.isis2304.superandes.negocio.VOItem;
 
 public class PanelCarrito extends JPanel {
 
@@ -99,7 +101,6 @@ public class PanelCarrito extends JPanel {
 
 		//-----
 		items = new ArrayList<>();
-		items.add(new Item("1", "Papa", 3, 2000));
 		//-----
 		this.productos = new JTable(transformarMatriz(items), columnas);
 		//this.productos = new JTable(new DefaultTableModel(null,columnas));
@@ -159,35 +160,73 @@ public class PanelCarrito extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				parent.agregarProductoCarrito(idSucursal,idCliente,idCarrito);
+				parent.agregarProductoCarritoPanel(idSucursal,idCliente,idCarrito);
 			}
 		});
 		
 	}
 
 	public Object[][] transformarMatriz(List<Item> items) {
-		Object[][] matriz = new Object[items.size()][6];
-		int cont=0;
-		for(Item i:items) {
-			matriz[cont][0] = i.getIdProducto();
-			matriz[cont][1] = i.getNombre();
-			matriz[cont][2] = i.getCantidad();
-			matriz[cont][3] = i.getPrecio();
-			matriz[cont][4] = i.getSubTotal();
-	
-			cont++;
+		Object[][] matriz = new Object[items.size()][5];
+		
+		
+		if(items != null) {
+			int cont=0;
+			for(VOItem i:items) {
+				matriz[cont][0] = i.getIdProducto();
+				matriz[cont][1] = i.getNombre();
+				matriz[cont][2] = i.getCantidad();
+				matriz[cont][3] = i.getPrecio();
+				matriz[cont][4] = i.getSubTotal();
+		
+				cont++;
+			}
 		}
+		
 		return matriz;
+	}
+	
+	public void actualizarTablaProductos(List<Object[]> listaItems) {
+		//TODO
+		List<Item> items = new ArrayList<>();
+		for(int i = 0;i<listaItems.size();i++) {
+			
+			long idProducto = ((BigDecimal) listaItems.get(i)[0]).longValue();
+			String nombre = (String) listaItems.get(i)[1];
+			int cantidad = ((BigDecimal) listaItems.get(i)[2]).intValue();
+			double precio = ((BigDecimal) listaItems.get(i)[3]).doubleValue();
+			double subTotal = ((BigDecimal) listaItems.get(i)[4]).doubleValue();
+			
+			Item item = new Item(idProducto, nombre, cantidad, precio, subTotal);
+			System.out.println(item);
+			items.add(item);
+		}
+		actualizarLabelTotal(items);
+		Object[][] matriz = transformarMatriz(items);
+		remove(scrollPane);
+		productos = new JTable(matriz, this.columnas);
+		scrollPane = new JScrollPane(productos);
+		add(scrollPane, BorderLayout.CENTER);
+		
 	}
 
 
+	private void actualizarLabelTotal(List<Item> items2) {
+		// TODO Auto-generated method stub
+		this.labelTotalCarrito.setText("TOTAL: "+String.valueOf(calcularTotalCarrito(items)));
+	}
+
 	public double calcularTotalCarrito(List<Item> items) {
 		double total = 0;
-		for(Item i:items) {
+		for(VOItem i:items) {
 			total += i.getSubTotal();
 		}
 		return total;
 	}
 	
-	
+	@Override
+	public void repaint() {
+		// TODO Auto-generated method stub
+		super.repaint();
+	}
 }

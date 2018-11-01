@@ -27,6 +27,7 @@ import uniandes.isis2304.superandes.negocio.Categoria;
 import uniandes.isis2304.superandes.negocio.Cliente;
 import uniandes.isis2304.superandes.negocio.Estante;
 import uniandes.isis2304.superandes.negocio.Factura;
+import uniandes.isis2304.superandes.negocio.Item;
 import uniandes.isis2304.superandes.negocio.Orden;
 import uniandes.isis2304.superandes.negocio.Producto;
 import uniandes.isis2304.superandes.negocio.Proveedor;
@@ -157,6 +158,8 @@ public class PersistenciaSuperandes {
 	 * Atributo para el acceso a tabla CARRITOCOMPRAS en la base de datos
 	 */
 	private SQLCarritoCompras sqlCarritoCompras;
+	
+	private SQLVendeCarrito sqlVendeCarrito;
 
 	private PersistenciaSuperandes ()
 	{
@@ -268,6 +271,7 @@ public class PersistenciaSuperandes {
 		sqlVende = new SQLVende(this);
 		sqlPromocion = new SQLPromocion(this);
 		sqlCarritoCompras = new SQLCarritoCompras(this);
+		sqlVendeCarrito = new SQLVendeCarrito(this);
 		sqlUtil = new SQLUtil(this);
 
 	}
@@ -1004,7 +1008,7 @@ public class PersistenciaSuperandes {
 			long idCarrito = nextval();
 			sqlCarritoCompras.agregarCarritoCompras(pm, idCarrito, "DISPONIBLE",  (long)idSucursal);
 			tx.commit();
-			return new CarritoCompras(idCarrito, "DISPONIBLE", idSucursal);
+			return new CarritoCompras(idCarrito, "DISPONIBLE", null,idSucursal);
 			
 		}catch(javax.jdo.JDOException e) {
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
@@ -1136,10 +1140,27 @@ public class PersistenciaSuperandes {
 				throw new Exception ("El cliente no se encuentra en la base de datos de Superandes.");
 			}
 			//Añadir validación de que el carrito existe y modificar tablas
-			VOCarritoCompras carrito = sqlCarritoCompras.darCarritoComprasPorId(pm, idCarrito);
-			if(carrito == null) {
+			Object[] object = sqlCarritoCompras.darObjetoCarritoComprasPorId(pm, idCarrito);
+			VOCarritoCompras carrito = new CarritoCompras();
+			carrito.convertirACarrito(object);
+			System.out.println(carrito);
+			if(object == null) {
 				throw new Exception ("El carrito de compras no existe en la sucursal "+idSucursal);
 			}
+			if(carrito.getEstado().equals("DISPONIBLE")) {
+				//Actualizar la tupla en la tabla CarritoCompras con el ID de cliente y cambiar el estado a NO DISPONIBLE:
+				long tuplasActualizadas = sqlCarritoCompras.actualizarCarritoComprasEstadoYIdCliente(pm, idCarrito, "NO DISPONIBLE", idCliente);
+				if(tuplasActualizadas == 0) {
+					throw new Exception ("No se logró agarrar el carrito con exito");
+				}
+			}else {
+				throw new Exception("El carrito no se encuentra disponible. Otro cliente lo tiene agarrado");
+			}
+			
+			
+		
+			
+			
 			tx.commit();
 		}catch(javax.jdo.JDOException e) {
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
@@ -1150,6 +1171,47 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
+	
+	public List<Object[]>  adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal, int cantidadTotal,
+			int cantidadCarrito, int idEstante, int idProducto) throws Exception {
+		// TODO Auto-generated method stub
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			//Busco la orden en la base de datos
+			int cantidadNueva = cantidadTotal-cantidadCarrito;
+			if(cantidadNueva < 0 ) {
+				throw new Exception("La cantidad solicitada supera la cantidad disponible en estante");
+			}
+			
+			long tuplasActualizadas = sqlProductoEstante.actualizarCantidadEstantePorCarrito(pm, (long)idEstante, (long)idProducto, cantidadNueva);
+			if(tuplasActualizadas == 0) {
+				throw new Exception("No se pudo actualizar la cantidad en estantes");
+			}
+			
+			tuplasActualizadas = sqlVendeCarrito.agregarVendeCarrito(pm, idCarrito, (long) idProducto, cantidadCarrito);
+			if(tuplasActualizadas == 0) {
+				throw new Exception("No se pudo insertar el producto al carrito");
+			}
+			
+			List<Object[]> listaItems = sqlVendeCarrito.darListaItems(pm,idCarrito);
+			
+			tx.commit();
+			
+			return listaItems;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
 	
 	public List<Object[]> darProductosDisponiblesSucursal(int idSucursal) {
 		// TODO Auto-generated method stub
@@ -1204,6 +1266,7 @@ public class PersistenciaSuperandes {
 		return resp;
 	}
 
+	
 	
 
 	
