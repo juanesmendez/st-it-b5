@@ -1924,3 +1924,29 @@ ORA-00923: FROM keyword not found where expected
 16:45:06,649 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
 16:45:06,663 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:2 existentes
 16:45:53,823 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Abandonando el carrito 143
+16:51:44,808 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando producto 25 en sucursal 38
+16:51:44,840 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando producto 25 en sucursal 38
+16:53:35,842 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando estante
+16:53:35,897 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "INSERT INTO ESTANTEVALUES (?,?,?,?,?,?)".
+ORA-00928: missing SELECT keyword
+
+16:53:35,903 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando estantenull
+16:59:56,699 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:59:56,700 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:59:56,734 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:00:54,738 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando estante
+17:00:54,943 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Registrando estanteuniandes.isis2304.superandes.negocio.Estante@7b8a4183
+17:02:12,654 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Generando los VO de Producto
+17:02:12,709 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Generando los VO de Producto: 13 existentes
+17:03:32,838 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Agarrando el carrito 143 para el cliente1018500219 en la sucursal 38
+17:03:50,307 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+17:03:50,325 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+17:03:59,621 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 25al carrito 143 del cliente 1018500219
+17:04:00,452 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+17:04:00,467 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+17:04:04,588 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 23al carrito 143 del cliente 1018500219
+17:04:05,567 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+17:04:05,584 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+17:04:09,506 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 24al carrito 143 del cliente 1018500219
+17:04:11,668 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+17:04:11,692 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
