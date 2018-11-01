@@ -336,7 +336,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			}
 
 		}catch(Exception e) {
-			JOptionPane.showMessageDialog(this, e.getMessage(), "Error registrando proveedor", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error agarrando carrito", JOptionPane.ERROR_MESSAGE);
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
@@ -377,7 +377,6 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			
 			panelAgregarProducto.dispose();
 			panelCarrito.repaint();
-			
 			panelCarrito.revalidate();
 			
 			//TODO chequear comoc errar el panel de agregarproducto
