@@ -1843,3 +1843,18 @@ ORA-00923: FROM keyword not found where expected
 16:02:03,629 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
 16:02:03,630 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
 16:02:03,644 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:03:50,103 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Agarrando el carrito 181 para el cliente1018510315 en la sucursal 38
+16:03:51,945 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+16:03:51,962 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:2 existentes
+16:03:56,889 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 23al carrito 181 del cliente 1018510315
+16:03:57,650 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+16:03:57,665 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:2 existentes
+16:04:01,209 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 24al carrito 181 del cliente 1018510315
+16:04:04,046 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Abandonando el carrito 181
+16:04:04,071 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error con la ejecucion de Query de SQL "SELECT VENDECARRITO.idProducto AS IDPRODUCTO, ESTANTE.Id AS ESTANTE PRODUCTO.NOMBRE AS NOMBRE, VENDECARRITO.cantidadcarrito AS CANTIDAD, VENDE.precio AS PRECIO, (VENDE.PRECIO * VENDECARRITO.CANTIDADCARRITO) AS SUBTOTAL FROM((VENDECARRITO INNER JOIN CARRITOCOMPRAS ON CARRITOCOMPRAS.id = VENDECARRITO.idCarrito INNER JOIN VENDE ON CARRITOCOMPRAS.idSucursal = VENDE.idSucursal AND VENDE.idProducto = VENDECARRITO.idProducto) INNER JOIN PRODUCTO ON VENDECARRITO.idProducto = PRODUCTO.id) INNER JOIN ESTANTE ON ESTANTE.idSucursal = CARRITOCOMPRAS.idSucursal AND ESTANTE.idTipoProducto = PRODUCTO.idTipoProductoWHERE CARRITOCOMPRAS.id = ?".
+ORA-00923: palabra clave FROM no encontrada donde se esperaba
+
+16:05:52,042 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:05:52,044 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:05:52,059 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:06:05,283 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Agarrando el carrito 161 para el cliente1018510315 en la sucursal 38

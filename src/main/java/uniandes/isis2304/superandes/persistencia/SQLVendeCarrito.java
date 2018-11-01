@@ -82,7 +82,7 @@ public class SQLVendeCarrito {
 				"INNER JOIN " + ps.darTablaCarritoCompras() + " ON "+ ps.darTablaCarritoCompras() + ".id = " + ps.darTablaVendeCarrito() + ".idCarrito " + 
 				"INNER JOIN " + ps.darTablaVende() + " ON " + ps.darTablaCarritoCompras() + ".idSucursal = "+ ps.darTablaVende() + ".idSucursal AND " + ps.darTablaVende() + ".idProducto = " + ps.darTablaVendeCarrito() + ".idProducto) " + 
 				"INNER JOIN " + ps.darTablaProductos() + " ON " + ps.darTablaVendeCarrito() + ".idProducto = " + ps.darTablaProductos() + ".id) " + 
-				"INNER JOIN " + ps.darTablaEstantes() + " ON " + ps.darTablaEstantes() + ".idSucursal = " + ps.darTablaCarritoCompras() + ".idSucursal AND " + ps.darTablaEstantes() + ".idTipoProducto = " + ps.darTablaProductos() + ".idTipoProducto" +
+				"INNER JOIN " + ps.darTablaEstantes() + " ON " + ps.darTablaEstantes() + ".idSucursal = " + ps.darTablaCarritoCompras() + ".idSucursal AND " + ps.darTablaEstantes() + ".idTipoProducto = " + ps.darTablaProductos() + ".idTipoProducto " +
 				"WHERE " + ps.darTablaCarritoCompras() + ".id = ?";
 		Query q = pm.newQuery(SQL,sql);
 		q.setParameters(idCarrito);
