@@ -1365,3 +1365,8 @@ ORA-00923: FROM keyword not found where expected
 20:56:26,758 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:2 existentes
 20:56:34,501 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
 20:56:34,514 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:2 existentes
+21:50:59,408 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:50:59,409 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+21:50:59,466 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:51:36,918 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:51:36,937 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:2 existentes
