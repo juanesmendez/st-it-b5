@@ -169,15 +169,14 @@ public class PanelCarrito extends JPanel {
 					int idProducto = Integer.valueOf(productos.getValueAt(fila, 0).toString());
 					int cantidadCarrito = Integer.valueOf(productos.getValueAt(fila, 2).toString());
 					int idEstante = -1;
-					int cantidadEnEstante = -1;
 					for(Object[] obj:listaProductosPanelAgregar) {
 						if(Integer.valueOf(obj[0].toString()) == idProducto) {
 							idEstante = Integer.valueOf(obj[4].toString());
-							cantidadEnEstante = Integer.valueOf(obj[3].toString());
+							
 						}
 					}
 					System.out.println("ID ESTANTE: "+idEstante);
-					parent.devolverProductoCarrito(idProducto,cantidadCarrito,idEstante,cantidadEnEstante);
+					parent.devolverProductoCarrito(idProducto,cantidadCarrito,idEstante);
 				}else {
 					JOptionPane.showMessageDialog(parent, "Se debe seleccionar una fila de la tabla para continuar", "Error eliminando producto del carrito", JOptionPane.ERROR_MESSAGE);
 				}

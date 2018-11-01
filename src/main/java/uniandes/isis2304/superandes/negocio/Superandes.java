@@ -371,11 +371,11 @@ public class Superandes {
 		return (List<Object[]>)ps.adicionarProductoACarrito(idCliente,idCarrito,idSucursal,cantidadTotal,cantidadCarrito,idEstante,idProducto);
 	}
 
-	public List<Object[]> devolverProductoCarrito(int idProducto, int idCarrito, int cantidadCarrito, int idEstante, int cantidadEnEstante) throws Exception {
+	public List<Object[]> devolverProductoCarrito(int idProducto, int idCarrito, int cantidadCarrito, int idEstante) throws Exception {
 		// TODO Auto-generated method stub
 		log.info("Devolviendo el producto " + idProducto + "del carrito " + idCarrito);
 		
-		return (List<Object[]>) ps.devolverProductoCarrito(idProducto,idCarrito,cantidadCarrito,idEstante,cantidadEnEstante);
+		return (List<Object[]>) ps.devolverProductoCarrito(idProducto,idCarrito,cantidadCarrito,idEstante);
 	}
 
 	

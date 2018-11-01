@@ -1211,12 +1211,13 @@ public class PersistenciaSuperandes {
 		}
 	}
 	
-	public List<Object[]> devolverProductoCarrito(int idProducto, int idCarrito, int cantidadCarrito, int idEstante, int cantidadEnEstante) throws Exception {
+	public List<Object[]> devolverProductoCarrito(int idProducto, int idCarrito, int cantidadCarrito, int idEstante) throws Exception {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 
 		try {
 			tx.begin();
+			int cantidadEnEstante = sqlProductoEstante.darCantidadProducto(pm, idEstante, idProducto);
 			int cantidadNueva = cantidadEnEstante + cantidadCarrito;
 			long tuplasActualizadas = sqlProductoEstante.actualizarCantidadEstantePorCarrito(pm, (long)idEstante, (long)idProducto, cantidadNueva);
 			if(tuplasActualizadas == 0) {

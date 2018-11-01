@@ -393,9 +393,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		
 	}
 	
-	public void devolverProductoCarrito(int idProducto, int cantidadCarrito, int idEstante,int cantidadEnEstante) {
+	public void devolverProductoCarrito(int idProducto, int cantidadCarrito, int idEstante) {
 		try {
-			List<Object[]> listaItems = superandes.devolverProductoCarrito(idProducto,panelCarrito.getIdCarrito(),cantidadCarrito,idEstante,cantidadEnEstante);
+			List<Object[]> listaItems = superandes.devolverProductoCarrito(idProducto,panelCarrito.getIdCarrito(),cantidadCarrito,idEstante);
 			
 			//Añadir llamado a metodo sql que hace joins para poder mostrar items en carrito
 			panelCarrito.actualizarTablaProductos(listaItems);

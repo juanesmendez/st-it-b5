@@ -1,5 +1,6 @@
 package uniandes.isis2304.superandes.persistencia;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,5 +63,13 @@ public class SQLProductoEstante {
         Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaProductoEstante () + " SET  cantidad = ? where idEstante = ? AND idProducto = ? ");
         q.setParameters(cantidad, idEstante, idProducto);
         return (long) q.executeUnique();
+	}
+	
+	public int darCantidadProducto(PersistenceManager pm, long idEstante, long idProducto)
+	{
+		  Query q = pm.newQuery(SQL, "SELECT cantidad FROM " + ps.darTablaProductoEstante () + " where idEstante = ? AND idProducto = ? ");
+	        q.setParameters(idEstante, idProducto);
+	        return (int) ((BigDecimal)((Object[])q.executeUnique())[0]).intValue();
+	        
 	}
 }
