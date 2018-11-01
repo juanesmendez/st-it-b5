@@ -1174,13 +1174,12 @@ public class PersistenciaSuperandes {
 	
 	public List<Object[]>  adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal, int cantidadTotal,
 			int cantidadCarrito, int idEstante, int idProducto) throws Exception {
-		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 
 		try {
 			tx.begin();
-			//Busco la orden en la base de datos
+			
 			int cantidadNueva = cantidadTotal-cantidadCarrito;
 			if(cantidadNueva < 0 ) {
 				throw new Exception("La cantidad solicitada supera la cantidad disponible en estante");
@@ -1200,6 +1199,35 @@ public class PersistenciaSuperandes {
 			
 			tx.commit();
 			
+			return listaItems;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public List<Object[]> devolverProductoCarrito(int idProducto, int idCarrito, int cantidadCarrito, int idEstante, int cantidadEnEstante) throws Exception {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			int cantidadNueva = cantidadEnEstante + cantidadCarrito;
+			long tuplasActualizadas = sqlProductoEstante.actualizarCantidadEstantePorCarrito(pm, (long)idEstante, (long)idProducto, cantidadNueva);
+			if(tuplasActualizadas == 0) {
+				throw new Exception("No se pudo actualizar la cantidad en estantes");
+			}
+			tuplasActualizadas = sqlVendeCarrito.eliminarVendeCarrito(pm, idCarrito, (long) idProducto);
+			if(tuplasActualizadas == 0) {
+				throw new Exception("No se pudo eliminar el producto del carrito");
+			}
+			List<Object[]> listaItems = sqlVendeCarrito.darListaItems(pm,idCarrito);
+			tx.commit();
 			return listaItems;
 		}catch(javax.jdo.JDOException e) {
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
@@ -1265,6 +1293,8 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
 
 	
 	
