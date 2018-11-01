@@ -734,6 +734,9 @@ public class PersistenciaSuperandes {
 			}
 			long idEstante = nextval();
 			long tuplasInsertadas = sqlEstante.agregarEstante(pm,idEstante,idSucursal,idTipoProducto,volumen,peso,niveAbastecimiento);
+			if(tuplasInsertadas == 0) {
+				throw new Exception("No se pudo agregar el estante");
+			}
 			log.trace ("Inserción estante: " + idEstante+ ": " + tuplasInsertadas + " tuplas insertadas");
 			tx.commit();
 			return new Estante(idEstante, idSucursal, idTipoProducto, volumen, peso,niveAbastecimiento);
