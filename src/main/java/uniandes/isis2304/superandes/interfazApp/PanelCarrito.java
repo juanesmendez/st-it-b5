@@ -267,13 +267,13 @@ public class PanelCarrito extends JPanel {
 		//this.labelTotalCarrito.revalidate();
 	}
 
-	public double calcularTotalCarrito(List<Item> items) {
+	public int calcularTotalCarrito(List<Item> items) {
 		double total = 0;
 		for(VOItem i:items) {
 			total += i.getSubTotal();
 		}
-		System.out.println("TOTAL CARRITO: "+total);
-		return total;
+		//System.out.println("TOTAL CARRITO: "+ (int) total);
+		return (int) total;
 	}
 	
 	@Override
