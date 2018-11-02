@@ -382,29 +382,14 @@ public class Superandes {
 		ps.abandonarCarrito(idCarrito);
 	}
 
-	
+	public Factura pagarProductosCarrito(int idCarrito, int idCliente, int idSucursal) throws Exception {
+		log.info("Pagando productos del carrito " + idCarrito + " del cliente " + idCliente + " en la sucursal " + idSucursal);
+		return ps.pagarProductosCarrito(idCarrito,idCliente,idSucursal);
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	public List<Object[]> generarInfoFactura(long idFactura) throws Exception {
+		log.info("Generando informacion de factura " + idFactura);
+		return (List<Object[]>) ps.generarInfoFactura(idFactura);
+	}
 
 }
