@@ -2,7 +2,9 @@ package uniandes.isis2304.superandes.persistencia;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
@@ -158,7 +160,7 @@ public class PersistenciaSuperandes {
 	 * Atributo para el acceso a tabla CARRITOCOMPRAS en la base de datos
 	 */
 	private SQLCarritoCompras sqlCarritoCompras;
-	
+
 	private SQLVendeCarrito sqlVendeCarrito;
 
 	private PersistenciaSuperandes ()
@@ -469,7 +471,7 @@ public class PersistenciaSuperandes {
 		// TODO Auto-generated method stub
 		return (List<Producto>) sqlProducto.darProductos(pmf.getPersistenceManager());
 	}
-	
+
 	public List<Orden> darOrdenes() {
 		// TODO Auto-generated method stub
 		return (List<Orden>) sqlOrden.darOrdenes(pmf.getPersistenceManager());
@@ -488,7 +490,7 @@ public class PersistenciaSuperandes {
 			tx.begin();
 			long idProveedor = nextval();
 			long tuplasInsertadas = sqlProveedor.agregarProveedor(pm,idProveedor,nit,nombreProveedor);
-			
+
 			log.trace ("Inserción proveedor: " + idProveedor + ": " + tuplasInsertadas + " tuplas insertadas");
 			tx.commit();
 			return new Proveedor(idProveedor, nit, nombreProveedor);
@@ -516,7 +518,7 @@ public class PersistenciaSuperandes {
 			tx.begin();
 			long idCategoria = nextval();
 			long tuplasInsertadas = sqlCategoria.agregarCategoria(pm,idCategoria,nombre);
-			
+
 			log.trace ("Inserción categoria: " + idCategoria + ": " + tuplasInsertadas + " tuplas insertadas");
 			tx.commit();
 			return new Categoria(idCategoria, nombre);
@@ -529,7 +531,7 @@ public class PersistenciaSuperandes {
 			}
 			pm.close();
 		}
-		
+
 		return null;
 	}
 	/**
@@ -548,7 +550,7 @@ public class PersistenciaSuperandes {
 	public Producto registrarProducto(String nombre, String marca, long idTipoproducto, String presentacion,
 			double cantPres, String uniMed, double volEmpaque, double pesoEmpaque, String codBarras) {
 		// TODO Auto-generated method stub
-		
+
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try {
@@ -583,7 +585,7 @@ public class PersistenciaSuperandes {
 	public Vende registrarProductoEnSucursal(long idProducto, long idSucursal, double precioProducto,
 			double precioUniMedida, int nivReorden, int cantRecompra) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try {
@@ -597,11 +599,11 @@ public class PersistenciaSuperandes {
 				throw new Exception("El producto no existe");
 			}
 			long tuplasInsertadas = sqlVende.agregarVende(pm,idSucursal,idProducto,precioProducto,precioUniMedida,nivReorden,cantRecompra);
-			
+
 			log.trace ("Inserción en la tabla vende: " + idProducto + ": " + tuplasInsertadas + " tuplas insertadas");
 			tx.commit();
 			return new Vende(idSucursal, idProducto, precioProducto, precioUniMedida, nivReorden, cantRecompra);
-			
+
 		}catch(javax.jdo.JDOException e) {
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 
@@ -641,7 +643,7 @@ public class PersistenciaSuperandes {
 			}
 			pm.close();
 		}
-		
+
 		return null;
 	}
 	/**
@@ -688,7 +690,7 @@ public class PersistenciaSuperandes {
 		Transaction tx=pm.currentTransaction();
 		try {
 			tx.begin();
-			
+
 			Sucursal sucursal = sqlSucursal.darSucursal(pm,idSucursal);
 			if(sucursal == null) {
 				throw new Exception("La sucursal no existe");
@@ -711,19 +713,19 @@ public class PersistenciaSuperandes {
 			}
 			pm.close();
 		}
-		
+
 		return null;
 	}
-	
+
 	public Estante registrarEstante(long idSucursal, long idTipoProducto, double volumen, double peso,
 			int niveAbastecimiento) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try {
 			tx.begin();
-			
+
 			Sucursal sucursal = sqlSucursal.darSucursal(pm,idSucursal);
 			if(sucursal == null) {
 				throw new Exception("La sucursal no existe");
@@ -751,7 +753,7 @@ public class PersistenciaSuperandes {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Método que registra un pedido de una Sucursal a un Proveedor, teniendo en cuenta el nivel de reorden del prducto y que haya capacidad de almacenamiento tanto en
 	 * bodega como estantes para los productos a solicitar
@@ -814,7 +816,7 @@ public class PersistenciaSuperandes {
 			/*
 			Object[] aux = (Object[]) answer;
 			idTipoProducto = ((BigDecimal)aux[0]).intValue();
-			*/
+			 */
 			//---PRUEBA
 			System.out.println("ID TIPO PRODUCTO: "+ idTipoProducto);
 			Object infoCapacidadTotalBodega = sqlBodega.darVolumenYPesoTotalCapacidad(pm,idSucursal,idTipoProducto);
@@ -848,7 +850,7 @@ public class PersistenciaSuperandes {
 			double capDisponiblePesEst = capPesoEst - capPesoOcuEst;
 
 			//Averiguar la capacidad que se necesitara guardar
-			
+
 			double volumenRequerido = vende.getCantRecompra() * producto.getVolEmpaque();
 			double pesoRequerido = vende.getCantRecompra() * producto.getPesoEmpaque();
 
@@ -957,23 +959,23 @@ public class PersistenciaSuperandes {
 			}
 			//Agregar soporte para poder comprar promociones
 			Object answer = sqlEstante.darCantidadTotalDeUnProducto(pm,idSucursal,idProducto);
-		
+
 			if(answer == null) {
 				throw new Exception("El producto no se ha puesto en estantes por ende no se puede vender");
 			}
-			
+
 			Object[] tupla = (Object[]) answer;
 			long cantidadTotalEnEstantes = ((BigDecimal)tupla[1]).longValue(); 
 			if(numUnidades > cantidadTotalEnEstantes) {
 				throw new Exception("La cantidad a comprar supera la cantidad en estantes");
 			}
-			
+
 			long tuplasActualizadas = sqlProductoEstante.actualizarCantidad(pm,idSucursal,idProducto,numUnidades);
 			if(tuplasActualizadas == 0) {
 				throw new Exception("Error intentando actualizar el inventario");
 			}
 			//Chequear nivel de reabastecimiento para pedir a proveedor
-			
+
 			double total = vende.getPrecio() * numUnidades;
 			long idFactura = nextval();
 			Timestamp fecha = Timestamp.valueOf(LocalDateTime.now());
@@ -991,7 +993,7 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
-	
+
 	public CarritoCompras registrarCarritoSucursal(int idSucursal) throws Exception {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -999,20 +1001,20 @@ public class PersistenciaSuperandes {
 
 		try {
 			tx.begin();
-			
+
 			Sucursal sucursal = sqlSucursal.darSucursal(pm,idSucursal);
 			if(sucursal == null) {
 				throw new Exception("La sucursal no existe");
 			}
-			
-			
-			
+
+
+
 			//long tuplasInsertadas = sqlCarritoCompras.agregarCarritoCompras(pm, id, estado, idCliente)
 			long idCarrito = nextval();
 			sqlCarritoCompras.agregarCarritoCompras(pm, idCarrito, "DISPONIBLE",  (long)idSucursal);
 			tx.commit();
 			return new CarritoCompras(idCarrito, "DISPONIBLE", null,idSucursal);
-			
+
 		}catch(javax.jdo.JDOException e) {
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 			return null;
@@ -1023,8 +1025,8 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
-	
-	
+
+
 	public List<Object[]> consultarDineroRecolectadoSucursales(Timestamp fechaInicio, Timestamp fechaFinal) {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -1033,7 +1035,7 @@ public class PersistenciaSuperandes {
 		try {
 			tx.begin();
 			//Busco la orden en la base de datos
-			
+
 			List<Object[]> lista = sqlFactura.darDineroRecolectadoSucursales(pm,fechaInicio,fechaFinal);
 			tx.commit();
 			return lista;
@@ -1046,9 +1048,9 @@ public class PersistenciaSuperandes {
 			}
 			pm.close();
 		}
-		
+
 	}
-	
+
 	public List<Object[]> consultarIndiceOcupacionEstantesPorSucursal(int idSucursal) throws Exception {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -1074,7 +1076,7 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
-	
+
 	public List<Object[]> consultarIndiceOcupacionBodegasPorSucursal(int idSucursal) throws Exception {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -1100,7 +1102,7 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
-	
+
 	public List<Factura> consultarVentasUsuarioEnRango(String idUsuario,Timestamp fechaInicio, Timestamp fechaFinal) {
 		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -1109,7 +1111,7 @@ public class PersistenciaSuperandes {
 		try {
 			tx.begin();
 			//Busco la orden en la base de datos
-			
+
 			List<Factura> lista = sqlFactura.darVentasUsuarioEnRango(pm,idUsuario,fechaInicio,fechaFinal);
 			tx.commit();
 			return lista;
@@ -1132,12 +1134,12 @@ public class PersistenciaSuperandes {
 		try {
 			tx.begin();
 			//Busco la orden en la base de datos
-			
+
 			VOSucursal sucursal = sqlSucursal.darSucursal(pm, idSucursal);
 			if(sucursal == null) {
 				throw new Exception ("La sucursal no existe.");
 			}
-			
+
 			Object cliente = sqlCliente.darCliente(pm, idCliente);
 			if(cliente == null) {
 				throw new Exception ("El cliente no se encuentra en la base de datos de Superandes.");
@@ -1159,11 +1161,11 @@ public class PersistenciaSuperandes {
 			}else {
 				throw new Exception("El carrito no se encuentra disponible. Otro cliente lo tiene agarrado");
 			}
-			
-			
-		
-			
-			
+
+
+
+
+
 			tx.commit();
 		}catch(javax.jdo.JDOException e) {
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
@@ -1174,7 +1176,7 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
-	
+
 	public List<Object[]>  adicionarProductoACarrito(long idCliente, long idCarrito, long idSucursal,
 			int cantidadCarrito, int idEstante, int idProducto) throws Exception {
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -1187,21 +1189,21 @@ public class PersistenciaSuperandes {
 			if(cantidadNueva < 0 ) {
 				throw new Exception("La cantidad solicitada supera la cantidad disponible en estante");
 			}
-			
+
 			long tuplasActualizadas = sqlProductoEstante.actualizarCantidadEstantePorCarrito(pm, (long)idEstante, (long)idProducto, cantidadNueva);
 			if(tuplasActualizadas == 0) {
 				throw new Exception("No se pudo actualizar la cantidad en estantes");
 			}
-			
+
 			tuplasActualizadas = sqlVendeCarrito.agregarVendeCarrito(pm, idCarrito, (long) idProducto, cantidadCarrito);
 			if(tuplasActualizadas == 0) {
 				throw new Exception("No se pudo insertar el producto al carrito");
 			}
-			
+
 			List<Object[]> listaItems = sqlVendeCarrito.darListaItems(pm,idCarrito);
-			
+
 			tx.commit();
-			
+
 			return listaItems;
 		}catch(javax.jdo.JDOException e) {
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
@@ -1213,7 +1215,7 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
-	
+
 	public List<Object[]> devolverProductoCarrito(int idProducto, int idCarrito, int cantidadCarrito, int idEstante) throws Exception {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
@@ -1243,7 +1245,7 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
-	
+
 	public void abandonarCarrito(int idCarrito) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
@@ -1259,15 +1261,15 @@ public class PersistenciaSuperandes {
 				int cantidadCarrito = ((BigDecimal) obj[3]).intValue();
 				double precio = ((BigDecimal) obj[4]).doubleValue();
 				double subtotal = ((BigDecimal) obj[5]).doubleValue();
-				
-				
+
+
 				int cantidadEnEstante = sqlProductoEstante.darCantidadProducto(pm, idEstante, idProducto);
 				int cantidadNueva = cantidadEnEstante + cantidadCarrito;
 				long tuplasActualizadas = sqlProductoEstante.actualizarCantidadEstantePorCarrito(pm, (long)idEstante, (long)idProducto, cantidadNueva);
 				long tuplasBorradas = sqlVendeCarrito.eliminarVendeCarrito(pm, idCarrito, idProducto);
 			}
 			sqlCarritoCompras.actualizarCarritoComprasAbandonado(pm, idCarrito, "DISPONIBLE");
-			
+
 			tx.commit();
 		}catch(javax.jdo.JDOException e) {
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
@@ -1277,22 +1279,67 @@ public class PersistenciaSuperandes {
 			}
 			pm.close();
 		}
-		
+
 	}
 
-	
-	
+	public Factura pagarProductosCarrito(int idCarrito, int idCliente, int idSucursal) throws Exception {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		
+		tx.setOptimistic(false); //CHEQUEAR SI ESTA LINEA ESTA CORRECTO
+		try {
+			tx.begin();
+			List<Object[]> listaItemsAPagar = sqlVendeCarrito.darListaItemsParaBorrar(pm, idCarrito);
+			List<Item> items = new ArrayList<>();
+			double totalCompra=0;
+			for(Object[] obj:listaItemsAPagar){
+				//Campos de la consulta
+				long idProducto = ((BigDecimal) obj[0]).longValue();
+				long idEstante = ((BigDecimal) obj[1]).longValue();
+				String nombre = (String) obj[2];
+				int cantidadCarrito = ((BigDecimal) obj[3]).intValue();
+				double precio = ((BigDecimal) obj[4]).doubleValue();
+				double subTotal = ((BigDecimal) obj[5]).doubleValue();
+				
+				totalCompra+=subTotal;
+				Item item = new Item(idProducto, nombre, cantidadCarrito, precio, subTotal);
+				items.add(item);
+			}
+			Timestamp fecha = Timestamp.valueOf(LocalDateTime.of(LocalDate.now().getYear(), LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth(), LocalDateTime.now().getHour(), LocalDateTime.now().getMinute()));
+			long idFactura = nextval();
+			long tuplasInsertadas = sqlFactura.agregarFactura(pm, idFactura, idCliente, idSucursal, fecha, totalCompra);
+			if(tuplasInsertadas == 0) {
+				throw new Exception("Error generando la factura de la compra");
+			}
+			for(Item i:items) {
+				sqlFacturaProducto.agregarFacturaProducto(pm, idFactura, i.getIdProducto(), i.getCantidad());
+				sqlVendeCarrito.eliminarVendeCarrito(pm, idCarrito, i.getIdProducto());
+			}
+			
+			sqlCarritoCompras.actualizarCarritoComprasAbandonado(pm, idCarrito, "DISPONIBLE");
+			tx.commit();
+			return new Factura(idFactura, idCliente, idSucursal, fecha, totalCompra);
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
 	public List<Object[]> darProductosDisponiblesSucursal(int idSucursal) {
-		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 
 		try {
 			tx.begin();
-			
+
 			List<Object[]> productos = sqlVende.darProductosDisponiblesSucursal(pm,idSucursal);
-			
-			
+
+
 			tx.commit();
 			return productos;
 		}catch(javax.jdo.JDOException e) {
@@ -1306,7 +1353,32 @@ public class PersistenciaSuperandes {
 		}
 	}
 	
-	
+	public List<Object[]> generarInfoFactura(long idFactura) throws Exception {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+
+			List<Object[]> infoFactura = sqlFactura.darInfoFactura(pm,idFactura);
+			if(infoFactura == null) {
+				throw new Exception("Error generando información de la factura");
+			}
+
+			tx.commit();
+			return infoFactura;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
 	/**
 	 * Transacción para el generador de secuencia de Superandes
 	 * Adiciona entradas al log de la aplicación
@@ -1335,48 +1407,52 @@ public class PersistenciaSuperandes {
 		return resp;
 	}
 
-
 	
 
-	
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
 
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

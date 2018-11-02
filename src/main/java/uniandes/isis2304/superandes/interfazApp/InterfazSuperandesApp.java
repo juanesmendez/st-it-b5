@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,6 +20,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Formatter;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -418,23 +420,66 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 	public void abandonarCarrito() {
 
 		try {
-			superandes.abandonarCarrito(this.panelCarrito.getIdCarrito());
-			
-			
-			
-			
+			superandes.abandonarCarrito(this.panelCarrito.getIdCarrito());			
 			remove(panelCarrito);
 			panelCarrito = new PanelCarrito();
 			add (panelCarrito,BorderLayout.EAST);
 			revalidate();
-
-			//Aca iran mas acciones con respecto a la devolucion de los rpoductos a sus estantes
-			//Se limpiara la tabla del carrito para que no este ocupado
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error abandonando carrito", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
 	}
+	
+	public void pagarProductosCarrito(int idCarrito, int idCliente, int idSucursal) {
+		try {
+			VOFactura factura = superandes.pagarProductosCarrito(idCarrito,idCliente,idSucursal);
+			if(factura !=null) {
+				JOptionPane.showMessageDialog(this, "Se realizo el pago con éxito! Puede revisar su factura en el panel de información. Que tenga un lindo día. Hasta pronto.", "Pago exitoso", JOptionPane.INFORMATION_MESSAGE);
+			}
+			remove(panelCarrito);
+			panelCarrito = new PanelCarrito();
+			add (panelCarrito,BorderLayout.EAST);
+			revalidate();
+			
+			//Añadir a panel de informacion la FACTURA y todos sus PRODUCTOS
+			
+			List<Object[]> infoFactura = superandes.generarInfoFactura(factura.getId());
+			listarInfoFactura(factura,infoFactura);
+			
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error pagando productos carrito", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+	}
+
+	private void listarInfoFactura(VOFactura factura, List<Object[]> infoFactura) {
+		//Formatter formatter = new Formatter(System.out);
+		String nombre ="";
+		int uniVendidas = 0;
+		double precio = 0;
+		double subTotal = 0;
+		String res = "";
+		
+		res += String.format("%-15s %5s %10s %10s\n", "Factura de venta: "+factura.getId(), "", "", "");
+		res += String.format("%-15s %5s %10s %10s\n", "FECHA: "+factura.getFecha(), "", "", "");
+		res += String.format("%-15s %5s %10s %10s\n", "------", "---", "-----", "-----");
+		res += String.format("%-15s %5s %10s %10s\n", "DESCRIPCION", "CANT", "PRECIO", "SUBTOTAL");
+		res += String.format("%-15s %5s %10s %10s\n", "------", "---", "-----", "-----");
+		for(Object[] obj:infoFactura) {
+			nombre = (String) obj[0];
+			uniVendidas = ((BigDecimal)obj[1]).intValue();
+			precio = ((BigDecimal)obj[2]).doubleValue();
+			subTotal = ((BigDecimal)obj[3]).doubleValue();
+			
+			res += String.format("%-15.15s %5d %10.2f %10.2f\n", nombre, uniVendidas, precio,subTotal);
+		}
+		res += String.format("%-15s %5s %10s %10s\n", "", "","", "-----");
+		res += String.format("%-15s %5s %10s %10.2f\n", "Total", "", "",factura.getTotal());
+		
+		panelDatos.actualizarInterfaz(res);
+	}
+
 
 	/**
 	 * Muestra en la interfaz todas las sucursales que se encuentran en la base de datos de Superandes
@@ -1579,6 +1624,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 	}
 
+
+	
 
 
 

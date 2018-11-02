@@ -183,6 +183,20 @@ public class PanelCarrito extends JPanel {
 			}
 		});
 		
+		botonComprar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if(items.size() > 0) {
+					parent.pagarProductosCarrito(idCarrito,idCliente,idSucursal);
+				}else {
+					JOptionPane.showMessageDialog(parent, "Se debe agregar al menos un producto para poder realizar la compra", "Error pagando productos del carrito", JOptionPane.ERROR_MESSAGE);
+				}
+				
+			}
+		});
+		
 	}
 	
 	public int getIdCarrito() {
