@@ -18,11 +18,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Formatter;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 import javax.jdo.JDODataStoreException;
 import javax.swing.ImageIcon;
@@ -48,6 +44,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
+import uniandes.isis2304.superandes.dependencias.Block;
+import uniandes.isis2304.superandes.dependencias.Board;
+import uniandes.isis2304.superandes.dependencias.Table;
 import uniandes.isis2304.superandes.negocio.Item;
 import uniandes.isis2304.superandes.negocio.Sucursal;
 import uniandes.isis2304.superandes.negocio.Superandes;
@@ -460,24 +459,36 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		double precio = 0;
 		double subTotal = 0;
 		String res = "";
-		
-		res += String.format("%-15s %5s %10s %10s\n", "Factura de venta: "+factura.getId(), "", "", "");
-		res += String.format("%-15s %5s %10s %10s\n", "FECHA: "+factura.getFecha(), "", "", "");
-		res += String.format("%-15s %5s %10s %10s\n", "------", "---", "-----", "-----");
-		res += String.format("%-15s %5s %10s %10s\n", "DESCRIPCION", "CANT", "PRECIO", "SUBTOTAL");
-		res += String.format("%-15s %5s %10s %10s\n", "------", "---", "-----", "-----");
+
+		List<String> headersList = Arrays.asList("DESCRIPCIÓN", "CANTIDAD", "PRECIO", "SUBTOTAL");
+		List<List<String>> rowsList = new ArrayList<>();
 		for(Object[] obj:infoFactura) {
 			nombre = (String) obj[0];
 			uniVendidas = ((BigDecimal)obj[1]).intValue();
 			precio = ((BigDecimal)obj[2]).doubleValue();
 			subTotal = ((BigDecimal)obj[3]).doubleValue();
-			
-			res += String.format("%-15.15s %5d %10.2f %10.2f\n", nombre, uniVendidas, precio,subTotal);
+			rowsList.add(Arrays.asList(nombre, uniVendidas+"", precio+"",subTotal + "" ));
 		}
+//bookmark 1
+		Board board = new Board(75);
+		Table table = new Table(board, 75, headersList, rowsList);
+		List<Integer> colAlignList = Arrays.asList(
+				Block.DATA_MIDDLE_LEFT,
+				Block.DATA_CENTER,
+				Block.DATA_CENTER,
+				Block.DATA_MIDDLE_RIGHT);
+		table.setColAlignsList(colAlignList);
+		String tableString = board.setInitialBlock(table.tableToBlocks()).build().getPreview();
+		/*res += String.format("%-15s %5s %10s %10s\n", "Factura de venta: "+factura.getId(), "", "", "");
+		res += String.format("%-15s %5s %10s %10s\n", "FECHA: "+factura.getFecha(), "", "", "");
+		res += String.format("%-15s %5s %10s %10s\n", "------", "---", "-----", "-----");
+		res += String.format("%-15s %5s %10s %10s\n", "DESCRIPCION", "CANT", "PRECIO", "SUBTOTAL");
+		res += String.format("%-15s %5s %10s %10s\n", "------", "---", "-----", "-----");
+
 		res += String.format("%-15s %5s %10s %10s\n", "", "","", "-----");
-		res += String.format("%-15s %5s %10s %10.2f\n", "Total", "", "",factura.getTotal());
+		res += String.format("%-15s %5s %10s %10.2f\n", "Total", "", "",factura.getTotal());*/
 		
-		panelDatos.actualizarInterfaz(res);
+		panelDatos.actualizarInterfaz(tableString);
 	}
 
 
@@ -1612,7 +1623,6 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 	{
 		try
 		{
-
 			// Unifica la interfaz para Mac y para Windows.
 			UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName( ) );
 			InterfazSuperandesApp interfaz = new InterfazSuperandesApp( );
@@ -1623,12 +1633,6 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace( );
 		}
 	}
-
-
-	
-
-
-
 
 
 }
