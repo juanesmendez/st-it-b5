@@ -32,6 +32,8 @@ import uniandes.isis2304.superandes.negocio.Factura;
 import uniandes.isis2304.superandes.negocio.Item;
 import uniandes.isis2304.superandes.negocio.Orden;
 import uniandes.isis2304.superandes.negocio.Producto;
+import uniandes.isis2304.superandes.negocio.Promocion;
+import uniandes.isis2304.superandes.negocio.Provee;
 import uniandes.isis2304.superandes.negocio.Proveedor;
 import uniandes.isis2304.superandes.negocio.Sucursal;
 import uniandes.isis2304.superandes.negocio.TipoProducto;
@@ -939,7 +941,6 @@ public class PersistenciaSuperandes {
 	 * @throws Exception 
 	 */
 	public Factura registrarVenta(long idSucursal, long idProducto, long idCliente, long numUnidades) throws Exception {
-		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 
@@ -983,6 +984,52 @@ public class PersistenciaSuperandes {
 			long tuplasInsertadas2 = sqlFacturaProducto.agregarFacturaProducto(pm,idFactura,idProducto,numUnidades);
 			tx.commit();
 			return new Factura(idFactura, idCliente, idSucursal, fecha, total);
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+	public Promocion registrarPromocion(long idSucursal, long idProducto, long idProveedor,long cantProd, Timestamp fechaInicio,
+			Timestamp fechaFin) throws Exception {
+	
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			Sucursal sucursal = sqlSucursal.darSucursal(pm,idSucursal);
+			if(sucursal == null) {
+				throw new Exception("La sucursal no existe");
+			}
+			Vende vende = sqlVende.darPorIdSucursalYIdProducto(pm, idSucursal, idProducto);
+			if(vende == null) {
+				throw new Exception ("La sucursal no vende ese producto");
+			}
+			Provee provee = sqlProvee.darProvee(pm, idProveedor, idProducto);
+			
+			if(provee == null) {
+				throw new Exception ("El proveedor no provee ese producto");
+			}
+			if(fechaInicio.before(Timestamp.valueOf(LocalDateTime.now()))) {
+				throw new Exception("La fecha de inicio no puede ser anterior a la fecha de hoy.");
+			}
+			if(fechaFin.before(Timestamp.valueOf(LocalDateTime.now()))) {
+				throw new Exception("La fecha de finalización no puede ser anterior a la fecha de hoy.");
+			}
+			if(cantProd < 1) {
+				throw new Exception("La cantidad de productos tiene que ser minimo 1");
+			}
+			long idPromocion = nextval();
+			sqlPromocion.agregarPromocion(pm, idPromocion, idProveedor, idProducto, (int)cantProd, true, fechaInicio, fechaFin, 0);
+			
+			tx.commit();
+			return new Promocion(idPromocion, idProveedor, idProducto, (int)cantProd, true, fechaInicio, fechaFin);
 		}catch(javax.jdo.JDOException e) {
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 			return null;
@@ -1406,6 +1453,7 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
 
 	
 

@@ -59,7 +59,6 @@ class SQLBodega {
 	}
 
 	public Object darCantidadTotalProductos(PersistenceManager pm, long  idSucursal, long idProducto) {
-		// TODO Auto-generated method stub
 		String sql = "SELECT "+ps.darTablaProductoBodega() + ".idProducto, SUM ("+ps.darTablaProductoBodega()+".cantidad) ";
 		sql += "FROM " + ps.darTablaBodegas() + " ";
 		sql += "INNER JOIN "+ps.darTablaProductoBodega()+" ON "+ps.darTablaBodegas()+".id = "+ps.darTablaProductoBodega()+".idBodega ";

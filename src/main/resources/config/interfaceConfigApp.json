@@ -78,6 +78,10 @@
 					"event": "registrarVenta"
 				},
 				{
+					"label": "Promocion",
+					"event": "registrarPromocion"
+				},
+				{
 					"label": "Carrito de compras a sucursal",
 					"event": "registrarCarritoSucursal"
 				}

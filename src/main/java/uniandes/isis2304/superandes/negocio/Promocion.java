@@ -235,5 +235,12 @@ public class Promocion implements VOPromocion {
         this.cantidadProductosVendidos = cantidadProductosVendidos;
     }
 
+    @Override
+    public String toString() {
+    	// TODO Auto-generated method stub
+    	return "Promocion[id="+id+", idProducto="+idProducto+", idProovedor="+idProveedor+", disponible="+disponible+
+				", cantidad productos="+cantidadProductos+", fecha inicio="+fechaInicio+", fecha fin="+fechaFin+
+				", cantidad productos vendidos="+cantidadProductosVendidos+"]";
+    }
 
 }

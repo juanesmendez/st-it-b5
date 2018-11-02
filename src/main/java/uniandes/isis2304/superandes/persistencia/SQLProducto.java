@@ -56,14 +56,12 @@ class SQLProducto {
 		return (long) q.executeUnique();
 	}
 	public Producto darProducto(PersistenceManager pm, long idProducto) {
-		// TODO Auto-generated method stub
 		Query q = pm.newQuery(SQL, "SELECT * FROM "+ps.darTablaProductos()+" WHERE id = ?");
 		q.setParameters(idProducto);
 		q.setResultClass(Producto.class);
 		return (Producto) q.executeUnique();
 	}
 	public Object darProductoOfrecidoPorSucursal(PersistenceManager pm,long idProducto, long idSucursal) {
-		// TODO Auto-generated method stub
 		String sql = "SELECT "+ ps.darTablaProductos()+".id, "+ps.darTablaCategoriaSucursal()+".idSucursal ";
 		sql += "FROM "+ps.darTablaProductos()+" ";
 		sql += "INNER JOIN "+ps.darTablaTipoProducto()+" ON "+ps.darTablaProductos()+".idTipoProducto = "+ps.darTablaTipoProducto()+".id ";
