@@ -1,0 +1,24 @@
+SUPERANDES SUPERMARKET: 224                            
+
+
+FACTURA DE VENTA: 224                            
+
+FECHA: 2018-11-02 21:43:00.0                            
+
+
+--------------- ----- ---------- ----------
+
+DESCRIPCION      CANT     PRECIO   SUBTOTAL
+
+--------------- ----- ---------- ----------
+
+Lechuga             5    3500,00   17500,00
+
+Yogurt              5    1500,00    7500,00
+
+Margarina           3    6000,00   18000,00
+
+                                      -----
+
+Total                              43000,00
+

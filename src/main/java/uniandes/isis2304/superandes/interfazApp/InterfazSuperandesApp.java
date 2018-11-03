@@ -7,9 +7,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -97,6 +101,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 	 * Asociación a la clase principal del negocio.
 	 */
 	private Superandes superandes;
+
 
 	/* ****************************************************************
 	 * 			Atributos de interfaz
@@ -461,25 +466,73 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		double subTotal = 0;
 		String res = "";
 
-		List<String> headersList = Arrays.asList("DESCRIPCIÓN", "CANTIDAD", "PRECIO", "SUBTOTAL");
-		List<List<String>> rowsList = new ArrayList<>();
-		for(Object[] obj:infoFactura) {
-			nombre = (String) obj[0];
-			uniVendidas = ((BigDecimal)obj[1]).intValue();
-			precio = ((BigDecimal)obj[2]).doubleValue();
-			subTotal = ((BigDecimal)obj[3]).doubleValue();
-			rowsList.add(Arrays.asList(nombre, uniVendidas+"", precio+"",subTotal + "" ));
+//		List<String> headersList = Arrays.asList("DESCRIPCIÓN", "CANTIDAD", "PRECIO", "SUBTOTAL");
+//		List<List<String>> rowsList = new ArrayList<>();
+//		for(Object[] obj:infoFactura) {
+//			nombre = (String) obj[0];
+//			uniVendidas = ((BigDecimal)obj[1]).intValue();
+//			precio = ((BigDecimal)obj[2]).doubleValue();
+//			subTotal = ((BigDecimal)obj[3]).doubleValue();
+//			rowsList.add(Arrays.asList(nombre, uniVendidas+"", precio+"",subTotal + "" ));
+//		}
+////bookmark 1
+//		Board board = new Board(75);
+//		Table table = new Table(board, 75, headersList, rowsList);
+//		List<Integer> colAlignList = Arrays.asList(
+//				Block.DATA_MIDDLE_LEFT,
+//				Block.DATA_CENTER,
+//				Block.DATA_CENTER,
+//				Block.DATA_MIDDLE_RIGHT);
+//		table.setColAlignsList(colAlignList);
+//		String tableString = board.setInitialBlock(table.tableToBlocks()).build().getPreview();
+		
+		   String timeLog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(
+			        Calendar.getInstance().getTime());
+			FileOutputStream fos;
+			PrintWriter pw= null;
+		try {
+		fos =  new FileOutputStream("./data/Facturas/Factura_" +timeLog+ ".txt");
+		pw = new PrintWriter(fos);
+		pw.println("SUPERANDES SUPERMARKET");		
+		pw.println();
+		pw.println("SUCURSAL: " + factura.getIdSucursal());		
+			pw.println(String.format("%-15s %5s %10s %10s\n", "FACTURA DE VENTA: "+factura.getId(), "", "", ""));
+			pw.println(String.format("%-15s %5s %10s %10s\n", "FECHA: "+factura.getFecha(), "", "", ""));
+			pw.println();
+			pw.println(String.format("%-15s %5s %10s %10s\n", "---------------", "-----", "----------", "----------"));
+			pw.println(String.format("%-15s %5s %10s %10s\n", "DESCRIPCION", "CANT", "PRECIO", "SUBTOTAL"));
+			pw.println( String.format("%-15s %5s %10s %10s\n", "---------------", "-----", "----------", "----------"));
+			for(Object[] obj:infoFactura) {
+				nombre = (String) obj[0];
+				uniVendidas = ((BigDecimal)obj[1]).intValue();
+				precio = ((BigDecimal)obj[2]).doubleValue();
+				subTotal = ((BigDecimal)obj[3]).doubleValue();
+				
+				pw.println(String.format("%-15.15s %5d %10.2f %10.2f\n", nombre, uniVendidas, precio,subTotal));
+			}
+			pw.println(String.format("%-15s %5s %10s %10s\n", "", "","", "-----"));
+			pw.println(String.format("%-15s %5s %10s %10s\n", "Total", "", "", "$" + factura.getTotal()+""));
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		finally
+		{
+			pw.close();
+			 
+		        
 		}
-//bookmark 1
-		Board board = new Board(75);
-		Table table = new Table(board, 75, headersList, rowsList);
-		List<Integer> colAlignList = Arrays.asList(
-				Block.DATA_MIDDLE_LEFT,
-				Block.DATA_CENTER,
-				Block.DATA_CENTER,
-				Block.DATA_MIDDLE_RIGHT);
-		table.setColAlignsList(colAlignList);
-		String tableString = board.setInitialBlock(table.tableToBlocks()).build().getPreview();
+		 Desktop desktop = Desktop.getDesktop();
+		  File file = new File ("./data/Facturas/Factura_" +timeLog+ ".txt");
+	        if(file.exists())
+				try {
+					desktop.open(file);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
 		/*res += String.format("%-15s %5s %10s %10s\n", "Factura de venta: "+factura.getId(), "", "", "");
 		res += String.format("%-15s %5s %10s %10s\n", "FECHA: "+factura.getFecha(), "", "", "");
 		res += String.format("%-15s %5s %10s %10s\n", "------", "---", "-----", "-----");
@@ -490,7 +543,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		res += String.format("%-15s %5s %10s %10s\n", "Total", "", "",String.valueOf(factura.getTotal()));
 		res += String.format("%-15s %5s %10s %10.2f\n", "Total", "", "",factura.getTotal());*/
 		
-		panelDatos.actualizarInterfaz(tableString);
+		panelDatos.actualizarInterfaz("Se guard� la factura con nombre Factura_" + timeLog+".txt");
 	}
 
 

@@ -1,0 +1,19 @@
+SUPERANDES SUPERMARKET
+
+FACTURA DE VENTA: 227                            
+
+FECHA: 2018-11-02 21:50:00.0                            
+
+
+--------------- ----- ---------- ----------
+
+DESCRIPCION      CANT     PRECIO   SUBTOTAL
+
+--------------- ----- ---------- ----------
+
+Margarina           1    6000,00    6000,00
+
+                                      -----
+
+Total                               $6000.0
+
