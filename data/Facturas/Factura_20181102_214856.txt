@@ -1,0 +1,19 @@
+SUPERANDES SUPERMARKET
+
+FACTURA DE VENTA: 226                            
+
+FECHA: 2018-11-02 21:48:00.0                            
+
+
+--------------- ----- ---------- ----------
+
+DESCRIPCION      CANT     PRECIO   SUBTOTAL
+
+--------------- ----- ---------- ----------
+
+Yogurt              3    1500,00    4500,00
+
+Margarina           5    6000,00   30000,00
+
+                                      -----
+
