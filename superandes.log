@@ -1686,9 +1686,9 @@ ORA-00923: FROM keyword not found where expected
 14:28:02,329 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Devolviendo el producto 23del carrito 143
 14:28:03,686 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
 14:28:03,721 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:2 existentes
-14:32:11,168 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
-14:32:11,170 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
-14:32:11,183 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:32:11,168 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontrï¿½ un archivo de configuraciï¿½n vï¿½lido: Interfaz
+14:32:11,170 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuraciï¿½n indicada en el archivo de configuraciï¿½n
+14:32:11,183 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontrï¿½ un archivo de configuraciï¿½n vï¿½lido: Tablas BD
 14:32:57,195 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontrÃ³ un archivo de configuraciÃ³n vÃ¡lido: Interfaz
 14:32:57,197 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuraciÃ³n indicada en el archivo de configuraciÃ³n
 14:32:57,209 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontrÃ³ un archivo de configuraciÃ³n vÃ¡lido: Tablas BD

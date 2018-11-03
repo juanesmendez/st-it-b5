@@ -58,6 +58,7 @@ import uniandes.isis2304.superandes.negocio.VOEstante;
 import uniandes.isis2304.superandes.negocio.VOFactura;
 import uniandes.isis2304.superandes.negocio.VOOrden;
 import uniandes.isis2304.superandes.negocio.VOProducto;
+import uniandes.isis2304.superandes.negocio.VOPromocion;
 import uniandes.isis2304.superandes.negocio.VOProveedor;
 import uniandes.isis2304.superandes.negocio.VOSucursal;
 import uniandes.isis2304.superandes.negocio.VOTipoProducto;
@@ -455,7 +456,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 	private void listarInfoFactura(VOFactura factura, List<Object[]> infoFactura) {
 		//Formatter formatter = new Formatter(System.out);
 		String nombre ="";
-		int uniVendidas = 0;
+		int uniVendidas= 0;
 		double precio = 0;
 		double subTotal = 0;
 		String res = "";
@@ -486,6 +487,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		res += String.format("%-15s %5s %10s %10s\n", "------", "---", "-----", "-----");
 
 		res += String.format("%-15s %5s %10s %10s\n", "", "","", "-----");
+		res += String.format("%-15s %5s %10s %10s\n", "Total", "", "",String.valueOf(factura.getTotal()));
 		res += String.format("%-15s %5s %10s %10.2f\n", "Total", "", "",factura.getTotal());*/
 		
 		panelDatos.actualizarInterfaz(tableString);
@@ -1112,6 +1114,75 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void registrarPromocion() {
+		
+		try {
+			JTextField fieldIdSucursal = new JTextField();
+			JTextField fieldIdProducto = new JTextField();
+			JTextField fieldProveedor = new JTextField();
+			JTextField fieldFechaInicio = new JTextField();
+			JTextField fieldFechaFinal = new JTextField();
+			JTextField fieldCantProd = new JTextField();
+			
+			Object message[] = {
+					"Digite el ID de la sucursal: ", fieldIdSucursal,
+					"Digite el ID del producto: ", fieldIdProducto,
+					"Digite el ID del proveedor: ", fieldProveedor,
+					"Digite la cantidad del producto: ", fieldCantProd,
+					"Digite la fecha de inicio de la promoción: ", fieldFechaInicio,
+					"Digite la fecha de finalización de la promoción:: ", fieldFechaFinal
+			};
+			int option = JOptionPane.showConfirmDialog (this, message, "Registrar promoción", JOptionPane.OK_CANCEL_OPTION);
+			if(option == JOptionPane.OK_OPTION) {
+				if(!fieldIdSucursal.getText().equals("") && !fieldIdProducto.getText().toString().equals("") 
+						&& !fieldFechaInicio.getText().toString().equals("") && !fieldFechaFinal.getText().toString().equals("") && !fieldCantProd.getText().toString().equals("") && !fieldProveedor.getText().equals("")) {
+
+
+					long idSucursal = Long.valueOf(fieldIdSucursal.getText().toString());
+					long idProducto = Long.valueOf(fieldIdProducto.getText().toString());
+					long cantProd = Integer.valueOf(fieldCantProd.getText().toString());
+					long idProveedor = Integer.valueOf(fieldProveedor.getText().toString());
+					
+					String stFecha = fieldFechaInicio.getText().toString();
+					StringTokenizer tokenizer = new StringTokenizer(stFecha, "/");
+					int day =Integer.valueOf(tokenizer.nextToken().toString());
+					int month = Integer.valueOf(tokenizer.nextToken().toString());
+					int year = Integer.valueOf(tokenizer.nextToken().toString());
+					Timestamp fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+				
+					stFecha = fieldFechaFinal.getText().toString();
+					tokenizer = new StringTokenizer(stFecha, "/");
+					day =Integer.valueOf(tokenizer.nextToken().toString());
+					month = Integer.valueOf(tokenizer.nextToken().toString());
+					year = Integer.valueOf(tokenizer.nextToken().toString());
+					Timestamp fechaFin = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					
+					VOPromocion promocion = superandes.registrarPromocion(idSucursal,idProducto,idProveedor,cantProd,fechaInicio,fechaFin);
+					if(promocion != null) {
+						JOptionPane.showMessageDialog(this, "Se registro la promoción con éxito!", "Registro de promoción exitoso", JOptionPane.INFORMATION_MESSAGE);
+						String resultado = "En registrarPromocion\n\n";
+						resultado += "Promoción registrada exitosamente: " + promocion;
+						resultado += "\n Operación terminada";
+						panelDatos.actualizarInterfaz(resultado);
+					}
+					
+					
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error registrando promoción", JOptionPane.ERROR_MESSAGE);
+				}
+
+
+
+
+			}
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error registrando venta", JOptionPane.ERROR_MESSAGE);
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
 	}
 	/**
 	 * Registra la llegada de un pedido de una sucursal a un proveedor

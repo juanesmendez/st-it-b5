@@ -317,15 +317,21 @@ public class Superandes {
 
 	}
 	
+	public Promocion registrarPromocion(long idSucursal, long idProducto, long idProveedor,long cantProd, Timestamp fechaInicio,
+			Timestamp fechaFin) throws Exception {
+		log.info("Registrando una promocion en la sucursal: " + idSucursal + "del producto "+ idProducto);
+		Promocion promocion = ps.registrarPromocion(idSucursal,idProducto,idProveedor,cantProd,fechaInicio,fechaFin);
+		log.info("Registrando la promocion " + promocion);
+		return promocion;
+	}
+	
 	public CarritoCompras registrarCarritoSucursal(int idSucursal) throws Exception {
-		// TODO Auto-generated method stub
 		log.info("Registrando un carrito de compras en la sucursal: " + idSucursal);
 		CarritoCompras carrito = ps.registrarCarritoSucursal(idSucursal);
 		return carrito;
 	}
 
 	public List<Object[]> consultarDineroRecolectadoSucursales(Timestamp fechaInicio, Timestamp fechaFinal) {
-		// TODO Auto-generated method stub
 		log.info("Consultando ventas de sucursales entre "+fechaInicio.toString()+" y "+fechaFinal.toString());
 		return ps.consultarDineroRecolectadoSucursales(fechaInicio,fechaFinal);
 	}
@@ -391,5 +397,7 @@ public class Superandes {
 		log.info("Generando informacion de factura " + idFactura);
 		return (List<Object[]>) ps.generarInfoFactura(idFactura);
 	}
+
+	
 
 }
