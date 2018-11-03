@@ -1332,6 +1332,14 @@ public class PersistenciaSuperandes {
 	public Factura pagarProductosCarrito(int idCarrito, int idCliente, int idSucursal) throws Exception {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
+		int cantidadEnBodega;
+		int cantidadEnEstante;
+		int cantidadTotalProducto;
+		long idTipoProducto;
+		Object answerBodega ;
+		Object answerEstante ;
+		Object[] tuplaBodega;
+		Object[] tuplaEstante;
 		
 		tx.setOptimistic(false); //CHEQUEAR SI ESTA LINEA ESTA CORRECTO
 		try {
@@ -1361,9 +1369,36 @@ public class PersistenciaSuperandes {
 			for(Item i:items) {
 				sqlFacturaProducto.agregarFacturaProducto(pm, idFactura, i.getIdProducto(), i.getCantidad());
 				sqlVendeCarrito.eliminarVendeCarrito(pm, idCarrito, i.getIdProducto());
+				
+				//---------------------------------------------------------------------------------------------------------------
+				answerBodega = sqlBodega.darCantidadTotalProductos(pm,idSucursal,i.getIdProducto());
+				tuplaBodega = (Object[]) answerBodega;
+				cantidadEnBodega = ((BigDecimal) tuplaBodega[1]).intValue();
+				// Reviso bodegas y estantes para saber donde se van a almacenar los productos que compre la sucursal
+				answerEstante = sqlEstante.darCantidadTotalProductos (pm,idSucursal, i.getIdProducto());
+				tuplaEstante = (Object[]) answerEstante;
+				cantidadEnEstante = ((BigDecimal) tuplaEstante[1]).intValue();
+				//Sumo la cantidad del producto que hay en Bodega y en Estantes para saber si es menor o igual que el NIVEL DE REORDEN
+				cantidadTotalProducto = cantidadEnBodega + cantidadEnEstante;
+				
+				List<Object[]> lista= sqlPromocion.darPromocionDeProducto(pm, i.getIdProducto());
+				if(lista != null) {
+					Object[] obj =lista.get(0);
+					long idPromocion = ((BigDecimal) obj[0]).longValue();
+					long tuplasActualizadas= sqlPromocion.actualizarCantidadesPromocion(pm, idPromocion, i.getCantidad());
+				}
+				
+				VOVende vende = sqlVende.darPorIdSucursalYIdProducto(pm, idSucursal, i.getIdProducto());
+				if(cantidadTotalProducto < vende.getNivReorden()) {
+					//VOProvee provee = sqlProvee.darListaProveePorIdProducto(i.getIdProducto())
+					//this.registrarPedido(idProveedor, idSucursal, i.getIdProducto(), i.getPrecio(), Timestamp.valueOf(LocalDateTime.now().plusDays(3)));
+				}
 			}
 			
 			sqlCarritoCompras.actualizarCarritoComprasAbandonado(pm, idCarrito, "DISPONIBLE");
+			
+			
+			
 			tx.commit();
 			return new Factura(idFactura, idCliente, idSucursal, fecha, totalCompra);
 		}catch(javax.jdo.JDOException e) {

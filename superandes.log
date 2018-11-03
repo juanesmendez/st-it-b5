@@ -2102,3 +2102,56 @@ ORA-00928: missing SELECT keyword
 18:16:09,703 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 24al carrito 181 del cliente 1018510315
 18:16:11,394 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Pagando productos del carrito 181 del cliente 1018510315 en la sucursal 38
 18:16:13,955 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Generando informacion de factura 204
+19:13:06,079 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:13:06,080 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:13:06,109 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:13:34,802 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando ventas a usuario entre 2018-10-28 00:00:00.0 y 2018-11-05 00:00:00.0
+20:33:29,510 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:33:29,511 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:33:29,546 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:33:41,859 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Agarrando el carrito 143 para el cliente1018500219 en la sucursal 38
+20:33:47,341 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Abandonando el carrito 143
+21:39:47,817 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:39:47,920 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+21:39:47,958 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:40:05,001 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Agarrando el carrito 143 para el cliente1018500219 en la sucursal 38
+21:40:07,533 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:40:07,550 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:40:16,860 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Abandonando el carrito 143
+21:40:27,234 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Agarrando el carrito 143 para el cliente1018500219 en la sucursal 38
+21:40:38,605 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:40:38,624 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:40:51,164 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 25al carrito 143 del cliente 1018500219
+21:40:55,073 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:40:55,087 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:41:09,935 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 24al carrito 143 del cliente 1018500219
+21:41:09,952 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:41:09,964 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:41:17,021 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:41:17,035 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:41:36,355 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Devolviendo el producto 25del carrito 143
+21:41:45,187 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:41:45,200 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:41:50,619 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 25al carrito 143 del cliente 1018500219
+21:42:20,570 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:42:20,582 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:42:38,278 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:42:38,297 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:43:08,198 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 23al carrito 143 del cliente 1018500219
+21:43:08,210 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:43:08,222 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:43:19,279 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:43:19,292 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:45:02,123 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+21:45:02,125 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+21:45:02,173 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:45:16,645 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Agarrando el carrito 143 para el cliente1018500219 en la sucursal 38
+21:45:36,400 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Agarrando el carrito 143 para el cliente1018500219 en la sucursal 38
+21:45:50,900 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:45:50,914 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:45:54,607 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 23al carrito 143 del cliente 1018500219
+21:46:15,830 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando los productos disponibles de la sucursal 38
+21:46:15,845 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando productos disponibles de la sucursal: 38 total productos:3 existentes
+21:48:04,041 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Devolviendo el producto 23del carrito 143
+21:48:06,268 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Devolviendo el producto 25del carrito 143
+21:48:12,678 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Abandonando el carrito 143
