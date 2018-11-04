@@ -1,5 +1,6 @@
 package uniandes.isis2304.superandes.persistencia;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -32,7 +33,7 @@ class SQLTipoProducto {
 
 	/**
 	 * Constructor
-	 * @param pp - El Manejador de persistencia de la aplicación
+	 * @param ps - El Manejador de persistencia de la aplicación
 	 */
 	public SQLTipoProducto (PersistenciaSuperandes ps)
 	{
@@ -58,5 +59,17 @@ class SQLTipoProducto {
 		q.setParameters(idTipoProducto);
 		
 		return (Object)q.executeUnique();
+	}
+
+	public List darOperacionSuperandesPorTipoProducto(PersistenceManager pm, long idSucursal, long idTipoProducto, Timestamp fechaInicial, Timestamp fechaFinal)
+	{
+		Query q = pm.newQuery(SQL,"SELECT to_date(fecha, 'DD/MM/YY') AS FECHA, "+ps.darTablaTipoProducto()+".nombre, sum (univendidas) as CANTIDAD_VENDIDA, sum (total) AS TOTAL_INGRESOS FROM "+ps.darTablaFacturas()+ " " +
+				"INNER JOIN " + ps.darTablaFacturaProductos() + " ON " + ps.darTablaFacturaProductos() + ".idFactura = " + ps.darTablaFacturas() + ".id " +
+				"INNER JOIN " + ps.darTablaProductos()+ " ON " + ps.darTablaFacturaProductos() + ".idProducto = " + ps.darTablaProductos() + ".id " +
+				"INNER JOIN " + ps.darTablaTipoProducto() + " ON " + ps.darTablaProductos() + ".idTipoProducto  = " + ps.darTablaTipoProducto() + ".id " +
+				"WHERE idSucursal = ?  AND idTipoProducto = ? AND to_date(fecha, 'DD/MM/YY') BETWEEN ? AND ?" +
+				"group by to_date (fecha, 'DD/MM/YY'), " + ps.darTablaTipoProducto() + ".nombre ORDER BY TOTAL_INGRESOS DESC");
+		q.setParameters(idSucursal, idTipoProducto, fechaInicial, fechaFinal);
+		return q.executeList();
 	}
 }

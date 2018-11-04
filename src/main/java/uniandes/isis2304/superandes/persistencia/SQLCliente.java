@@ -3,7 +3,7 @@ package uniandes.isis2304.superandes.persistencia;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import uniandes.isis2304.superandes.negocio.Cliente;
+import java.util.List;
 
 class SQLCliente {
 	/* ****************************************************************
@@ -29,7 +29,7 @@ class SQLCliente {
 
 	/**
 	 * Constructor
-	 * @param pp - El Manejador de persistencia de la aplicación
+	 * @param ps - El Manejador de persistencia de la aplicación
 	 */
 	public SQLCliente (PersistenciaSuperandes ps)
 	{
@@ -48,5 +48,14 @@ class SQLCliente {
 		Query q = pm.newQuery(SQL,"SELECT * FROM " + ps.darTablaClientes() + " WHERE id = ?");
 		q.setParameters(idCliente);
 		return q.executeUnique();
+	}
+
+	public List darClientesFrecuentes(PersistenceManager pm)
+	{
+		Query q = pm.newQuery(SQL,"SELECT * FROM " +
+				"( SELECT " + ps.darTablaClientes() + ".nombre, idcliente, EXTRACT(month FROM " + ps.darTablaFacturas() +".fecha) AS MES, COUNT( " +ps.darTablaFacturas() + ".id) AS COMPRAS " +
+				" FROM " + ps.darTablaClientes() + " INNER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".id = " + ps.darTablaFacturas() + ".idcliente group by " + ps.darTablaClientes() +".nombre, idcliente, extract(month from " + ps.darTablaFacturas() + ".fecha) " +
+				") WHERE COMPRAS >=2 ");
+		return q.executeList();
 	}
 }
