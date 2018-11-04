@@ -61,15 +61,17 @@ class SQLTipoProducto {
 		return (Object)q.executeUnique();
 	}
 
-	public List darOperacionSuperandesPorTipoProducto(PersistenceManager pm, long idSucursal, long idTipoProducto, Timestamp fechaInicial, Timestamp fechaFinal)
+	public List<Object[]> darOperacionSuperandesPorTipoProducto(PersistenceManager pm, long idTipoProducto, Timestamp fechaInicial, Timestamp fechaFinal)
 	{
-		Query q = pm.newQuery(SQL,"SELECT to_date(fecha, 'DD/MM/YY') AS FECHA, "+ps.darTablaTipoProducto()+".nombre, sum (univendidas) as CANTIDAD_VENDIDA, sum (total) AS TOTAL_INGRESOS FROM "+ps.darTablaFacturas()+ " " +
+		Query q = pm.newQuery(SQL,"SELECT idSucursal, to_date(fecha, 'DD/MM/YY') AS FECHA, "+ps.darTablaTipoProducto()+".nombre, sum (univendidas) as CANTIDAD_VENDIDA, sum (total) AS TOTAL_INGRESOS "+ 
+				"FROM "+ps.darTablaFacturas()+ " " +
 				"INNER JOIN " + ps.darTablaFacturaProductos() + " ON " + ps.darTablaFacturaProductos() + ".idFactura = " + ps.darTablaFacturas() + ".id " +
 				"INNER JOIN " + ps.darTablaProductos()+ " ON " + ps.darTablaFacturaProductos() + ".idProducto = " + ps.darTablaProductos() + ".id " +
 				"INNER JOIN " + ps.darTablaTipoProducto() + " ON " + ps.darTablaProductos() + ".idTipoProducto  = " + ps.darTablaTipoProducto() + ".id " +
-				"WHERE idSucursal = ?  AND idTipoProducto = ? AND to_date(fecha, 'DD/MM/YY') BETWEEN ? AND ?" +
-				"group by to_date (fecha, 'DD/MM/YY'), " + ps.darTablaTipoProducto() + ".nombre ORDER BY TOTAL_INGRESOS DESC");
-		q.setParameters(idSucursal, idTipoProducto, fechaInicial, fechaFinal);
-		return q.executeList();
+				"WHERE idTipoProducto = ? AND to_date(fecha, 'DD/MM/YY') BETWEEN ? AND ? " +
+				"GROUP BY idSucursal, to_date (fecha, 'DD/MM/YY'), " + ps.darTablaTipoProducto() + ".nombre " + 
+				"ORDER BY TOTAL_INGRESOS DESC");
+		q.setParameters(idTipoProducto, fechaInicial, fechaFinal);
+		return (List<Object[]>) q.executeList();
 	}
 }

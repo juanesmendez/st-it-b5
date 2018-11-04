@@ -50,12 +50,15 @@ class SQLCliente {
 		return q.executeUnique();
 	}
 
-	public List darClientesFrecuentes(PersistenceManager pm)
+	public List<Object[]> darClientesFrecuentes(PersistenceManager pm, long idSucursal)
 	{
 		Query q = pm.newQuery(SQL,"SELECT * FROM " +
 				"( SELECT " + ps.darTablaClientes() + ".nombre, idcliente, EXTRACT(month FROM " + ps.darTablaFacturas() +".fecha) AS MES, COUNT( " +ps.darTablaFacturas() + ".id) AS COMPRAS " +
-				" FROM " + ps.darTablaClientes() + " INNER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".id = " + ps.darTablaFacturas() + ".idcliente group by " + ps.darTablaClientes() +".nombre, idcliente, extract(month from " + ps.darTablaFacturas() + ".fecha) " +
+				" FROM " + ps.darTablaClientes() + " INNER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".id = " + ps.darTablaFacturas() + ".idcliente "+
+				"WHERE " + ps.darTablaFacturas() + ".idSucursal = ? " +
+				"GROUP BY " + ps.darTablaClientes() +".nombre, idcliente, extract(month from " + ps.darTablaFacturas() + ".fecha) " +
 				") WHERE COMPRAS >=2 ");
-		return q.executeList();
+		q.setParameters(idSucursal);
+		return (List<Object[]>) q.executeList();
 	}
 }
