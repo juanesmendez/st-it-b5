@@ -1151,7 +1151,6 @@ public class PersistenciaSuperandes {
 	}
 
 	public List<Factura> consultarVentasUsuarioEnRango(String idUsuario,Timestamp fechaInicio, Timestamp fechaFinal) {
-		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 
@@ -1172,9 +1171,52 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
+	
+	public List<Object[]> consultarOperacion(long idTipoProducto, Timestamp fechaInicio, Timestamp fechaFinal) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			//Busco la orden en la base de datos
+
+			List<Object[]> lista = sqlTipoProducto.darOperacionSuperandesPorTipoProducto(pm, idTipoProducto, fechaInicio, fechaFinal);
+			tx.commit();
+			return lista;
+		}catch(Exception e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+	
+	public List<Object[]> consultarClientesFrecuentes(long idSucursal) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+
+			List<Object[]> lista = sqlCliente.darClientesFrecuentes(pm, idSucursal);
+			tx.commit();
+			return lista;
+		}catch(Exception e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
 
 	public void agarrarCarrito(int idSucursal, int idCliente, int idCarrito) throws Exception {
-		// TODO Auto-generated method stub
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 
@@ -1194,11 +1236,12 @@ public class PersistenciaSuperandes {
 			//Añadir validación de que el carrito existe y modificar tablas
 			Object[] object = sqlCarritoCompras.darObjetoCarritoComprasPorId(pm, idCarrito);
 			VOCarritoCompras carrito = new CarritoCompras();
-			carrito.convertirACarrito(object);
-			System.out.println(carrito);
 			if(object == null) {
 				throw new Exception ("El carrito de compras no existe en la sucursal "+idSucursal);
 			}
+			carrito.convertirACarrito(object);
+			System.out.println(carrito);
+			
 			if(carrito.getEstado().equals("DISPONIBLE")) {
 				//Actualizar la tupla en la tabla CarritoCompras con el ID de cliente y cambiar el estado a NO DISPONIBLE:
 				long tuplasActualizadas = sqlCarritoCompras.actualizarCarritoComprasEstadoYIdCliente(pm, idCarrito, "NO DISPONIBLE", idCliente);
@@ -1491,6 +1534,9 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
+	
 
 
 	
