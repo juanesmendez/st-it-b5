@@ -1371,6 +1371,7 @@ public class PersistenciaSuperandes {
 				sqlVendeCarrito.eliminarVendeCarrito(pm, idCarrito, i.getIdProducto());
 				
 				//---------------------------------------------------------------------------------------------------------------
+				
 				answerBodega = sqlBodega.darCantidadTotalProductos(pm,idSucursal,i.getIdProducto());
 				tuplaBodega = (Object[]) answerBodega;
 				cantidadEnBodega = ((BigDecimal) tuplaBodega[1]).intValue();
@@ -1381,17 +1382,16 @@ public class PersistenciaSuperandes {
 				//Sumo la cantidad del producto que hay en Bodega y en Estantes para saber si es menor o igual que el NIVEL DE REORDEN
 				cantidadTotalProducto = cantidadEnBodega + cantidadEnEstante;
 				
-				List<Object[]> lista= sqlPromocion.darPromocionDeProducto(pm, i.getIdProducto());
-				if(lista != null) {
-					Object[] obj =lista.get(0);
+				Object[] obj= sqlPromocion.darPromocionDeProducto(pm, i.getIdProducto());
+				if(obj != null) {
 					long idPromocion = ((BigDecimal) obj[0]).longValue();
 					long tuplasActualizadas= sqlPromocion.actualizarCantidadesPromocion(pm, idPromocion, i.getCantidad());
 				}
 				
 				VOVende vende = sqlVende.darPorIdSucursalYIdProducto(pm, idSucursal, i.getIdProducto());
 				if(cantidadTotalProducto < vende.getNivReorden()) {
-					//VOProvee provee = sqlProvee.darListaProveePorIdProducto(i.getIdProducto())
-					//this.registrarPedido(idProveedor, idSucursal, i.getIdProducto(), i.getPrecio(), Timestamp.valueOf(LocalDateTime.now().plusDays(3)));
+					long idProveedor = sqlProvee.darListaProveePorIdProducto(pm,i.getIdProducto());
+					this.registrarPedido(idProveedor, idSucursal, i.getIdProducto(), i.getPrecio(), Timestamp.valueOf(LocalDateTime.now().plusDays(3)));
 				}
 			}
 			

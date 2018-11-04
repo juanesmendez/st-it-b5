@@ -54,7 +54,8 @@ class SQLProvee {
 		if (q.executeList().size() != 0)
 		{
 			Object a = q;
-			return ((BigDecimal) q.executeList().get(0)).longValue();
+			q.setParameters(idProducto);
+			return ((BigDecimal) (Object)q.executeList().get(0)).longValue();
 		}
 		return -1;
 		 

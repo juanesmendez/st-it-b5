@@ -1,0 +1,20 @@
+SUPERANDES SUPERMARKET
+
+SUCURSAL: 38
+FACTURA DE VENTA: 269                            
+
+FECHA: 2018-11-03 21:24:00.0                            
+
+
+--------------- ----- ---------- ----------
+
+DESCRIPCION      CANT     PRECIO   SUBTOTAL
+
+--------------- ----- ---------- ----------
+
+Lechuga             2    3500.00    7000.00
+
+                                      -----
+
+Total                               $7000.0
+

@@ -86,17 +86,17 @@ public class SQLPromocion {
         return (List<Promocion>) q.executeList();
     }
     
-    public List<Object[]> darPromocionDeProducto(PersistenceManager pm, long idProducto) {
+    public Object[] darPromocionDeProducto(PersistenceManager pm, long idProducto) {
     	
     	Query q = pm.newQuery(SQL,"SELECT * FROM " + ps.darTablaPromocion() + " WHERE idProducto = ?");
     	q.setParameters(idProducto);
-    	return (List<Object[]>) q.executeUnique();
+    	return (Object[]) q.executeUnique();
     }
     
     public long actualizarCantidadesPromocion(PersistenceManager pm, long idPromocion,int cantidadCompra) {
     	
-    	Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaPromocion() + " SET cantidadProductos = cantidadProductos - ?, cantidadProductosVendidos = cantidadProductosVendidos + ? WHERE idPromocion = ?");
-    	q.setParameters(idPromocion,cantidadCompra);
+    	Query q = pm.newQuery(SQL, "UPDATE " + ps.darTablaPromocion() + " SET cantidadProductos = cantidadProductos - ?, cantidadProductosVendidos = cantidadProductosVendidos + ? WHERE id = ?");
+    	q.setParameters(cantidadCompra,cantidadCompra,idPromocion);
     	return (long) q.executeUnique();
     }
 
