@@ -1391,7 +1391,10 @@ public class PersistenciaSuperandes {
 				VOVende vende = sqlVende.darPorIdSucursalYIdProducto(pm, idSucursal, i.getIdProducto());
 				if(cantidadTotalProducto < vende.getNivReorden()) {
 					long idProveedor = sqlProvee.darListaProveePorIdProducto(pm,i.getIdProducto());
-					this.registrarPedido(idProveedor, idSucursal, i.getIdProducto(), i.getPrecio(), Timestamp.valueOf(LocalDateTime.now().plusDays(3)));
+					if(idProveedor != -1) {
+						this.registrarPedido(idProveedor, idSucursal, i.getIdProducto(), i.getPrecio(), Timestamp.valueOf(LocalDateTime.now().plusDays(3)));
+					}
+					
 				}
 			}
 			
