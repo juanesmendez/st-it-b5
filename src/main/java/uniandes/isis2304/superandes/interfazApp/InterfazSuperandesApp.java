@@ -390,7 +390,6 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			panelCarrito.repaint();
 			panelCarrito.revalidate();
 
-			//TODO chequear comoc errar el panel de agregarproducto
 
 		}catch(Exception e) {
 			List<Object[]> productos = superandes.darProductosDisponiblesSucursal((int)idSucursal);
@@ -448,7 +447,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			revalidate();
 			
 			//AÃ±adir a panel de informacion la FACTURA y todos sus PRODUCTOS
-			
+			System.out.println(factura);
 			List<Object[]> infoFactura = superandes.generarInfoFactura(factura.getId());
 			listarInfoFactura(factura,infoFactura);
 			
@@ -543,7 +542,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		res += String.format("%-15s %5s %10s %10s\n", "Total", "", "",String.valueOf(factura.getTotal()));
 		res += String.format("%-15s %5s %10s %10.2f\n", "Total", "", "",factura.getTotal());*/
 		
-		panelDatos.actualizarInterfaz("Se guardó la factura con nombre Factura_" + timeLog+".txt");
+		panelDatos.actualizarInterfaz("Se guardï¿½ la factura con nombre Factura_" + timeLog+".txt");
 	}
 
 

@@ -1,0 +1,24 @@
+SUPERANDES SUPERMARKET
+
+SUCURSAL: 38
+FACTURA DE VENTA: 241                            
+
+FECHA: 2018-11-03 13:00:00.0                            
+
+
+--------------- ----- ---------- ----------
+
+DESCRIPCION      CANT     PRECIO   SUBTOTAL
+
+--------------- ----- ---------- ----------
+
+Lechuga             1    3500.00    3500.00
+
+Yogurt              1    1500.00    1500.00
+
+Margarina           2    6000.00   12000.00
+
+                                      -----
+
+Total                              $17000.0
+
