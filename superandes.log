@@ -2338,3 +2338,6 @@ ORA-00904: "IDPROMOCION": invalid identifier
 21:24:20,091 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Adicionando el producto 23al carrito 143 del cliente 1018500219
 21:24:21,944 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Pagando productos del carrito 143 del cliente 1018500219 en la sucursal 38
 21:24:23,556 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Generando informacion de factura 269
+11:52:19,700 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:52:19,701 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+11:52:19,932 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
