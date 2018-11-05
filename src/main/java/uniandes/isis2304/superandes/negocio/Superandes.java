@@ -356,14 +356,24 @@ public class Superandes {
 	}
 
 	public List<Object[]> consultarIndiceOcupacionBodegasPorSucursal(int idSucursal) throws Exception {
-		// TODO Auto-generated method stub
 		log.info("Consultando indice de ocupacion de bodegas de la sucursal "+idSucursal);
 
 		return ps.consultarIndiceOcupacionBodegasPorSucursal(idSucursal);
 	}
+	
+	public List<Object[]> consultarOperacion(long idTipoProducto, Timestamp fechaInicio, Timestamp fechaFinal) {
+		log.info("Consultando operación de Superandes del tipo producto: "+idTipoProducto);
+		return (List<Object[]>) ps.consultarOperacion(idTipoProducto,fechaInicio,fechaFinal);
+	}
+	
+	public List<Object[]> consultarClientesFrecuentes(long idSucursal) {
+		log.info("Consultando los clientes frecuentes de la sucursal " + idSucursal);
+		List<Object[]> lista = (List<Object[]>) ps.consultarClientesFrecuentes(idSucursal);
+		log.info("Terminando de consultar los clientes frecuentes de la sucursal " + idSucursal);
+		return lista;
+	}
 
 	public void agarrarCarrito(int idSucursal, int idCliente, int idCarrito) throws Exception {
-		// TODO Auto-generated method stub
 		log.info("Agarrando el carrito " + idCarrito + " para el cliente" + idCliente + " en la sucursal " + idSucursal);
 		
 		ps.agarrarCarrito(idSucursal,idCliente,idCarrito);
@@ -397,6 +407,10 @@ public class Superandes {
 		log.info("Generando informacion de factura " + idFactura);
 		return (List<Object[]>) ps.generarInfoFactura(idFactura);
 	}
+
+	
+
+	
 
 	
 

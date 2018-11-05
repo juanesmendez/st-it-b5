@@ -1437,7 +1437,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					}
 
 				}else {
-					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando ventas de sucursales", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando ventas usuario en rango", JOptionPane.ERROR_MESSAGE);
 				}
 
 			}
@@ -1449,7 +1449,89 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 
 	}
+	
+	
+	public void consultarOperacion() {
+		
+		try {
 
+			JTextField fieldTipoProducto= new JTextField();
+			JTextField fieldFechaInicio =  new JTextField();
+			JTextField fieldFechaFinal =  new JTextField();
+			Timestamp fechaInicio;
+			Timestamp fechaFinal;
+			Object[] message = {
+					"Digite el ID del tipo de producto: ",fieldTipoProducto,
+					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
+					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal
+			};
+
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar operación Superandes", JOptionPane.OK_CANCEL_OPTION);
+			if(option == JOptionPane.OK_OPTION) {
+
+				if(!fieldTipoProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
+
+					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
+					int day = Integer.valueOf(t.nextToken());
+					int month = Integer.valueOf(t.nextToken());
+					int year = Integer.valueOf(t.nextToken());
+
+					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
+					day = Integer.valueOf(t.nextToken());
+					month = Integer.valueOf(t.nextToken());
+					year = Integer.valueOf(t.nextToken());
+					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+
+					List<Object[]> lista = superandes.consultarOperacion(Long.valueOf(fieldTipoProducto.getText()),fechaInicio,fechaFinal);
+					if(lista!=null) {
+						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
+					}
+
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	
+
+
+	public void consultarClientesFrecuentes() {
+		
+		try {
+
+			JTextField fieldSucursal= new JTextField();
+			Object[] message = {
+					"Digite el ID de la sucursal: ",fieldSucursal
+			};
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar clientes frecuentes", JOptionPane.OK_CANCEL_OPTION);
+
+			if(option == JOptionPane.OK_OPTION) {
+
+				if(!fieldSucursal.getText().equals("") ) {
+					long idSucursal = Long.valueOf(fieldSucursal.getText().toString());
+					List<Object[]> lista = superandes.consultarClientesFrecuentes(idSucursal);
+					if(lista!=null) {
+						panelDatos.actualizarInterfaz(listarClientesFrecuentes(lista));
+					}
+
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando clientes frecuentes", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 
 
@@ -1712,6 +1794,29 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		return respuesta;
 	}
 
+	private String listarOperacionSuperandes(List<Object[]> lista) {
+		
+		String respuesta = "";
+		
+		for(Object[] object:lista) {
+			respuesta += "[idSucursal ="+object[0].toString() + ", fecha = "+object[1]  + ", tipo producto = " + object[2] + ", cantidad vendida = "+object[3]+", total ingresos = "+object[4]+ "]\n";
+		}
+		return respuesta;
+	}
+
+	private String listarClientesFrecuentes(List<Object[]> lista) {
+		String respuesta ="CLIENTES FRECUENTES:\n\n";
+		
+		for(Object[] object: lista) {
+			
+			respuesta += "[nombreCliente = " + object[0].toString() + ", idCliente = " + object[1].toString() + ", mes = " + object[2].toString() +
+					", compras = " + object[3].toString() + " ]\n";
+		}
+		
+		return respuesta;
+	}
+	
+	
 	/* ****************************************************************
 	 * 			Métodos de la Interacción
 	 *****************************************************************/
