@@ -7,7 +7,7 @@ import javax.jdo.Query;
 
 import uniandes.isis2304.superandes.negocio.Sucursal;
 
-class SQLSucursal {
+public class SQLSucursal {
 	/* ****************************************************************
 	 * 			Constantes
 	 *****************************************************************/

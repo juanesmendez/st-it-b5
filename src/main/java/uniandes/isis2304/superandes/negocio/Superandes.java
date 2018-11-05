@@ -55,6 +55,10 @@ public class Superandes {
 	{
 		ps.cerrarUnidadPersistencia ();
 	}
+	
+	public PersistenciaSuperandes getPersistenciaSuperandes() {
+		return this.ps;
+	}
 
 
 	/**

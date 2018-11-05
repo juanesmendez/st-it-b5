@@ -275,6 +275,10 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}        
 		setJMenuBar ( menuBar );	
 	}
+	
+	public Superandes getSuperandes(){
+		return this.superandes;
+	}
 
 	public void registrarCarritoSucursal() {
 
