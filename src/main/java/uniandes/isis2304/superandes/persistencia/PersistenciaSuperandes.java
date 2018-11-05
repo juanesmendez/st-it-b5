@@ -165,7 +165,7 @@ public class PersistenciaSuperandes {
 
 	private SQLVendeCarrito sqlVendeCarrito;
 
-	private PersistenciaSuperandes ()
+	public PersistenciaSuperandes ()
 	{
 		pmf = JDOHelper.getPersistenceManagerFactory("Superandes");		
 		crearClasesSQL ();
@@ -233,6 +233,10 @@ public class PersistenciaSuperandes {
 		pmf.close ();
 		instance = null;
 	}
+	
+	public PersistenceManagerFactory getPersistenceManager() {
+		return this.pmf;
+	}
 
 	/**
 	 * Genera una lista con los nombres de las tablas de la base de datos
@@ -280,7 +284,96 @@ public class PersistenciaSuperandes {
 
 	}
 
+	
+	
 
+	public List<String> getTablas() {
+		return tablas;
+	}
+
+	public void setTablas(List<String> tablas) {
+		this.tablas = tablas;
+	}
+
+	public SQLUtil getSqlUtil() {
+		return sqlUtil;
+	}
+
+	public SQLBodega getSqlBodega() {
+		return sqlBodega;
+	}
+
+	public SQLCategoria getSqlCategoria() {
+		return sqlCategoria;
+	}
+
+	public SQLCliente getSqlCliente() {
+		return sqlCliente;
+	}
+
+	public SQLEstante getSqlEstante() {
+		return sqlEstante;
+	}
+
+	public SQLFactura getSqlFactura() {
+		return sqlFactura;
+	}
+
+	public SQLFacturaProducto getSqlFacturaProducto() {
+		return sqlFacturaProducto;
+	}
+
+	public SQLOrden getSqlOrden() {
+		return sqlOrden;
+	}
+
+	public SQLPedido getSqlPedido() {
+		return sqlPedido;
+	}
+
+	public SQLProducto getSqlProducto() {
+		return sqlProducto;
+	}
+
+	public SQLProductoBodega getSqlProductoBodega() {
+		return sqlProductoBodega;
+	}
+
+	public SQLProductoEstante getSqlProductoEstante() {
+		return sqlProductoEstante;
+	}
+
+	public SQLProvee getSqlProvee() {
+		return sqlProvee;
+	}
+
+	public SQLProveedor getSqlProveedor() {
+		return sqlProveedor;
+	}
+
+	public SQLSucursal getSqlSucursal() {
+		return sqlSucursal;
+	}
+
+	public SQLTipoProducto getSqlTipoProducto() {
+		return sqlTipoProducto;
+	}
+
+	public SQLVende getSqlVende() {
+		return sqlVende;
+	}
+
+	public SQLPromocion getSqlPromocion() {
+		return sqlPromocion;
+	}
+
+	public SQLCarritoCompras getSqlCarritoCompras() {
+		return sqlCarritoCompras;
+	}
+
+	public SQLVendeCarrito getSqlVendeCarrito() {
+		return sqlVendeCarrito;
+	}
 
 	/**
 	 * @return La cadena de caracteres con el nombre del secuenciador de superandes

@@ -5,7 +5,7 @@ import javax.jdo.Query;
 
 import java.util.List;
 
-class SQLCliente {
+public class SQLCliente {
 	/* ****************************************************************
 	 * 			Constantes
 	 *****************************************************************/
