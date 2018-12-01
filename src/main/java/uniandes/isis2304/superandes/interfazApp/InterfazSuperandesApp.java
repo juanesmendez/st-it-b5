@@ -1536,9 +1536,326 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace();
 		}
 	}
+	
+	public void consultarConsumoComoCliente() {
+		
+		try {
+			JTextField fieldIdCliente = new JTextField();
+			JTextField fieldIdProducto= new JTextField();
+			JTextField fieldFechaInicio =  new JTextField();
+			JTextField fieldFechaFinal =  new JTextField();
+			JComboBox comboBoxOrdenar =  new JComboBox();
+			JComboBox comboBoxOrdenarAscDesc =  new JComboBox();
+			JComboBox comboBoxAgrupar =  new JComboBox();
+			Timestamp fechaInicio;
+			Timestamp fechaFinal;
+			Object[] message = {
+					"Digite el ID del cliente: ", fieldIdCliente,
+					"Digite el ID del producto: ",fieldIdProducto,
+					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
+					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal,
+					"Ordenar por: ",comboBoxOrdenar,
+					"Ordenar de forma: ", comboBoxOrdenarAscDesc,
+					"Agrupar por: ", comboBoxAgrupar
+			};
+
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como cliente", JOptionPane.OK_CANCEL_OPTION);
+			if(option == JOptionPane.OK_OPTION) {
+
+				if(!fieldIdCliente.getText().equals("") && !fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
+					long idCliente = Long.valueOf(fieldIdCliente.getText());
+					long idProducto = Long.valueOf(fieldIdProducto.getText());
+					
+					
+					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
+					int day = Integer.valueOf(t.nextToken());
+					int month = Integer.valueOf(t.nextToken());
+					int year = Integer.valueOf(t.nextToken());
+
+					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
+					day = Integer.valueOf(t.nextToken());
+					month = Integer.valueOf(t.nextToken());
+					year = Integer.valueOf(t.nextToken());
+					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					
+					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
+					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
+					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
+					
+					List<Object[]> lista = superandes.consultarConsumo(false, idCliente, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					if(lista!=null) {
+						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
+					}
+
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
 
 
 
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void consultarConsumoComoAdministrador() {
+		try {
+
+			JTextField fieldIdProducto= new JTextField();
+			JTextField fieldFechaInicio =  new JTextField();
+			JTextField fieldFechaFinal =  new JTextField();
+			JComboBox comboBoxOrdenar =  new JComboBox();
+			JComboBox comboBoxOrdenarAscDesc =  new JComboBox();
+			JComboBox comboBoxAgrupar =  new JComboBox();
+			Timestamp fechaInicio;
+			Timestamp fechaFinal;
+			Object[] message = {
+					"Digite el ID del producto: ",fieldIdProducto,
+					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
+					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal,
+					"Ordenar por: ",comboBoxOrdenar,
+					"Ordenar de forma: ", comboBoxOrdenarAscDesc,
+					"Agrupar por: ", comboBoxAgrupar
+			};
+
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como cliente", JOptionPane.OK_CANCEL_OPTION);
+			if(option == JOptionPane.OK_OPTION) {
+
+				if(!fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
+					
+					long idProducto = Long.valueOf(fieldIdProducto.getText());
+					
+					
+					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
+					int day = Integer.valueOf(t.nextToken());
+					int month = Integer.valueOf(t.nextToken());
+					int year = Integer.valueOf(t.nextToken());
+
+					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
+					day = Integer.valueOf(t.nextToken());
+					month = Integer.valueOf(t.nextToken());
+					year = Integer.valueOf(t.nextToken());
+					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					
+					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
+					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
+					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
+					
+					List<Object[]> lista = superandes.consultarConsumo(false, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					/*
+					if(lista!=null) {
+						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
+					}
+*/
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void consultarConsumoComoGerente() {
+		try {
+			JTextField fieldIdSucursal = new JTextField();
+			JTextField fieldIdProducto= new JTextField();
+			JTextField fieldFechaInicio =  new JTextField();
+			JTextField fieldFechaFinal =  new JTextField();
+			JComboBox comboBoxOrdenar =  new JComboBox();
+			JComboBox comboBoxOrdenarAscDesc =  new JComboBox();
+			JComboBox comboBoxAgrupar =  new JComboBox();
+			Timestamp fechaInicio;
+			Timestamp fechaFinal;
+			Object[] message = {
+					"Digite el ID de la sucursal: ", fieldIdSucursal,
+					"Digite el ID del producto: ",fieldIdProducto,
+					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
+					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal,
+					"Ordenar por: ",comboBoxOrdenar,
+					"Ordenar de forma: ", comboBoxOrdenarAscDesc,
+					"Agrupar por: ", comboBoxAgrupar
+			};
+
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como cliente", JOptionPane.OK_CANCEL_OPTION);
+			if(option == JOptionPane.OK_OPTION) {
+
+				if(!fieldIdSucursal.getText().equals("") && !fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
+					long idSucursal = Long.valueOf(fieldIdSucursal.getText());
+					long idProducto = Long.valueOf(fieldIdProducto.getText());
+					
+					
+					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
+					int day = Integer.valueOf(t.nextToken());
+					int month = Integer.valueOf(t.nextToken());
+					int year = Integer.valueOf(t.nextToken());
+
+					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
+					day = Integer.valueOf(t.nextToken());
+					month = Integer.valueOf(t.nextToken());
+					year = Integer.valueOf(t.nextToken());
+					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					
+					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
+					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
+					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
+					
+					List<Object[]> lista = superandes.consultarConsumo(false, 0, idSucursal, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					/*
+					if(lista!=null) {
+						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
+					}*/
+
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void consultarNoConsumoComoAdministrador() {
+		try {
+
+			JTextField fieldIdProducto= new JTextField();
+			JTextField fieldFechaInicio =  new JTextField();
+			JTextField fieldFechaFinal =  new JTextField();
+			JComboBox comboBoxOrdenar =  new JComboBox();
+			JComboBox comboBoxOrdenarAscDesc =  new JComboBox();
+			JComboBox comboBoxAgrupar =  new JComboBox();
+			Timestamp fechaInicio;
+			Timestamp fechaFinal;
+			Object[] message = {
+					"Digite el ID del producto: ",fieldIdProducto,
+					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
+					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal,
+					"Ordenar por: ",comboBoxOrdenar,
+					"Ordenar de forma: ", comboBoxOrdenarAscDesc,
+					"Agrupar por: ", comboBoxAgrupar
+			};
+
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como cliente", JOptionPane.OK_CANCEL_OPTION);
+			if(option == JOptionPane.OK_OPTION) {
+
+				if(!fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
+					
+					long idProducto = Long.valueOf(fieldIdProducto.getText());
+					
+					
+					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
+					int day = Integer.valueOf(t.nextToken());
+					int month = Integer.valueOf(t.nextToken());
+					int year = Integer.valueOf(t.nextToken());
+
+					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
+					day = Integer.valueOf(t.nextToken());
+					month = Integer.valueOf(t.nextToken());
+					year = Integer.valueOf(t.nextToken());
+					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					
+					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
+					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
+					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
+					
+					List<Object[]> lista = superandes.consultarConsumo(true, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					/*
+					if(lista!=null) {
+						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
+					}
+*/
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void consultarNoConsumoComoGerente() {
+		
+		try {
+			JTextField fieldIdSucursal = new JTextField();
+			JTextField fieldIdProducto= new JTextField();
+			JTextField fieldFechaInicio =  new JTextField();
+			JTextField fieldFechaFinal =  new JTextField();
+			JComboBox comboBoxOrdenar =  new JComboBox();
+			JComboBox comboBoxOrdenarAscDesc =  new JComboBox();
+			JComboBox comboBoxAgrupar =  new JComboBox();
+			Timestamp fechaInicio;
+			Timestamp fechaFinal;
+			Object[] message = {
+					"Digite el ID de la sucursal: ", fieldIdSucursal,
+					"Digite el ID del producto: ",fieldIdProducto,
+					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
+					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal,
+					"Ordenar por: ",comboBoxOrdenar,
+					"Ordenar de forma: ", comboBoxOrdenarAscDesc,
+					"Agrupar por: ", comboBoxAgrupar
+			};
+
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como cliente", JOptionPane.OK_CANCEL_OPTION);
+			if(option == JOptionPane.OK_OPTION) {
+
+				if(!fieldIdSucursal.getText().equals("") && !fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
+					long idSucursal = Long.valueOf(fieldIdSucursal.getText());
+					long idProducto = Long.valueOf(fieldIdProducto.getText());
+					
+					
+					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
+					int day = Integer.valueOf(t.nextToken());
+					int month = Integer.valueOf(t.nextToken());
+					int year = Integer.valueOf(t.nextToken());
+
+					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
+					day = Integer.valueOf(t.nextToken());
+					month = Integer.valueOf(t.nextToken());
+					year = Integer.valueOf(t.nextToken());
+					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					
+					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
+					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
+					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
+					
+					List<Object[]> lista = superandes.consultarConsumo(true, 0, idSucursal, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					/*
+					if(lista!=null) {
+						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
+					}*/
+
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 
 	/* ****************************************************************

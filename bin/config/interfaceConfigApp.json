@@ -113,6 +113,26 @@
 				{
 					"label": "Encontrar clientes frecuentes",
 					"event": "consultarClientesFrecuentes"
+				},
+				{
+					"label": "Consultar consumo como cliente",
+					"event": "consultarConsumoComoCliente"
+				},
+				{
+					"label": "Consultar consumo como administrador",
+					"event": "consultarConsumoComoAdministrador"
+				},
+				{
+					"label": "Consultar consumo como gerente",
+					"event": "consultarConsumoComoGerente"
+				},
+				{
+					"label": "Consultar NO consumo como administrador",
+					"event": "consultarNoConsumoComoAdministrador"
+				},
+				{
+					"label": "Consultar NO consumo como gerente",
+					"event": "consultarNoConsumoComoGerente"
 				}
 			]
 		},
