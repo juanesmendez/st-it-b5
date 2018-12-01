@@ -1598,6 +1598,32 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
+	
+	public List<Object[]> consultarConsumo(boolean except,long idCliente, long idSucursal,long idProducto, Timestamp fechaInicio, Timestamp fechaFinal,
+			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) throws Exception {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			List<Object[]> consulta=null;
+			//List<Object[]> infoFactura = sqlFactura.darInfoFactura(pm,idFactura);
+			if(consulta == null) {
+				throw new Exception("Error consultando consumo como cliente");
+			}
+
+			tx.commit();
+			return consulta;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
 
 
 	/**
@@ -1627,6 +1653,8 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
 
 	
 	

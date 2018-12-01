@@ -412,6 +412,12 @@ public class Superandes {
 		return (List<Object[]>) ps.generarInfoFactura(idFactura);
 	}
 
+	public List<Object[]> consultarConsumo(boolean except,long idCliente,long idSucursal,long idProducto, Timestamp fechaInicio, Timestamp fechaFinal,
+			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) throws Exception {
+		log.info("Consultando consumo del producto " + idProducto);
+		return (List<Object[]>) ps.consultarConsumo(except,idCliente,idSucursal,idProducto,fechaInicio,fechaFinal,criterioOrdenacion,criterioOrdenacionAscDesc,criterioAgrupacion);
+	}
+
 	
 
 	
