@@ -1607,6 +1607,31 @@ public class PersistenciaSuperandes {
 		try {
 			tx.begin();
 			List<Object[]> consulta=null;
+			if(!except){
+				
+				//Consulta como administrador:
+				if(idCliente == 0 && idSucursal == 0){
+					sqlCliente.darConsumoComoAdministrador(idProducto,fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+				}else if(idSucursal == 0){ //Consulta como cliente
+					
+				}else{ //Consulta como gerente
+					
+				}
+				
+				
+				
+			}else{
+				
+				//Consulta como administrador:
+				if(idCliente == 0 && idSucursal == 0){
+					
+				} else if(idSucursal == 0){ //Consulta como cliente
+					
+				}else{ //Consulta como gerente
+					
+				}
+			}
+			
 			//List<Object[]> infoFactura = sqlFactura.darInfoFactura(pm,idFactura);
 			if(consulta == null) {
 				throw new Exception("Error consultando consumo como cliente");

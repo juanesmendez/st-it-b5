@@ -3,6 +3,10 @@ package uniandes.isis2304.superandes.persistencia;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
+import com.sun.org.apache.bcel.internal.classfile.PMGClass;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SQLCliente {
@@ -60,5 +64,34 @@ public class SQLCliente {
 				") WHERE COMPRAS >=2 ");
 		q.setParameters(idSucursal);
 		return (List<Object[]>) q.executeList();
+	}
+
+	public List<Object[]> darConsumoComoAdministrador(PersistenceManager pm,long idProducto, Timestamp fechaInicio, Timestamp fechaFinal,
+			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
+		List<Object[]> lista = new ArrayList<Object[]>();
+		String sql = "SELECT " + ps.darTablaClientes() + ".ID, " + ps.darTablaClientes() + ".NOMBRE, " + ps.darTablaFacturas() + ".ID, " + ps.darTablaFacturas() + ".IDSUCURSAL, " + ps.darTablaFacturas() + ".FECHA, " + ps.darTablaFacturas() + ".TOTAL, " + ps.darTablaFacturas() + ps.darTablaProductos() + ".IDPRODUCTO, " + ps.darTablaFacturas() + ps.darTablaProductos() + ".UNIVENDIDAS " + 
+				" FROM " + ps.darTablaClientes() + 
+				" INNER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".ID = " + ps.darTablaFacturas() + ".ID" + ps.darTablaClientes() + 
+				" INNER JOIN " + ps.darTablaFacturaProductos() +  " ON " + ps.darTablaFacturas() + ".ID = " + ps.darTablaFacturaProductos() + ".IDFACTURA" + 
+				" WHERE " + ps.darTablaFacturaProductos()  +".IDPRODUCTO = ? AND " + ps.darTablaFacturas() + ".FECHA BETWEEN ? and ? ";
+		
+		if(criterioAgrupacion.equals("")){
+			if(criterioOrdenacion.equals("Cliente")){
+				sql += "ORDER BY " + ps.darTablaClientes() + ".id, " + ps.darTablaClientes() + ".nombre";
+			}else if(criterioOrdenacion.equals("Fecha")){
+				sql += "ORDER BY " +ps.darTablaFacturas() + ".fecha";
+			}else if(criterioOrdenacion.equals("Unidades Vendidas")){
+				sql += "ORDER BY " + ps.darTablaFacturaProductos() + ".uniVendidas";
+			}
+		}else{
+			
+			
+		}
+		
+		
+		
+		Query q = pm.newQuery(SQL,sql);
+		q.setParameters(idProducto,fechaInicio, fechaFinal);
+		return lista;
 	}
 }
