@@ -275,7 +275,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}        
 		setJMenuBar ( menuBar );	
 	}
-	
+
 	public Superandes getSuperandes(){
 		return this.superandes;
 	}
@@ -438,7 +438,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void pagarProductosCarrito(int idCarrito, int idCliente, int idSucursal) {
 		try {
 			VOFactura factura = superandes.pagarProductosCarrito(idCarrito,idCliente,idSucursal);
@@ -449,12 +449,12 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			panelCarrito = new PanelCarrito();
 			add (panelCarrito,BorderLayout.EAST);
 			revalidate();
-			
+
 			//Añadir a panel de informacion la FACTURA y todos sus PRODUCTOS
 			System.out.println(factura);
 			List<Object[]> infoFactura = superandes.generarInfoFactura(factura.getId());
 			listarInfoFactura(factura,infoFactura);
-			
+
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error pagando productos carrito", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
@@ -469,36 +469,36 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		double subTotal = 0;
 		String res = "";
 
-//		List<String> headersList = Arrays.asList("DESCRIPCIÓN", "CANTIDAD", "PRECIO", "SUBTOTAL");
-//		List<List<String>> rowsList = new ArrayList<>();
-//		for(Object[] obj:infoFactura) {
-//			nombre = (String) obj[0];
-//			uniVendidas = ((BigDecimal)obj[1]).intValue();
-//			precio = ((BigDecimal)obj[2]).doubleValue();
-//			subTotal = ((BigDecimal)obj[3]).doubleValue();
-//			rowsList.add(Arrays.asList(nombre, uniVendidas+"", precio+"",subTotal + "" ));
-//		}
-////bookmark 1
-//		Board board = new Board(75);
-//		Table table = new Table(board, 75, headersList, rowsList);
-//		List<Integer> colAlignList = Arrays.asList(
-//				Block.DATA_MIDDLE_LEFT,
-//				Block.DATA_CENTER,
-//				Block.DATA_CENTER,
-//				Block.DATA_MIDDLE_RIGHT);
-//		table.setColAlignsList(colAlignList);
-//		String tableString = board.setInitialBlock(table.tableToBlocks()).build().getPreview();
-		
-		   String timeLog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(
-			        Calendar.getInstance().getTime());
-			FileOutputStream fos;
-			PrintWriter pw= null;
+		//		List<String> headersList = Arrays.asList("DESCRIPCIÓN", "CANTIDAD", "PRECIO", "SUBTOTAL");
+		//		List<List<String>> rowsList = new ArrayList<>();
+		//		for(Object[] obj:infoFactura) {
+		//			nombre = (String) obj[0];
+		//			uniVendidas = ((BigDecimal)obj[1]).intValue();
+		//			precio = ((BigDecimal)obj[2]).doubleValue();
+		//			subTotal = ((BigDecimal)obj[3]).doubleValue();
+		//			rowsList.add(Arrays.asList(nombre, uniVendidas+"", precio+"",subTotal + "" ));
+		//		}
+		////bookmark 1
+		//		Board board = new Board(75);
+		//		Table table = new Table(board, 75, headersList, rowsList);
+		//		List<Integer> colAlignList = Arrays.asList(
+		//				Block.DATA_MIDDLE_LEFT,
+		//				Block.DATA_CENTER,
+		//				Block.DATA_CENTER,
+		//				Block.DATA_MIDDLE_RIGHT);
+		//		table.setColAlignsList(colAlignList);
+		//		String tableString = board.setInitialBlock(table.tableToBlocks()).build().getPreview();
+
+		String timeLog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(
+				Calendar.getInstance().getTime());
+		FileOutputStream fos;
+		PrintWriter pw= null;
 		try {
-		fos =  new FileOutputStream("./data/Facturas/Factura_" +timeLog+ ".txt");
-		pw = new PrintWriter(fos);
-		pw.println("SUPERANDES SUPERMARKET");		
-		pw.println();
-		pw.println("SUCURSAL: " + factura.getIdSucursal());		
+			fos =  new FileOutputStream("./data/Facturas/Factura_" +timeLog+ ".txt");
+			pw = new PrintWriter(fos);
+			pw.println("SUPERANDES SUPERMARKET");		
+			pw.println();
+			pw.println("SUCURSAL: " + factura.getIdSucursal());		
 			pw.println(String.format("%-15s %5s %10s %10s\n", "FACTURA DE VENTA: "+factura.getId(), "", "", ""));
 			pw.println(String.format("%-15s %5s %10s %10s\n", "FECHA: "+factura.getFecha(), "", "", ""));
 			pw.println();
@@ -510,12 +510,12 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				uniVendidas = ((BigDecimal)obj[1]).intValue();
 				precio = ((BigDecimal)obj[2]).doubleValue();
 				subTotal = ((BigDecimal)obj[3]).doubleValue();
-				
+
 				pw.println(String.format("%-15.15s %5d %10.2f %10.2f\n", nombre, uniVendidas, precio,subTotal));
 			}
 			pw.println(String.format("%-15s %5s %10s %10s\n", "", "","", "-----"));
 			pw.println(String.format("%-15s %5s %10s %10s\n", "Total", "", "", "$" + factura.getTotal()+""));
-			
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -523,19 +523,19 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		finally
 		{
 			pw.close();
-			 
-		        
+
+
 		}
-		 Desktop desktop = Desktop.getDesktop();
-		  File file = new File ("./data/Facturas/Factura_" +timeLog+ ".txt");
-	        if(file.exists())
-				try {
-					desktop.open(file);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		
+		Desktop desktop = Desktop.getDesktop();
+		File file = new File ("./data/Facturas/Factura_" +timeLog+ ".txt");
+		if(file.exists())
+			try {
+				desktop.open(file);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		/*res += String.format("%-15s %5s %10s %10s\n", "Factura de venta: "+factura.getId(), "", "", "");
 		res += String.format("%-15s %5s %10s %10s\n", "FECHA: "+factura.getFecha(), "", "", "");
 		res += String.format("%-15s %5s %10s %10s\n", "------", "---", "-----", "-----");
@@ -545,7 +545,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		res += String.format("%-15s %5s %10s %10s\n", "", "","", "-----");
 		res += String.format("%-15s %5s %10s %10s\n", "Total", "", "",String.valueOf(factura.getTotal()));
 		res += String.format("%-15s %5s %10s %10.2f\n", "Total", "", "",factura.getTotal());*/
-		
+
 		panelDatos.actualizarInterfaz("Se guard� la factura con nombre Factura_" + timeLog+".txt");
 	}
 
@@ -1171,9 +1171,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 
 	}
-	
+
 	public void registrarPromocion() {
-		
+
 		try {
 			JTextField fieldIdSucursal = new JTextField();
 			JTextField fieldIdProducto = new JTextField();
@@ -1181,7 +1181,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			JTextField fieldFechaInicio = new JTextField();
 			JTextField fieldFechaFinal = new JTextField();
 			JTextField fieldCantProd = new JTextField();
-			
+
 			Object message[] = {
 					"Digite el ID de la sucursal: ", fieldIdSucursal,
 					"Digite el ID del producto: ", fieldIdProducto,
@@ -1200,21 +1200,21 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					long idProducto = Long.valueOf(fieldIdProducto.getText().toString());
 					long cantProd = Integer.valueOf(fieldCantProd.getText().toString());
 					long idProveedor = Integer.valueOf(fieldProveedor.getText().toString());
-					
+
 					String stFecha = fieldFechaInicio.getText().toString();
 					StringTokenizer tokenizer = new StringTokenizer(stFecha, "/");
 					int day =Integer.valueOf(tokenizer.nextToken().toString());
 					int month = Integer.valueOf(tokenizer.nextToken().toString());
 					int year = Integer.valueOf(tokenizer.nextToken().toString());
 					Timestamp fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
-				
+
 					stFecha = fieldFechaFinal.getText().toString();
 					tokenizer = new StringTokenizer(stFecha, "/");
 					day =Integer.valueOf(tokenizer.nextToken().toString());
 					month = Integer.valueOf(tokenizer.nextToken().toString());
 					year = Integer.valueOf(tokenizer.nextToken().toString());
 					Timestamp fechaFin = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
-					
+
 					VOPromocion promocion = superandes.registrarPromocion(idSucursal,idProducto,idProveedor,cantProd,fechaInicio,fechaFin);
 					if(promocion != null) {
 						JOptionPane.showMessageDialog(this, "Se registro la promoción con éxito!", "Registro de promoción exitoso", JOptionPane.INFORMATION_MESSAGE);
@@ -1223,8 +1223,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 						resultado += "\n Operación terminada";
 						panelDatos.actualizarInterfaz(resultado);
 					}
-					
-					
+
+
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error registrando promoción", JOptionPane.ERROR_MESSAGE);
 				}
@@ -1238,7 +1238,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 	}
 	/**
 	 * Registra la llegada de un pedido de una sucursal a un proveedor
@@ -1453,10 +1453,10 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 
 	}
-	
-	
+
+
 	public void consultarOperacion() {
-		
+
 		try {
 
 			JTextField fieldTipoProducto= new JTextField();
@@ -1505,11 +1505,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 	}
 
-	
+
 
 
 	public void consultarClientesFrecuentes() {
-		
+
 		try {
 
 			JTextField fieldSucursal= new JTextField();
@@ -1536,9 +1536,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void consultarConsumoComoCliente() {
-		
+
 		try {
 			JTextField fieldIdCliente = new JTextField();
 			JTextField fieldIdProducto= new JTextField();
@@ -1565,8 +1565,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				if(!fieldIdCliente.getText().equals("") && !fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
 					long idCliente = Long.valueOf(fieldIdCliente.getText());
 					long idProducto = Long.valueOf(fieldIdProducto.getText());
-					
-					
+
+
 					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
 					int day = Integer.valueOf(t.nextToken());
 					int month = Integer.valueOf(t.nextToken());
@@ -1578,11 +1578,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					month = Integer.valueOf(t.nextToken());
 					year = Integer.valueOf(t.nextToken());
 					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
-					
+
 					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
 					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
-					
+
 					List<Object[]> lista = superandes.consultarConsumo(false, idCliente, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					if(lista!=null) {
 						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
@@ -1600,7 +1600,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void consultarConsumoComoAdministrador() {
 		try {
 
@@ -1625,10 +1625,10 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			if(option == JOptionPane.OK_OPTION) {
 
 				if(!fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
-					
+
 					long idProducto = Long.valueOf(fieldIdProducto.getText());
-					
-					
+
+
 					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
 					int day = Integer.valueOf(t.nextToken());
 					int month = Integer.valueOf(t.nextToken());
@@ -1640,17 +1640,17 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					month = Integer.valueOf(t.nextToken());
 					year = Integer.valueOf(t.nextToken());
 					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
-					
+
 					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
 					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
-					
+
 					List<Object[]> lista = superandes.consultarConsumo(false, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					/*
 					if(lista!=null) {
 						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
 					}
-*/
+					 */
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
 				}
@@ -1691,8 +1691,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				if(!fieldIdSucursal.getText().equals("") && !fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
 					long idSucursal = Long.valueOf(fieldIdSucursal.getText());
 					long idProducto = Long.valueOf(fieldIdProducto.getText());
-					
-					
+
+
 					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
 					int day = Integer.valueOf(t.nextToken());
 					int month = Integer.valueOf(t.nextToken());
@@ -1704,11 +1704,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					month = Integer.valueOf(t.nextToken());
 					year = Integer.valueOf(t.nextToken());
 					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
-					
+
 					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
 					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
-					
+
 					List<Object[]> lista = superandes.consultarConsumo(false, 0, idSucursal, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					/*
 					if(lista!=null) {
@@ -1752,10 +1752,10 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			if(option == JOptionPane.OK_OPTION) {
 
 				if(!fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
-					
+
 					long idProducto = Long.valueOf(fieldIdProducto.getText());
-					
-					
+
+
 					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
 					int day = Integer.valueOf(t.nextToken());
 					int month = Integer.valueOf(t.nextToken());
@@ -1767,17 +1767,17 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					month = Integer.valueOf(t.nextToken());
 					year = Integer.valueOf(t.nextToken());
 					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
-					
+
 					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
 					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
-					
+
 					List<Object[]> lista = superandes.consultarConsumo(true, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					/*
 					if(lista!=null) {
 						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
 					}
-*/
+					 */
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
 				}
@@ -1789,11 +1789,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public void consultarNoConsumoComoGerente() {
-		
+
 		try {
 			JTextField fieldIdSucursal = new JTextField();
 			JTextField fieldIdProducto= new JTextField();
@@ -1820,8 +1820,8 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				if(!fieldIdSucursal.getText().equals("") && !fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
 					long idSucursal = Long.valueOf(fieldIdSucursal.getText());
 					long idProducto = Long.valueOf(fieldIdProducto.getText());
-					
-					
+
+
 					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
 					int day = Integer.valueOf(t.nextToken());
 					int month = Integer.valueOf(t.nextToken());
@@ -1833,11 +1833,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					month = Integer.valueOf(t.nextToken());
 					year = Integer.valueOf(t.nextToken());
 					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
-					
+
 					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
 					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
-					
+
 					List<Object[]> lista = superandes.consultarConsumo(true, 0, idSucursal, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					/*
 					if(lista!=null) {
@@ -1855,6 +1855,30 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void consultarFuncionamiento() {
+
+		try {
+
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void consultarBuenosClientes() {
+
+		try {
+
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 
@@ -2116,9 +2140,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 	}
 
 	private String listarOperacionSuperandes(List<Object[]> lista) {
-		
+
 		String respuesta = "";
-		
+
 		for(Object[] object:lista) {
 			respuesta += "[idSucursal ="+object[0].toString() + ", fecha = "+object[1]  + ", tipo producto = " + object[2] + ", cantidad vendida = "+object[3]+", total ingresos = "+object[4]+ "]\n";
 		}
@@ -2127,17 +2151,17 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 	private String listarClientesFrecuentes(List<Object[]> lista) {
 		String respuesta ="CLIENTES FRECUENTES:\n\n";
-		
+
 		for(Object[] object: lista) {
-			
+
 			respuesta += "[nombreCliente = " + object[0].toString() + ", idCliente = " + object[1].toString() + ", mes = " + object[2].toString() +
 					", compras = " + object[3].toString() + " ]\n";
 		}
-		
+
 		return respuesta;
 	}
-	
-	
+
+
 	/* ****************************************************************
 	 * 			Métodos de la Interacción
 	 *****************************************************************/
