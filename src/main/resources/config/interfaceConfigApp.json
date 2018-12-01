@@ -133,6 +133,14 @@
 				{
 					"label": "Consultar NO consumo como gerente",
 					"event": "consultarNoConsumoComoGerente"
+				},
+				{
+					"label": "Consultar funcionamiento",
+					"event": "consultarFuncionamiento"
+				},
+				{
+					"label": "Consultar buenos clientes",
+					"event": "consultarBuenosClientes"
 				}
 			]
 		},
