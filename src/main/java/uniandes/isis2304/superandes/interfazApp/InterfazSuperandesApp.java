@@ -1946,6 +1946,43 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
 				}
 
+			}else {
+				if(!fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
+
+
+
+
+					long idProducto = Long.valueOf(fieldIdProducto.getText());
+
+
+					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
+					int day = Integer.valueOf(t.nextToken());
+					int month = Integer.valueOf(t.nextToken());
+					int year = Integer.valueOf(t.nextToken());
+
+					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
+					day = Integer.valueOf(t.nextToken());
+					month = Integer.valueOf(t.nextToken());
+					year = Integer.valueOf(t.nextToken());
+					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
+
+					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
+					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
+					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
+					
+					
+					String query = superandes.consultarConsumoSQL(true, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					if(query!=null) {
+						panelDatos.actualizarInterfaz(query);
+					}
+
+				}else {
+					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
+				}
+				
+				
+				
 			}
 
 
@@ -1955,6 +1992,12 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 
 	}
+
+	private void consultarConsumoSQL() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	public void consultarNoConsumoComoGerente() {
 

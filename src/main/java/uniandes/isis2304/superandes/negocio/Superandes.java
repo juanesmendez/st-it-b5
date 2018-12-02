@@ -439,6 +439,16 @@ public class Superandes {
 		return (List<Object[]>) ps.consultarBuenosClientesV3() ;
 	}
 
+	public String consultarConsumoSQL(boolean except, int idCliente, int idSucursal, long idProducto, Timestamp fechaInicio,
+			Timestamp fechaFinal, String criterioOrdenacion, String criterioOrdenacionAscDesc,
+			String criterioAgrupacion) {
+		
+		log.info("Consultando consumo del producto " + idProducto);
+		return (String) ps.consultarConsumoSQL(except,idCliente,idSucursal,idProducto,fechaInicio,fechaFinal,criterioOrdenacion,criterioOrdenacionAscDesc,criterioAgrupacion);
+	}
+
+
+
 	
 
 	
