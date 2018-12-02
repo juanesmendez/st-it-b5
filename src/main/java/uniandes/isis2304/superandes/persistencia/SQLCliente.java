@@ -68,9 +68,9 @@ public class SQLCliente {
 
 	public List<Object[]> darConsumoComoAdministrador(PersistenceManager pm,long idProducto, Timestamp fechaInicio, Timestamp fechaFinal,
 			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
-		List<Object[]> lista = new ArrayList<Object[]>();
+		List<Object[]> lista;
 		String sql = "";
-		String select = "SELECT " + ps.darTablaClientes()+ ".ID, " + ps.darTablaClientes() + ".NOMBRE, SUM(" + ps.darTablaFacturaProductos()+".UNIVENDIDAS) AS SUMA_TOT";
+		String select = "SELECT " +ps.darTablaClientes()+ ".ID, " +ps.darTablaClientes()+ ".NOMBRE, " + ps.darTablaFacturas() +".ID, " + ps.darTablaFacturas() +".IDSUCURSAL, " + ps.darTablaFacturas()+".FECHA, " + ps.darTablaFacturas()+".TOTAL, " + ps.darTablaFacturaProductos() +".IDPRODUCTO, " + ps.darTablaFacturaProductos()+".UNIVENDIDAS ";
 		String from =
 				" FROM " + ps.darTablaClientes() +
 				" INNER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".ID = " + ps.darTablaFacturas() + ".ID" + ps.darTablaClientes() +

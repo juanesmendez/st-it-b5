@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5fd0ca-e604-48c9-92f4-de5313e3d3e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/java/uniandes/isis2304/superandes/test/TransaccionalidadTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/java/uniandes/isis2304/superandes/test/TransaccionalidadTest.class" afterDir="false" />
@@ -80,12 +79,7 @@
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVende.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVende.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVendeCarrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVendeCarrito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/SQL/RF11.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/SQL/RF11.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datanucleus.log" beforeDir="false" afterPath="$PROJECT_DIR$/datanucleus.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superandes.log" beforeDir="false" afterPath="$PROJECT_DIR$/superandes.log" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -123,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="108" column="49" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="49" />
+            <state relative-caret-position="43">
+              <caret line="72" column="341" selection-start-line="72" selection-start-column="341" selection-end-line="72" selection-end-column="341" />
               <folding>
                 <element signature="e#6298#6308#0" expanded="true" />
               </folding>
@@ -200,7 +194,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="223">
@@ -227,6 +221,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="jsbravo-sw &lt;js.bravo@uniandes.edu.co&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -247,9 +246,9 @@
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/dependencias/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/dependencias/Block.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" />
       </list>
     </option>
   </component>
@@ -297,6 +296,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -351,12 +351,20 @@
       <workItem from="1540946862832" duration="8115000" />
       <workItem from="1541040855162" duration="698000" />
       <workItem from="1541338308705" duration="5505000" />
-      <workItem from="1543701679777" duration="11888000" />
+      <workItem from="1543701679777" duration="13468000" />
     </task>
+    <task id="LOCAL-00001" summary="Añadido RF10v1 en Java. Pre implementación impresión &quot;genérica&quot;">
+      <created>1543771499701</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1543771499701</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28643000" />
+    <option name="totallyTimeSpent" value="30223000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -397,6 +405,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Añadido RF10v1 en Java. Pre implementación impresión &quot;genérica&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadido RF10v1 en Java. Pre implementación impresión &quot;genérica&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -591,16 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="108" column="49" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="49" />
-          <folding>
-            <element signature="e#6298#6308#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
@@ -612,6 +614,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="2374" column="28" selection-start-line="2374" selection-start-column="28" selection-end-line="2374" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="72" column="341" selection-start-line="72" selection-start-column="341" selection-end-line="72" selection-end-column="341" />
+          <folding>
+            <element signature="e#6298#6308#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
