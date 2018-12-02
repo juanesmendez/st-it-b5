@@ -1759,7 +1759,44 @@ public class PersistenciaSuperandes {
 		}
 	}
 
-	
+	public String consultarConsumoSQL(boolean except, int idCliente, int idSucursal, long idProducto,
+			Timestamp fechaInicio, Timestamp fechaFinal, String criterioOrdenacion, String criterioOrdenacionAscDesc,
+			String criterioAgrupacion) {
+		
+		
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+
+			String consulta = "";
+			if(!except){
+
+				//Consulta como administrador:
+				if(idCliente == 0 && idSucursal == 0){
+					consulta =  sqlCliente.darConsumoComoAdministradorSQL(pm,idProducto,fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+				}else if(idSucursal == 0){ //Consulta como cliente
+					consulta = sqlCliente.darConsumoComoClienteSQL(pm,idProducto, idCliente, fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+
+				}else{ //Consulta como gerente
+					consulta = sqlCliente.darConsumoComoGerenteSQL(pm,idProducto, idSucursal, fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+				}
+				
+				
+				
+			}else{
+				
+				//Consulta como administrador:
+				if(idCliente == 0 && idSucursal == 0){
+					consulta =  sqlCliente.darNoConsumoComoAdministradorSQL(pm,idProducto,fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+				}
+				else{ //Consulta como gerente
+					consulta =  sqlCliente.darNoConsumoComoGerenteSQL(pm,idProducto, idSucursal, fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+				}
+			}
+
+			return consulta;
+
+	}
 
 	/**
 	 * Transacción para el generador de secuencia de Superandes
@@ -1788,6 +1825,8 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
 
 	
 
