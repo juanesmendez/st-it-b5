@@ -335,3 +335,18 @@ ORA-00918: columna definida de forma ambigua
 14:03:19,920 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
 14:03:19,939 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
 14:03:39,569 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando consumo del producto 23
+14:10:39,727 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:10:39,728 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+14:10:39,826 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:10:54,426 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando consumo del producto 23
+14:11:15,887 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:11:15,889 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+14:11:15,915 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:11:32,068 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando consumo del producto 23
+14:12:22,862 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+14:12:22,863 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+14:12:22,885 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:12:40,607 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando consumo del producto 23
+14:12:40,995 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error con la ejecucion de Query de SQL "SELECT * FROM ( SELECT CLIENTE.ID, CLIENTE.NOMBRE, FACTURA.ID, FACTURA.IDSUCURSAL, FACTURA.FECHA, FACTURA.TOTAL, FACTURAPRODUCTO.IDPRODUCTO, FACTURAPRODUCTO.UNIVENDIDAS  FROM CLIENTE FULL OUTER JOIN FACTURA ON CLIENTE.ID = FACTURA.IDCLIENTE FULL OUTER JOIN FACTURAPRODUCTO ON FACTURA.ID = FACTURAPRODUCTO.IDFACTURA MINUS (  SELECT CLIENTE.ID, CLIENTE.NOMBRE, FACTURA.ID, FACTURA.IDSUCURSAL, FACTURA.FECHA, FACTURA.TOTAL, FACTURAPRODUCTO.IDPRODUCTO, FACTURAPRODUCTO.UNIVENDIDAS  FROM CLIENTE FULL OUTER JOIN FACTURA ON CLIENTE.ID = FACTURA.IDCLIENTE FULL OUTER JOIN FACTURAPRODUCTO ON FACTURA.ID = FACTURAPRODUCTO.IDFACTURA WHERE FACTURAPRODUCTO.IDPRODUCTO = ? AND FACTURA.FECHA BETWEEN ? and ?  )".
+ORA-00907: falta el paréntesis derecho
+
