@@ -1827,10 +1827,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
 
 					List<Object[]> lista = superandes.consultarConsumo(false, 0, idSucursal, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
-					/*
 					if(lista!=null) {
-						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
-					}*/
+						panelDatos.actualizarInterfaz(impresionGenerica(lista));
+					}
 
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
@@ -1936,12 +1935,10 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
 
-					List<Object[]> lista = superandes.consultarConsumo(false, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
-					/*
+					List<Object[]> lista = superandes.consultarConsumo(true, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					if(lista!=null) {
-						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
+						panelDatos.actualizarInterfaz(impresionGenerica(lista));
 					}
-					 */
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
 				}
@@ -2041,11 +2038,10 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
 
-					List<Object[]> lista = superandes.consultarConsumo(false, 0, idSucursal, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
-					/*
+					List<Object[]> lista = superandes.consultarConsumo(true, 0, idSucursal, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					if(lista!=null) {
-						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
-					}*/
+						panelDatos.actualizarInterfaz(impresionGenerica(lista));
+					}
 
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);

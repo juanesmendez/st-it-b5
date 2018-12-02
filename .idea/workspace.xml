@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c5fd0ca-e604-48c9-92f4-de5313e3d3e1" name="Default Changelist" comment="">
+    <list default="true" id="1c5fd0ca-e604-48c9-92f4-de5313e3d3e1" name="Default Changelist" comment="Corrección de consumarConsumoComoAdministrador, implementación consultarConsumoComoGerente">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/java/uniandes/isis2304/superandes/test/TransaccionalidadTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/java/uniandes/isis2304/superandes/test/TransaccionalidadTest.class" afterDir="false" />
@@ -75,7 +75,10 @@
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVende.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVende.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVendeCarrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVendeCarrito.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datanucleus.log" beforeDir="false" afterPath="$PROJECT_DIR$/datanucleus.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superandes.log" beforeDir="false" afterPath="$PROJECT_DIR$/superandes.log" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,11 +89,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="1680" selection-start-line="1680" selection-end-line="1680" />
+            <state relative-caret-position="-438">
+              <caret line="1601" column="36" selection-start-line="1601" selection-start-column="36" selection-end-line="1601" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -113,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="258" column="187" selection-start-line="258" selection-start-column="187" selection-end-line="258" selection-end-column="187" />
+            <state relative-caret-position="-46">
+              <caret line="255" column="151" selection-start-line="255" selection-start-column="151" selection-end-line="255" selection-end-column="151" />
               <folding>
                 <element signature="e#6298#6308#0" expanded="true" />
               </folding>
@@ -163,8 +166,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/negocio/Superandes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="417" selection-start-line="417" selection-end-line="417" />
+            <state relative-caret-position="53">
+              <caret line="414" column="42" selection-start-line="414" selection-start-column="26" selection-end-line="414" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,8 +196,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="2374" column="28" selection-start-line="2374" selection-start-column="28" selection-end-line="2374" selection-end-column="28" />
+            <state relative-caret-position="176">
+              <caret line="2043" column="21" selection-start-line="2043" selection-start-column="21" selection-end-line="2043" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -214,6 +217,8 @@
       <find>listar</find>
       <find>factura</find>
       <find>consultarConsum</find>
+      <find>impresion</find>
+      <find>Persistenc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -243,8 +248,8 @@
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/dependencias/Block.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" />
       </list>
     </option>
   </component>
@@ -271,7 +276,39 @@
             <path>
               <item name="Iteración 3" type="b2602c69:ProjectViewProjectNode" />
               <item name="Iteración 3" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Iteración 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Iteración 3" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="SQL" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Iteración 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Iteración 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Iteración 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Iteración 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Iteración 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Iteración 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Iteración 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Iteración 3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="persistencia" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Iteración 3" type="b2602c69:ProjectViewProjectNode" />
@@ -288,7 +325,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541371830812" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543777401994" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -347,7 +384,7 @@
       <workItem from="1540946862832" duration="8115000" />
       <workItem from="1541040855162" duration="698000" />
       <workItem from="1541338308705" duration="5505000" />
-      <workItem from="1543701679777" duration="16227000" />
+      <workItem from="1543701679777" duration="18316000" />
     </task>
     <task id="LOCAL-00001" summary="Añadido RF10v1 en Java. Pre implementación impresión &quot;genérica&quot;">
       <created>1543771499701</created>
@@ -391,37 +428,44 @@
       <option name="project" value="LOCAL" />
       <updated>1543774023365</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Implementación consultarNoConsumo">
+      <created>1543775571253</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1543775571253</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32982000" />
+    <option name="totallyTimeSpent" value="35071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18456376" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49714285" visible="true" weight="0.18456376" />
+      <window_info id="Structure" order="1" sideWeight="0.50285715" side_tool="true" visible="true" weight="0.18456376" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Statistic" />
+      <window_info anchor="bottom" id="Statistic" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.5042493" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.5042493" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50067115" side_tool="true" weight="0.39943343" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="10" sideWeight="0.49932885" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32907802" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49932885" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3286119" />
       <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -468,22 +512,17 @@
     <MESSAGE value="Añadido RF10v1 en Java. Pre implementación impresión &quot;genérica&quot;" />
     <MESSAGE value="Corrección de consumarConsumoComoAdministrador" />
     <MESSAGE value="Corrección de consumarConsumoComoAdministrador, implementación consultarConsumoComoGerente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrección de consumarConsumoComoAdministrador, implementación consultarConsumoComoGerente" />
+    <MESSAGE value="Implementación consultarNoConsumo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementación consultarNoConsumo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java</url>
-          <line>159</line>
+          <line>160</line>
           <properties />
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java</url>
-          <line>1615</line>
-          <properties />
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java</url>
@@ -653,37 +692,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="255" column="151" selection-start-line="255" selection-start-column="151" selection-end-line="255" selection-end-column="151" />
+          <folding>
+            <element signature="e#6298#6308#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/negocio/Superandes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="417" selection-start-line="417" selection-end-line="417" />
+        <state relative-caret-position="53">
+          <caret line="414" column="42" selection-start-line="414" selection-start-column="26" selection-end-line="414" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="1680" selection-start-line="1680" selection-end-line="1680" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="2374" column="28" selection-start-line="2374" selection-start-column="28" selection-end-line="2374" selection-end-column="28" />
+        <state relative-caret-position="176">
+          <caret line="2043" column="21" selection-start-line="2043" selection-start-column="21" selection-end-line="2043" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="258" column="187" selection-start-line="258" selection-start-column="187" selection-end-line="258" selection-end-column="187" />
-          <folding>
-            <element signature="e#6298#6308#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-438">
+          <caret line="1601" column="36" selection-start-line="1601" selection-start-column="36" selection-end-line="1601" selection-end-column="36" />
         </state>
       </provider>
     </entry>
