@@ -43,7 +43,6 @@ class SQLProducto {
 	 * @return - La lista de objetos Producto 
 	 */
 	public List<Producto> darProductos(PersistenceManager pm) {
-		// TODO Auto-generated method stub
 		Query q = pm.newQuery(SQL,"SELECT * FROM "+ps.darTablaProductos());
 		q.setResultClass(Producto.class);
 		return (List<Producto>) q.executeList();
@@ -70,6 +69,20 @@ class SQLProducto {
 		Query q = pm.newQuery(SQL, sql);
 		q.setParameters(idProducto,idSucursal);
 		return q.executeUnique();
+	}
+	public List<Object[]> darProductosMasVendidoPorSemana(PersistenceManager pm) {
+		
+		String sql = "SELECT PRODUCTOSVENDIDOSXSEMANA.SEMANA, PRODUCTOSVENDIDOSXSEMANA.IDPRODUCTO, " + ps.darTablaProductos() + ".nombre,SUBQUERY.maximo " + 
+				"FROM " + 
+				"(SELECT SEMANA, MAX(SUMA) AS MAXIMO " + 
+				"FROM PRODUCTOSVENDIDOSXSEMANA " + 
+				"GROUP BY SEMANA) SUBQUERY " + 
+				"INNER JOIN PRODUCTOSVENDIDOSXSEMANA ON PRODUCTOSVENDIDOSXSEMANA.SUMA = SUBQUERY.MAXIMO AND PRODUCTOSVENDIDOSXSEMANA.SEMANA = SUBQUERY.SEMANA " + 
+				"INNER JOIN " + ps.darTablaProductos() + " ON " + ps.darTablaProductos() + ".id = PRODUCTOSVENDIDOSXSEMANA.IDPRODUCTO "  + 
+				"ORDER BY PRODUCTOSVENDIDOSXSEMANA.SEMANA";
+		
+		Query q = pm.newQuery(SQL,sql);
+		return (List<Object[]>) q.executeList();
 	}
 	
 }	
