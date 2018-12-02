@@ -1646,6 +1646,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 			comboBoxAgrupar.addItem("");
 			comboBoxAgrupar.addItem("Cliente");
+			comboBoxAgrupar.addItem("Cliente y fecha");
 
 			comboBoxOrdenar.addItem("");
 			comboBoxOrdenar.addItem("Fecha");
@@ -1666,8 +1667,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 					if(!comboBoxAgrupar.getSelectedItem().toString().equals("")) {
 						comboBoxOrdenar.removeAllItems();
+						comboBoxOrdenar.addItem("");
 						comboBoxOrdenar.addItem(comboBoxAgrupar.getSelectedItem().toString());
-						if(comboBoxAgrupar.getSelectedItem().toString().equals("Cliente")) {
+						if(comboBoxAgrupar.getSelectedItem().toString().equals("Cliente") || comboBoxAgrupar.getSelectedItem().toString().equals("Cliente y fecha")) {
 							comboBoxOrdenar.addItem("Numero de unidades compradas");
 						}
 					}
@@ -1692,7 +1694,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 
 
-			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como cliente", JOptionPane.OK_CANCEL_OPTION);
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como administrador", JOptionPane.OK_CANCEL_OPTION);
 
 
 			if(option == JOptionPane.OK_OPTION) {
@@ -1763,6 +1765,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			
 			comboBoxAgrupar.addItem("");
 			comboBoxAgrupar.addItem("Cliente");
+			comboBoxAgrupar.addItem("Cliente y fecha");
 
 			comboBoxOrdenar.addItem("");
 			comboBoxOrdenar.addItem("Fecha");
@@ -1783,8 +1786,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 					if(!comboBoxAgrupar.getSelectedItem().toString().equals("")) {
 						comboBoxOrdenar.removeAllItems();
+						comboBoxOrdenar.addItem("");
 						comboBoxOrdenar.addItem(comboBoxAgrupar.getSelectedItem().toString());
-						if(comboBoxAgrupar.getSelectedItem().toString().equals("Cliente")) {
+						if(comboBoxAgrupar.getSelectedItem().toString().equals("Cliente") || comboBoxAgrupar.getSelectedItem().toString().equals("Cliente y fecha")) {
 							comboBoxOrdenar.addItem("Numero de unidades compradas");
 						}
 					}
@@ -1798,7 +1802,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				}
 			});
 
-			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como cliente", JOptionPane.OK_CANCEL_OPTION);
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como gerente", JOptionPane.OK_CANCEL_OPTION);
 			if(option == JOptionPane.OK_OPTION) {
 
 				if(!fieldIdSucursal.getText().equals("") && !fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
@@ -1852,19 +1856,66 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			JComboBox comboBoxAgrupar =  new JComboBox();
 			Timestamp fechaInicio;
 			Timestamp fechaFinal;
+
+			comboBoxAgrupar.addItem("");
+			comboBoxAgrupar.addItem("Cliente");
+			comboBoxAgrupar.addItem("Cliente y fecha");
+
+			comboBoxOrdenar.addItem("");
+			comboBoxOrdenar.addItem("Fecha");
+			comboBoxOrdenar.addItem("Cliente");
+			comboBoxOrdenar.addItem("Unidades compradas");
+			
+			comboBoxOrdenarAscDesc.addItem("");
+			comboBoxOrdenarAscDesc.addItem("Ascendentemente");
+			comboBoxOrdenarAscDesc.addItem("Descendentemente");
+
+
+			comboBoxOrdenar.setSelectedIndex(0);
+			comboBoxAgrupar.setSelectedIndex(0);
+
+			comboBoxAgrupar.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(!comboBoxAgrupar.getSelectedItem().toString().equals("")) {
+						comboBoxOrdenar.removeAllItems();
+						comboBoxOrdenar.addItem("");
+						comboBoxOrdenar.addItem(comboBoxAgrupar.getSelectedItem().toString());
+						if(comboBoxAgrupar.getSelectedItem().toString().equals("Cliente") || comboBoxAgrupar.getSelectedItem().toString().equals("Cliente y fecha")) {
+							comboBoxOrdenar.addItem("Numero de unidades compradas");
+						}
+					}
+					if(comboBoxAgrupar.getSelectedItem().toString().equals("")) {
+						comboBoxOrdenar.removeAllItems();
+						comboBoxOrdenar.addItem("");
+						comboBoxOrdenar.addItem("Fecha");
+						comboBoxOrdenar.addItem("Cliente");
+						comboBoxOrdenar.addItem("Unidades compradas");
+					}
+				}
+			});
+			
 			Object[] message = {
 					"Digite el ID del producto: ",fieldIdProducto,
 					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
 					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal,
+					"Agrupar por: ", comboBoxAgrupar,
 					"Ordenar por: ",comboBoxOrdenar,
-					"Ordenar de forma: ", comboBoxOrdenarAscDesc,
-					"Agrupar por: ", comboBoxAgrupar
+					"Ordenar de forma: ", comboBoxOrdenarAscDesc
 			};
 
-			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como cliente", JOptionPane.OK_CANCEL_OPTION);
+
+
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar NO consumo como administrador", JOptionPane.OK_CANCEL_OPTION);
+
+
 			if(option == JOptionPane.OK_OPTION) {
 
 				if(!fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
+
+
+
 
 					long idProducto = Long.valueOf(fieldIdProducto.getText());
 
@@ -1885,7 +1936,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
 
-					List<Object[]> lista = superandes.consultarConsumo(true, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					List<Object[]> lista = superandes.consultarConsumo(false, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					/*
 					if(lista!=null) {
 						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
@@ -1922,12 +1973,51 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					"Digite el ID del producto: ",fieldIdProducto,
 					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
 					"Digite la fecha final (dd/mm/aaaa): ",fieldFechaFinal,
+					"Agrupar por: ", comboBoxAgrupar,
 					"Ordenar por: ",comboBoxOrdenar,
-					"Ordenar de forma: ", comboBoxOrdenarAscDesc,
-					"Agrupar por: ", comboBoxAgrupar
+					"Ordenar de forma: ", comboBoxOrdenarAscDesc
 			};
+			
+			comboBoxAgrupar.addItem("");
+			comboBoxAgrupar.addItem("Cliente");
+			comboBoxAgrupar.addItem("Cliente y fecha");
 
-			int option = JOptionPane.showConfirmDialog (this, message, "Consultar consumo como cliente", JOptionPane.OK_CANCEL_OPTION);
+			comboBoxOrdenar.addItem("");
+			comboBoxOrdenar.addItem("Fecha");
+			comboBoxOrdenar.addItem("Cliente");
+			comboBoxOrdenar.addItem("Unidades compradas");
+			
+			comboBoxOrdenarAscDesc.addItem("");
+			comboBoxOrdenarAscDesc.addItem("Ascendentemente");
+			comboBoxOrdenarAscDesc.addItem("Descendentemente");
+
+
+			comboBoxOrdenar.setSelectedIndex(0);
+			comboBoxAgrupar.setSelectedIndex(0);
+
+			comboBoxAgrupar.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if(!comboBoxAgrupar.getSelectedItem().toString().equals("")) {
+						comboBoxOrdenar.removeAllItems();
+						comboBoxOrdenar.addItem("");
+						comboBoxOrdenar.addItem(comboBoxAgrupar.getSelectedItem().toString());
+						if(comboBoxAgrupar.getSelectedItem().toString().equals("Cliente") || comboBoxAgrupar.getSelectedItem().toString().equals("Cliente y fecha")) {
+							comboBoxOrdenar.addItem("Numero de unidades compradas");
+						}
+					}
+					if(comboBoxAgrupar.getSelectedItem().toString().equals("")) {
+						comboBoxOrdenar.removeAllItems();
+						comboBoxOrdenar.addItem("");
+						comboBoxOrdenar.addItem("Fecha");
+						comboBoxOrdenar.addItem("Cliente");
+						comboBoxOrdenar.addItem("Unidades compradas");
+					}
+				}
+			});
+
+			int option = JOptionPane.showConfirmDialog (this, message, "Consultar NO consumo como gerente", JOptionPane.OK_CANCEL_OPTION);
 			if(option == JOptionPane.OK_OPTION) {
 
 				if(!fieldIdSucursal.getText().equals("") && !fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
@@ -1951,7 +2041,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
 
-					List<Object[]> lista = superandes.consultarConsumo(true, 0, idSucursal, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					List<Object[]> lista = superandes.consultarConsumo(false, 0, idSucursal, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					/*
 					if(lista!=null) {
 						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
