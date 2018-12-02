@@ -2,17 +2,89 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5fd0ca-e604-48c9-92f4-de5313e3d3e1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bin/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/java/uniandes/isis2304/superandes/test/TransaccionalidadTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/java/uniandes/isis2304/superandes/test/TransaccionalidadTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelDatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelDatos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Bodega.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Bodega.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/CarritoCompras.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/CarritoCompras.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Categoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/CategoriaSucursal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/CategoriaSucursal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Estante.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Estante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Factura.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Factura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/FacturaProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/FacturaProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Orden.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Orden.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Producto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/ProductoBodega.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/ProductoBodega.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/ProductoEstante.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/ProductoEstante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Promocion.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Promocion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/PromocionSucursal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/PromocionSucursal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Provee.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Provee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Proveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Proveedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Sucursal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Sucursal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Superandes.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Superandes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/TipoProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/TipoProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOBodega.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOBodega.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOCarritoCompras.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOCarritoCompras.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOCategoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOCategoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOCategoriaSucursal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOCategoriaSucursal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOEstante.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOEstante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOFactura.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOFactura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOFacturaProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOFacturaProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOOrden.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOOrden.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProductoBodega.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProductoBodega.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProductoCarrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProductoCarrito.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProductoEstante.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProductoEstante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOPromocion.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOPromocion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOPromocionSucursal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOPromocionSucursal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProvee.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProvee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOProveedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOSucursal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOSucursal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOTipoProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOTipoProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOVende.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOVende.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOVendeCarrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VOVendeCarrito.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Vende.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Vende.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VendeCarrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/VendeCarrito.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLBodega.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLBodega.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCarritoCompras.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCarritoCompras.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCategoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCategoria.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLEstante.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLEstante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLFactura.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLFactura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLFacturaProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLFacturaProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLOrden.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLOrden.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLPedido.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLPedido.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProductoBodega.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProductoBodega.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProductoEstante.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProductoEstante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLPromocion.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLPromocion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLPromocionSucursal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLPromocionSucursal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProvee.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProvee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProveedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLSucursal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLSucursal.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVende.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVende.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVendeCarrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVendeCarrito.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/SQL/RF11.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/SQL/RF11.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datanucleus.log" beforeDir="false" afterPath="$PROJECT_DIR$/datanucleus.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/superandes.log" beforeDir="false" afterPath="$PROJECT_DIR$/superandes.log" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -22,114 +94,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-636678198">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="12" />
-          <entry key="json" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="12" />
-          <entry key="JSON" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="1151" />
-          <entry key="json" value="12" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="1151" />
-          <entry key="JSON" value="12" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="471543346">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="7" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-707063720">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="1607" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="1607" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.37" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9908">
-              <caret line="534" column="95" selection-start-line="534" selection-start-column="95" selection-end-line="534" selection-end-column="95" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1751">
-              <caret line="958" column="74" selection-start-line="955" selection-start-column="13" selection-end-line="958" selection-end-column="74" />
+            <state relative-caret-position="70">
+              <caret line="1680" selection-start-line="1680" selection-end-line="1680" />
             </state>
           </provider>
         </entry>
@@ -137,7 +108,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-119">
+            <state relative-caret-position="85">
               <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
             </state>
           </provider>
@@ -155,17 +126,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5">
-              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+            <state relative-caret-position="227">
+              <caret line="108" column="49" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="49" />
+              <folding>
+                <element signature="e#6298#6308#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="379">
-              <caret line="70" column="125" selection-start-line="70" selection-start-column="125" selection-end-line="70" selection-end-column="125" />
+              <caret line="70" column="92" selection-start-line="70" selection-start-column="92" selection-end-line="70" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -199,8 +173,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/negocio/Superandes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+            <state relative-caret-position="153">
+              <caret line="417" selection-start-line="417" selection-end-line="417" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -223,6 +200,15 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="2374" column="28" selection-start-line="2374" selection-start-column="28" selection-end-line="2374" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -237,6 +223,7 @@
     <findStrings>
       <find>listar</find>
       <find>factura</find>
+      <find>consultarConsum</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -246,7 +233,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/resources/config/TablasBD.json" />
-        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/negocio/CarritoCompras.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/negocio/VendeCarrito.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/negocio/VOVendeCarrito.java" />
@@ -260,17 +246,12 @@
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/dependencias/Charr.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/dependencias/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/dependencias/Block.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
@@ -285,63 +266,28 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="st-it-b5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="st-it-b5" type="462c0819:PsiDirectoryNode" />
+              <item name="Iteración 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Iteración 3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="st-it-b5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="st-it-b5" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="Iteración 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Iteración 3" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="st-it-b5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="st-it-b5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="st-it-b5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="st-it-b5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="st-it-b5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="st-it-b5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="st-it-b5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="st-it-b5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="superandes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="st-it-b5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="st-it-b5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="st-it-b5" type="b2602c69:ProjectViewProjectNode" />
-              <item name="st-it-b5" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="Iteración 3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -405,34 +351,39 @@
       <workItem from="1540946862832" duration="8115000" />
       <workItem from="1541040855162" duration="698000" />
       <workItem from="1541338308705" duration="5505000" />
+      <workItem from="1543701679777" duration="11888000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16755000" />
+    <option name="totallyTimeSpent" value="28643000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25973153" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18456376" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Statistic" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.32907802" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.5042493" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" visible="true" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50067115" side_tool="true" visible="true" weight="0.32907802" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50067115" side_tool="true" weight="0.39943343" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49932885" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32907802" />
+      <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -447,8 +398,34 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java</url>
+          <line>143</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java</url>
+          <line>1615</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java</url>
+          <line>1616</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="sql" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLProductoCarrito.java" />
@@ -545,6 +522,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLSucursal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/dependencias/Table.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3961">
@@ -569,13 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/negocio/Superandes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCarritoCompras.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
@@ -590,45 +574,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        <state relative-caret-position="379">
+          <caret line="70" column="92" selection-start-line="70" selection-start-column="92" selection-end-line="70" selection-end-column="92" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLSucursal.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/negocio/Superandes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        <state relative-caret-position="153">
+          <caret line="417" selection-start-line="417" selection-end-line="417" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9908">
-          <caret line="534" column="95" selection-start-line="534" selection-start-column="95" selection-end-line="534" selection-end-column="95" />
+        <state relative-caret-position="227">
+          <caret line="108" column="49" selection-start-line="108" selection-start-column="49" selection-end-line="108" selection-end-column="49" />
+          <folding>
+            <element signature="e#6298#6308#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1751">
-          <caret line="958" column="74" selection-start-line="955" selection-start-column="13" selection-end-line="958" selection-end-column="74" />
+        <state relative-caret-position="70">
+          <caret line="1680" selection-start-line="1680" selection-end-line="1680" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="70" column="125" selection-start-line="70" selection-start-column="125" selection-end-line="70" selection-end-column="125" />
+        <state relative-caret-position="223">
+          <caret line="2374" column="28" selection-start-line="2374" selection-start-column="28" selection-end-line="2374" selection-end-column="28" />
         </state>
       </provider>
     </entry>

@@ -1606,16 +1606,17 @@ public class PersistenciaSuperandes {
 
 		try {
 			tx.begin();
-			List<Object[]> consulta=null;
+			List<Object[]> consulta;
 			if(!except){
-				
+
 				//Consulta como administrador:
 				if(idCliente == 0 && idSucursal == 0){
-					List<Object[]> lista = sqlCliente.darConsumoComoAdministrador(pm,idProducto,fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					consulta =  sqlCliente.darConsumoComoAdministrador(pm,idProducto,fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 				}else if(idSucursal == 0){ //Consulta como cliente
-					
+					consulta = sqlCliente.darConsumoComoCliente(pm,idProducto, idCliente, fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+
 				}else{ //Consulta como gerente
-					
+					consulta = sqlCliente.darConsumoComoGerente(pm,idProducto, idSucursal, fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 				}
 				
 				
@@ -1624,11 +1625,10 @@ public class PersistenciaSuperandes {
 				
 				//Consulta como administrador:
 				if(idCliente == 0 && idSucursal == 0){
-					
-				} else if(idSucursal == 0){ //Consulta como cliente
-					
-				}else{ //Consulta como gerente
-					
+					consulta =  sqlCliente.darNoConsumoComoAdministrador(pm,idProducto,fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+				}
+				else{ //Consulta como gerente
+					consulta =  sqlCliente.darNoConsumoComoGerente(pm,idProducto, idSucursal, fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 				}
 			}
 			
@@ -1678,6 +1678,7 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
 
 	
 

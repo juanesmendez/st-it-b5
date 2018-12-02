@@ -2364,6 +2364,21 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		return respuesta;
 	}
 
+	private String impresionGenerica(List<Object[]> lista)
+	{
+		String impresion = "";
+		for (Object[] a:lista)
+		{
+			for (int i = 0; i<a.length;i++)
+			{
+
+				impresion += a[i].toString() + " " ;
+			}
+			impresion += "\n";
+		}
+		return impresion;
+	}
+
 
 	/* ****************************************************************
 	 * 			Métodos de la Interacción
