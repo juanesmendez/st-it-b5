@@ -141,7 +141,7 @@ public class SQLCliente {
 
 		if(criterioOrdenacion.equals("Cliente"))
 			sql += " ORDER BY " + ps.darTablaClientes() + ".id, " + ps.darTablaClientes() + ".nombre";
-		else if (criterioOrdenacion.equals("Número de unidades compradas"))
+		else if (criterioOrdenacion.equals("Numero de unidades compradas"))
 			sql += " ORDER BY SUMA_TOT";
 
 		if (!criterioOrdenacion.equals("")) {
