@@ -139,8 +139,16 @@
 					"event": "consultarFuncionamiento"
 				},
 				{
-					"label": "Consultar buenos clientes",
+					"label": "Consultar buenos clientes (Compran al menos una vez al mes)",
 					"event": "consultarBuenosClientes"
+				},
+				{
+					"label": "Consultar buenos clientes (Compran al menos un producto costoso)",
+					"event": "consultarBuenosClientesV2"
+				},
+				{
+					"label": "Consultar buenos clientes (Compran siempre productos de tecnología o herramientas)",
+					"event": "consultarBuenosClientesV3"
 				}
 			]
 		},

@@ -1684,6 +1684,80 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
+	
+	public Object[] consultarBuenosClientes() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			
+			Object[] respuesta = new Object[3];
+			
+			List<Object[]> lista = sqlCliente.darClientesQueCompraronAlMenosUnaVezAlMes(pm);
+			respuesta[0] = lista;
+			
+			
+			tx.commit();
+			return respuesta;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public List<Object[]> consultarBuenosClientesV2() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			
+			List<Object[]> lista = sqlCliente.darClientesRealizaronCompraMayorA(pm);
+			
+			
+			
+			tx.commit();
+			return lista;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+	
+	public List<Object[]> consultarBuenosClientesV3() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+
+		try {
+			tx.begin();
+			
+			List<Object[]> lista = sqlCliente.darClientesRealizaronCompraDeElectronicsOTools(pm);
+			
+			
+			
+			tx.commit();
+			return lista;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
 
 	
 
@@ -1714,6 +1788,12 @@ public class PersistenciaSuperandes {
 		}
 		return resp;
 	}
+
+	
+
+	
+
+	
 
 	
 

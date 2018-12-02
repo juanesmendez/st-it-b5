@@ -295,4 +295,42 @@ public class SQLCliente {
 		lista = (List<Object[]>) q.executeList();
 		return lista;
 	}
+
+	public List<Object[]> darClientesQueCompraronAlMenosUnaVezAlMes(PersistenceManager pm) {
+		String sql = "SELECT " + ps.darTablaClientes() + ".id, "+ ps.darTablaClientes() + ".nombre, " + "EXTRACT(MONTH FROM " + ps.darTablaFacturas() + ".fecha) AS MES, COUNT(DISTINCT " + ps.darTablaFacturas() + ".id) AS COMPRAS " + 
+				"FROM " + ps.darTablaClientes() + " " +
+				"INNER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".id = " + ps.darTablaFacturas() + ".idCliente "+ 
+				"GROUP BY " + ps.darTablaClientes() + ".id, " + ps.darTablaClientes() + ".nombre, EXTRACT(MONTH FROM " + ps.darTablaFacturas() + ".fecha) " +
+				"ORDER BY COUNT(DISTINCT " + ps.darTablaFacturas() + ".id) DESC, " + ps.darTablaClientes() + ".nombre ASC";
+		
+		Query q = pm.newQuery(SQL,sql);
+		
+		return (List<Object[]>) q.executeList();
+		
+	}
+
+	public List<Object[]> darClientesRealizaronCompraMayorA(PersistenceManager pm) {
+		
+		
+		String sql = "SELECT DISTINCT " + ps.darTablaClientes() + ".id, " + ps.darTablaClientes() + ".nombre " + 
+				"FROM " + ps.darTablaClientes() +  " " + 
+				"INNER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".id = " + ps.darTablaFacturas() + ".idCliente " + 
+				"INNER JOIN " + ps.darTablaFacturaProductos() + " ON " + ps.darTablaFacturas() + ".id = "  + ps.darTablaFacturaProductos() + ".idFactura " +
+				"INNER JOIN " + ps.darTablaVende() + " ON " + ps.darTablaVende() + ".idProducto = " + ps.darTablaFacturaProductos() + ".idProducto " + 
+				"WHERE " + ps.darTablaVende() + ".precio > 100000";  
+		Query q = pm.newQuery(SQL,sql);
+		return (List<Object[]>) q.executeList();
+	}
+
+	public List<Object[]> darClientesRealizaronCompraDeElectronicsOTools(PersistenceManager pm) {
+		String sql = "SELECT DISTINCT "+ ps.darTablaClientes() + ".id, " + ps.darTablaClientes()+ ".nombre " + 
+				"FROM " + ps.darTablaClientes() + " " + 
+				"INNER JOIN " + ps.darTablaFacturas() + " ON "+ps.darTablaClientes() + ".id = " + ps.darTablaFacturas() + ".idCliente " +  
+				"INNER JOIN " + ps.darTablaFacturaProductos() + " ON " + ps.darTablaFacturas() + ".id = " + ps.darTablaFacturaProductos() + ".idFactura " +  
+				"INNER JOIN " + ps.darTablaProductos() + " ON " + ps.darTablaProductos() + ".id = " + ps.darTablaFacturaProductos() +".idProducto " + 
+				"INNER JOIN " + ps.darTablaTipoProducto() + " ON " + ps.darTablaTipoProducto() + ".id = " + ps.darTablaProductos() + ".idTipoProducto " +
+				"WHERE " + ps.darTablaTipoProducto() + ".nombre = 'Electronics' OR " + ps.darTablaTipoProducto() + ".nombre = 'Tools' ";
+		Query q = pm.newQuery(SQL,sql);
+		return (List<Object[]>)q.executeList();
+	}
 }

@@ -424,6 +424,21 @@ public class Superandes {
 		return (Object[]) ps.consultarFuncionamiento();
 	}
 
+	public Object[] consultarBuenosClientes() {
+		log.info("Consultando buenos clientes");
+		return (Object[]) ps.consultarBuenosClientes();
+	}
+
+	public List<Object[]> consultarBuenosClientesV2() {
+		log.info("Consultando buenos clientes V2");
+		return (List<Object[]>) ps.consultarBuenosClientesV2() ;
+	}
+
+	public List<Object[]> consultarBuenosClientesV3() {
+		log.info("Consultando buenos clientes V3");
+		return (List<Object[]>) ps.consultarBuenosClientesV3() ;
+	}
+
 	
 
 	

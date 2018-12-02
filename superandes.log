@@ -22,3 +22,52 @@ ORA-00907: missing right parenthesis
 15:58:05,816 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
 15:58:05,843 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
 15:58:12,882 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando funcionami¡ento
+16:16:20,860 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:16:20,860 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:16:20,882 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:16:31,067 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes
+16:16:31,815 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "SELECT CLIENTE.id, CLIENTE.nombre, EXTRACT(MONTH FROM FACTURA.fecha) AS MES, COUNT(DISTINCT FACTURA.id) AS COMPRAS FROM CLIENTE INNER JOIN FACTURA ON CLIENTE.id = FACTURAidCliente GROUP BY CLIENTE.id, CLIENTE.nombre, EXTRACT(MONTH FROM FACTURAPRODUCTO.fecha) ORDER BY COUNT(DISTINCT FACTURA.id) DESC, CLIENTE.nombre ASC".
+ORA-00904: "FACTURAIDCLIENTE": invalid identifier
+
+16:17:49,535 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:17:49,536 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:17:49,559 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:17:54,912 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes
+16:17:55,337 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "SELECT CLIENTE.id, CLIENTE.nombre, EXTRACT(MONTH FROM FACTURA.fecha) AS MES, COUNT(DISTINCT FACTURA.id) AS COMPRAS FROM CLIENTE INNER JOIN FACTURA ON CLIENTE.id = FACTURA.idCliente GROUP BY CLIENTE.id, CLIENTE.nombre, EXTRACT(MONTH FROM FACTURAPRODUCTO.fecha) ORDER BY COUNT(DISTINCT FACTURA.id) DESC, CLIENTE.nombre ASC".
+ORA-00904: "FACTURAPRODUCTO"."FECHA": invalid identifier
+
+16:18:27,504 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:18:27,504 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:18:27,530 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:18:33,579 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes
+16:31:39,585 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:31:39,586 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:31:39,611 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:31:49,520 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes
+16:34:01,641 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes
+16:47:05,821 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:47:05,823 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:47:05,881 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:47:14,648 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes V2
+16:47:15,095 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "SELECT DISTINCT CLIENTE.id, CLIENTE.nombre FROM CLIENTEINNER JOIN FACTURA ON CLIENTE.id = FACTURA.idCliente INNER JOIN FACTURAPRODUCTOON FACTURA.id = FACTURAPRODUCTO.idFactura INNER JOIN VENDEON VENDE.idProducto = FACTURAPRODUCTO.idProducto WHERE VENDE.precio > 100000".
+ORA-00905: missing keyword
+
+16:47:52,776 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:47:52,777 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:47:52,804 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:48:01,154 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes V2
+16:48:01,541 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "SELECT DISTINCT CLIENTE.id, CLIENTE.nombre FROM CLIENTE INNER JOIN FACTURA ON CLIENTE.id = FACTURA.idCliente INNER JOIN FACTURAPRODUCTOON FACTURA.id = FACTURAPRODUCTO.idFactura INNER JOIN VENDEON VENDE.idProducto = FACTURAPRODUCTO.idProducto WHERE VENDE.precio > 100000".
+ORA-00905: missing keyword
+
+16:48:52,440 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:48:52,441 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:48:52,494 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:48:58,892 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes V2
+16:49:19,643 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:49:19,644 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:49:19,669 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:49:26,723 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes V2
+17:01:47,581 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+17:01:47,582 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+17:01:47,606 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:01:58,888 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes V3
