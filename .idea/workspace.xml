@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c5fd0ca-e604-48c9-92f4-de5313e3d3e1" name="Default Changelist" comment="Corrección de consumarConsumoComoAdministrador, implementación consultarConsumoComoGerente">
+    <list default="true" id="1c5fd0ca-e604-48c9-92f4-de5313e3d3e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datanucleus.log" beforeDir="false" afterPath="$PROJECT_DIR$/datanucleus.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superandes.log" beforeDir="false" afterPath="$PROJECT_DIR$/superandes.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +18,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="157">
-              <caret line="1627" column="54" lean-forward="true" selection-start-line="1627" selection-start-column="54" selection-end-line="1627" selection-end-column="54" />
+              <caret line="1627" column="54" selection-start-line="1627" selection-start-column="54" selection-end-line="1627" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -43,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="197" column="26" selection-start-line="197" selection-start-column="26" selection-end-line="197" selection-end-column="26" />
+            <state relative-caret-position="370">
+              <caret line="215" column="61" selection-start-line="215" selection-start-column="61" selection-end-line="215" selection-end-column="61" />
               <folding>
                 <element signature="e#6298#6308#0" expanded="true" />
               </folding>
@@ -120,7 +118,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="125">
@@ -181,8 +179,8 @@
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/dependencias/Block.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" />
         <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" />
       </list>
     </option>
   </component>
@@ -266,7 +264,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543777945393" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543778262676" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -325,7 +323,7 @@
       <workItem from="1540946862832" duration="8115000" />
       <workItem from="1541040855162" duration="698000" />
       <workItem from="1541338308705" duration="5505000" />
-      <workItem from="1543701679777" duration="18680000" />
+      <workItem from="1543701679777" duration="18997000" />
     </task>
     <task id="LOCAL-00001" summary="Añadido RF10v1 en Java. Pre implementación impresión &quot;genérica&quot;">
       <created>1543771499701</created>
@@ -390,18 +388,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543777649213</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Corrección noConsumo en interfaz">
+      <created>1543778000555</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1543778000555</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35435000" />
+    <option name="totallyTimeSpent" value="35752000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.18456376" />
-      <window_info id="Structure" order="1" sideWeight="0.5023585" side_tool="true" visible="true" weight="0.18456376" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49714285" visible="true" weight="0.18456376" />
+      <window_info id="Structure" order="1" sideWeight="0.50285715" side_tool="true" visible="true" weight="0.18456376" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -411,8 +416,8 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.5042493" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" visible="true" weight="0.39943343" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.5042493" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -469,7 +474,8 @@
     <MESSAGE value="Implementación consultarNoConsumo" />
     <MESSAGE value="Implementación noConsumo" />
     <MESSAGE value="Corrección de consumarConsumoComoAdministrador, implementación consultarConsumoComoGerente" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrección de consumarConsumoComoAdministrador, implementación consultarConsumoComoGerente" />
+    <MESSAGE value="Corrección noConsumo en interfaz" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrección noConsumo en interfaz" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -663,17 +669,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
-          <caret line="1627" column="54" lean-forward="true" selection-start-line="1627" selection-start-column="54" selection-end-line="1627" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="197" column="26" selection-start-line="197" selection-start-column="26" selection-end-line="197" selection-end-column="26" />
-          <folding>
-            <element signature="e#6298#6308#0" expanded="true" />
-          </folding>
+          <caret line="1627" column="54" selection-start-line="1627" selection-start-column="54" selection-end-line="1627" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -696,6 +692,16 @@
             <element signature="e#77891#77892#0" expanded="true" />
             <element signature="e#77978#77979#0" expanded="true" />
             <element signature="e#78019#78020#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="215" column="61" selection-start-line="215" selection-start-column="61" selection-end-line="215" selection-end-column="61" />
+          <folding>
+            <element signature="e#6298#6308#0" expanded="true" />
           </folding>
         </state>
       </provider>

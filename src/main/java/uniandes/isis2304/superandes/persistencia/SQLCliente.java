@@ -213,7 +213,7 @@ public class SQLCliente {
 			select =  "SELECT " + ps.darTablaClientes()+ ".ID, " + ps.darTablaClientes() + ".NOMBRE ,SUM(" + ps.darTablaFacturaProductos()+".UNIVENDIDAS) AS SUMA_TOT";
 			sql = original + select + from;
 			sql += groupBy;
-sql += minus + select + from + where  + groupBy + " ))";
+sql += minus + select + from + where  + groupBy + " )" + ")";
 
 		}
 		else if(criterioAgrupacion.equals("Cliente y fecha")){
@@ -221,12 +221,12 @@ sql += minus + select + from + where  + groupBy + " ))";
 			select = "SELECT " + ps.darTablaClientes()+ ".ID, " + ps.darTablaClientes() + ".NOMBRE, TRUNC(" +ps.darTablaFacturas() + ".fecha) ,SUM(" + ps.darTablaFacturaProductos()+".UNIVENDIDAS) AS SUMA_TOT";
 			sql = original + select + from;
 			sql += groupBy;
-			sql += minus + select + from + where  + groupBy + " ))";
+			sql += minus + select + from + where  + groupBy + " )" + ")";
 		}
 		else
 		{
 			sql = original + select + from;
-			sql += minus + select + from + where  + " ))";
+			sql += minus + select + from + where  + " )" + ")";
 		}
 
 		if(criterioOrdenacion.equals("Cliente"))
@@ -265,17 +265,17 @@ sql += minus + select + from + where  + groupBy + " ))";
 			select = "SELECT " + ps.darTablaClientes() + ".ID, " + ps.darTablaClientes() + ".NOMBRE ,SUM(" + ps.darTablaFacturaProductos() + ".UNIVENDIDAS) AS SUMA_TOT";
 			sql = original + select + from;
 			sql += groupBy;
-			sql += minus + select + from + where + groupBy + " ))";
+			sql += minus + select + from + where + groupBy + " )" + ")";
 
 		} else if (criterioAgrupacion.equals("Cliente y fecha")) {
 			String groupBy = " GROUP BY " + ps.darTablaClientes() + ".id, " + ps.darTablaClientes() + ".nombre, TRUNC(" + ps.darTablaFacturas() + ".fecha)";
 			select = "SELECT " + ps.darTablaClientes() + ".ID, " + ps.darTablaClientes() + ".NOMBRE, TRUNC(" + ps.darTablaFacturas() + ".fecha) ,SUM(" + ps.darTablaFacturaProductos() + ".UNIVENDIDAS) AS SUMA_TOT";
 			sql = original + select + from;
 			sql += groupBy;
-			sql += minus + select + from + where + groupBy + " ))";
+			sql += minus + select + from + where + groupBy + " )" + ")";
 		} else {
 			sql = original + select + from;
-			sql += minus + select + from + where + " ))";
+			sql += minus + select + from + where + " )" + ")";
 		}
 
 		if (criterioOrdenacion.equals("Cliente"))
