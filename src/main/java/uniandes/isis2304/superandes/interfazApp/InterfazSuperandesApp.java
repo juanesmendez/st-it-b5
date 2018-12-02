@@ -1616,7 +1616,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 					List<Object[]> lista = superandes.consultarConsumo(false, idCliente, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					if(lista!=null) {
-						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
+						panelDatos.actualizarInterfaz(impresionGenerica(lista));
 					}
 
 				}else {
@@ -1937,11 +1937,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
 
 					List<Object[]> lista = superandes.consultarConsumo(false, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
-					/*
+					
 					if(lista!=null) {
-						panelDatos.actualizarInterfaz(listarOperacionSuperandes(lista));
+						panelDatos.actualizarInterfaz(impresionGenerica(lista));
 					}
-					 */
+					
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
 				}
@@ -2064,13 +2064,20 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 		try {
 
-
+			Object[] arregloListas = superandes.consultarFuncionamiento();
+			
+			if(arregloListas != null) {
+				panelDatos.actualizarInterfaz(impresionGenericaArregloDeListas(arregloListas));
+			}
 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 
 	}
+
+	
+
 
 	public void consultarBuenosClientes() {
 
@@ -2376,6 +2383,27 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			}
 			impresion += "\n";
 		}
+		return impresion;
+	}
+	
+	private String impresionGenericaArregloDeListas(Object[] arregloListas) {
+		String impresion = "";
+		for(int i=0; i<4;i++) {
+			if(i==0) {
+				List<Object[]> lista = (List<Object[]>)arregloListas[i];
+				impresion += "Producto más vendido en cada semana del año:\n\n";
+				for(Object[] obj:lista) {
+					for (int j = 0; j<obj.length;j++)
+					{
+
+						impresion += obj[j].toString() + " " ;
+					}
+					impresion += "\n";
+					
+				}
+			}
+		}
+		
 		return impresion;
 	}
 

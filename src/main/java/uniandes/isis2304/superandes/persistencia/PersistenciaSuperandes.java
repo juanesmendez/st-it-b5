@@ -1649,7 +1649,34 @@ public class PersistenciaSuperandes {
 			pm.close();
 		}
 	}
+	
+	public Object[] consultarFuncionamiento() {
+		
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
 
+		try {
+			tx.begin();
+			
+			Object[] respuesta = new Object[4];
+			
+			List<Object[]> lista = sqlProducto.darProductosMasVendidoPorSemana(pm);
+			respuesta[0] = lista;
+
+			tx.commit();
+			return respuesta;
+		}catch(javax.jdo.JDOException e) {
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}finally {
+			if(tx.isActive()) {
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+	
 
 	/**
 	 * Transacción para el generador de secuencia de Superandes
@@ -1679,6 +1706,7 @@ public class PersistenciaSuperandes {
 		return resp;
 	}
 
+	
 
 	
 

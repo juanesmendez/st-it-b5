@@ -418,6 +418,12 @@ public class Superandes {
 		return (List<Object[]>) ps.consultarConsumo(except,idCliente,idSucursal,idProducto,fechaInicio,fechaFinal,criterioOrdenacion,criterioOrdenacionAscDesc,criterioAgrupacion);
 	}
 
+	public Object[] consultarFuncionamiento() {
+		log.info("Consultando funcionami¡ento");
+		
+		return (Object[]) ps.consultarFuncionamiento();
+	}
+
 	
 
 	
