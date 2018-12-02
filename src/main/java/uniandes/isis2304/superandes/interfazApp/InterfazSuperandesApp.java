@@ -2401,6 +2401,43 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					impresion += "\n";
 					
 				}
+			}else if(i==1) {
+				List<Object[]> lista = (List<Object[]>)arregloListas[i];
+				impresion += "\nProducto menos vendido en cada semana del año:\n\n";
+				for(Object[] obj:lista) {
+					for (int j = 0; j<obj.length;j++)
+					{
+
+						impresion += obj[j].toString() + " " ;
+					}
+					impresion += "\n";
+					
+				}
+			}else if(i==2) {
+				List<Object[]> lista = (List<Object[]>)arregloListas[i];
+				impresion += "\nProveedor mas solicitado en cada semana del año:\n\n";
+				for(Object[] obj:lista) {
+					for (int j = 0; j<obj.length;j++)
+					{
+
+						impresion += obj[j].toString() + " " ;
+					}
+					impresion += "\n";
+					
+				}
+				
+			}else if(i==3) {
+				List<Object[]> lista = (List<Object[]>)arregloListas[i];
+				impresion += "\nProveedor menos solicitado en cada semana del año:\n\n";
+				for(Object[] obj:lista) {
+					for (int j = 0; j<obj.length;j++)
+					{
+
+						impresion += obj[j].toString() + " " ;
+					}
+					impresion += "\n";
+					
+				}
 			}
 		}
 		

@@ -84,5 +84,18 @@ class SQLProducto {
 		Query q = pm.newQuery(SQL,sql);
 		return (List<Object[]>) q.executeList();
 	}
+	public List<Object[]> darProductoMenosVendidoPorSemana(PersistenceManager pm) {
+		String sql = "SELECT PRODUCTOSVENDIDOSXSEMANA.SEMANA, PRODUCTOSVENDIDOSXSEMANA.IDPRODUCTO, " + ps.darTablaProductos() + ".nombre,SUBQUERY.minimo " + 
+				"FROM " + 
+				"(SELECT SEMANA, MIN(SUMA) AS MINIMO " + 
+				"FROM PRODUCTOSVENDIDOSXSEMANA " + 
+				"GROUP BY SEMANA) SUBQUERY " + 
+				"INNER JOIN PRODUCTOSVENDIDOSXSEMANA ON PRODUCTOSVENDIDOSXSEMANA.SUMA = SUBQUERY.MINIMO AND PRODUCTOSVENDIDOSXSEMANA.SEMANA = SUBQUERY.SEMANA " + 
+				"INNER JOIN " + ps.darTablaProductos() + " ON " + ps.darTablaProductos() + ".id = PRODUCTOSVENDIDOSXSEMANA.IDPRODUCTO "  + 
+				"ORDER BY PRODUCTOSVENDIDOSXSEMANA.SEMANA";
+		
+		Query q = pm.newQuery(SQL,sql);
+		return (List<Object[]>) q.executeList();
+	}
 	
 }	

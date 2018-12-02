@@ -55,4 +55,34 @@ class SQLProveedor {
 		q.setResultClass(Proveedor.class);
 		return (long) q.executeUnique();
 	}
+
+
+	public List<Object[]> darProveedorMasSolicitadoPorSemana(PersistenceManager pm) {
+		String sql ="SELECT PEDIDOSPROVEEDORXSEMANA.SEMANA, PEDIDOSPROVEEDORXSEMANA.IDPROVEEDOR, "+ ps.darTablaProveedores()+".nombre," +  "PEDIDOSPROVEEDORXSEMANA.NUM_PEDIDOS " + 
+				"FROM " + 
+				"(SELECT SEMANA, MAX(NUM_PEDIDOS) AS NUM_PEDIDOS " + 
+				"FROM PEDIDOSPROVEEDORXSEMANA " + 
+				"GROUP BY SEMANA, IDPROVEEDOR) SUBQUERY " + 
+				"INNER JOIN PEDIDOSPROVEEDORXSEMANA ON PEDIDOSPROVEEDORXSEMANA.SEMANA = SUBQUERY.SEMANA AND PEDIDOSPROVEEDORXSEMANA.NUM_PEDIDOS = SUBQUERY.NUM_PEDIDOS " + 
+				"INNER JOIN " + ps.darTablaProveedores() + " ON " + ps.darTablaProveedores() + ".id = PEDIDOSPROVEEDORXSEMANA.IDPROVEEDOR"; 
+		
+		Query q = pm.newQuery(SQL,sql);
+				
+		return (List<Object[]>) q.executeList();
+	}
+
+
+	public List<Object[]> darProveedorMenosSolicitadoPorSemana(PersistenceManager pm) {
+		String sql ="SELECT PEDIDOSPROVEEDORXSEMANA.SEMANA, PEDIDOSPROVEEDORXSEMANA.IDPROVEEDOR, "+ ps.darTablaProveedores()+".nombre," +  "PEDIDOSPROVEEDORXSEMANA.NUM_PEDIDOS " + 
+				"FROM " + 
+				"(SELECT SEMANA, MIN(NUM_PEDIDOS) AS NUM_PEDIDOS " + 
+				"FROM PEDIDOSPROVEEDORXSEMANA " + 
+				"GROUP BY SEMANA, IDPROVEEDOR) SUBQUERY " + 
+				"INNER JOIN PEDIDOSPROVEEDORXSEMANA ON PEDIDOSPROVEEDORXSEMANA.SEMANA = SUBQUERY.SEMANA AND PEDIDOSPROVEEDORXSEMANA.NUM_PEDIDOS = SUBQUERY.NUM_PEDIDOS " + 
+				"INNER JOIN " + ps.darTablaProveedores() + " ON " + ps.darTablaProveedores() + ".id = PEDIDOSPROVEEDORXSEMANA.IDPROVEEDOR"; 
+		
+		Query q = pm.newQuery(SQL,sql);
+				
+		return (List<Object[]>) q.executeList();
+	}
 }
