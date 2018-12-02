@@ -287,3 +287,6 @@ ORA-00937: not a single-group group function
 12:38:37,365 (AWT-EventQueue-0) ERROR [uniandes.isis2304.superandes.persistencia.PersistenciaSuperandes] - Exception : Error executing SQL query "SELECT CLIENTE.ID, CLIENTE.NOMBRE, SUM(FACTURAPRODUCTO.UNIVENDIDAS) AS SUMA_TOT FROM CLIENTE INNER JOIN FACTURA ON CLIENTE.ID = FACTURA.IDCLIENTE INNER JOIN FACTURAPRODUCTO ON FACTURA.ID = FACTURAPRODUCTO.IDFACTURA WHERE FACTURAPRODUCTO.IDPRODUCTO = ? AND FACTURA.FECHA BETWEEN ? and ?".
 ORA-00937: not a single-group group function
 
+12:57:59,642 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:57:59,643 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:57:59,666 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD

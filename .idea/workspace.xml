@@ -6,11 +6,7 @@
       <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/java/uniandes/isis2304/superandes/test/TransaccionalidadTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/java/uniandes/isis2304/superandes/test/TransaccionalidadTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelAgregarProducto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelCarrito.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelDatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/PanelDatos.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Bodega.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Bodega.class" afterDir="false" />
@@ -79,7 +75,9 @@
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVende.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVende.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVendeCarrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVendeCarrito.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datanucleus.log" beforeDir="false" afterPath="$PROJECT_DIR$/datanucleus.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/superandes.log" beforeDir="false" afterPath="$PROJECT_DIR$/superandes.log" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -120,8 +118,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="72" column="341" selection-start-line="72" selection-start-column="341" selection-end-line="72" selection-end-column="341" />
+            <state relative-caret-position="-76">
+              <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
               <folding>
                 <element signature="e#6298#6308#0" expanded="true" />
               </folding>
@@ -351,7 +349,7 @@
       <workItem from="1540946862832" duration="8115000" />
       <workItem from="1541040855162" duration="698000" />
       <workItem from="1541338308705" duration="5505000" />
-      <workItem from="1543701679777" duration="13468000" />
+      <workItem from="1543701679777" duration="14395000" />
     </task>
     <task id="LOCAL-00001" summary="Añadido RF10v1 en Java. Pre implementación impresión &quot;genérica&quot;">
       <created>1543771499701</created>
@@ -360,11 +358,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543771499701</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Corrección de consumarConsumoComoAdministrador">
+      <created>1543772747573</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1543772747573</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Corrección de consumarConsumoComoAdministrador">
+      <created>1543773446193</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1543773446193</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30223000" />
+    <option name="totallyTimeSpent" value="31150000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -381,8 +393,8 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.5042493" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" visible="true" weight="0.39943343" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.5042493" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -408,14 +420,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Añadido RF10v1 en Java. Pre implementación impresión &quot;genérica&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadido RF10v1 en Java. Pre implementación impresión &quot;genérica&quot;" />
+    <MESSAGE value="Corrección de consumarConsumoComoAdministrador" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrección de consumarConsumoComoAdministrador" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java</url>
-          <line>143</line>
+          <line>159</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -619,8 +632,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="72" column="341" selection-start-line="72" selection-start-column="341" selection-end-line="72" selection-end-column="341" />
+        <state relative-caret-position="-76">
+          <caret line="130" column="9" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
           <folding>
             <element signature="e#6298#6308#0" expanded="true" />
           </folding>
