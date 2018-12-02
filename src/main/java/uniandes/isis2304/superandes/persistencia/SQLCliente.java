@@ -113,7 +113,7 @@ public class SQLCliente {
 	}
 
 	public List<Object[]> darConsumoComoGerente(PersistenceManager pm,long idProducto, long idSucursal, Timestamp fechaInicio, Timestamp fechaFinal,
-													  String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
+			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
 		List<Object[]> lista = new ArrayList<Object[]>();
 		String sql = "";
 		String select = "SELECT " + ps.darTablaClientes() + ".ID, " + ps.darTablaClientes() + ".NOMBRE, " + ps.darTablaFacturas() + ".ID, " + ps.darTablaFacturas() + ".IDSUCURSAL, " + ps.darTablaFacturas() + ".FECHA, " + ps.darTablaFacturas() + ".TOTAL, " + ps.darTablaFacturas() + ps.darTablaProductos() + ".IDPRODUCTO, " + ps.darTablaFacturas() + ps.darTablaProductos() + ".UNIVENDIDAS ";
@@ -158,7 +158,7 @@ public class SQLCliente {
 	}
 
 	public List<Object[]> darConsumoComoCliente(PersistenceManager pm,long idProducto, long idCliente, Timestamp fechaInicio, Timestamp fechaFinal,
-													  String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
+			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
 		List<Object[]> lista = new ArrayList<Object[]>();
 		String sql = "";
 		String select = "SELECT " + ps.darTablaClientes() + ".ID, " + ps.darTablaClientes() + ".NOMBRE, " + ps.darTablaFacturas() + ".ID, " + ps.darTablaFacturas() + ".IDSUCURSAL, " + ps.darTablaFacturas() + ".FECHA, " + ps.darTablaFacturas() + ".TOTAL, " + ps.darTablaFacturas() + ps.darTablaProductos() + ".IDPRODUCTO, " + ps.darTablaFacturas() + ps.darTablaProductos() + ".UNIVENDIDAS ";
@@ -196,7 +196,7 @@ public class SQLCliente {
 	}
 
 	public List<Object[]> darNoConsumoComoAdministrador(PersistenceManager pm,long idProducto, Timestamp fechaInicio, Timestamp fechaFinal,
-													  String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
+			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
 		List<Object[]> lista;
 		String sql = "";
 		String original = "SELECT * FROM (";
@@ -204,8 +204,8 @@ public class SQLCliente {
 		String select = " SELECT " +ps.darTablaClientes()+ ".ID, " +ps.darTablaClientes()+ ".NOMBRE, " + ps.darTablaFacturas() +".ID AS FACTURA_ID, " + ps.darTablaFacturas() +".IDSUCURSAL, " + ps.darTablaFacturas()+".FECHA, " + ps.darTablaFacturas()+".TOTAL, " + ps.darTablaFacturaProductos() +".IDPRODUCTO, " + ps.darTablaFacturaProductos()+".UNIVENDIDAS ";
 		String from =
 				" FROM " + ps.darTablaClientes() +
-						" FULL OUTER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".ID = " + ps.darTablaFacturas() + ".ID" + ps.darTablaClientes() +
-						" FULL OUTER JOIN " + ps.darTablaFacturaProductos() +  " ON " + ps.darTablaFacturas() + ".ID = " + ps.darTablaFacturaProductos() + ".IDFACTURA" ;
+				" FULL OUTER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".ID = " + ps.darTablaFacturas() + ".ID" + ps.darTablaClientes() +
+				" FULL OUTER JOIN " + ps.darTablaFacturaProductos() +  " ON " + ps.darTablaFacturas() + ".ID = " + ps.darTablaFacturaProductos() + ".IDFACTURA" ;
 		String where = " WHERE " + ps.darTablaFacturaProductos()  +".IDPRODUCTO = ? AND " + ps.darTablaFacturas() + ".FECHA BETWEEN ? and ? ";
 
 		if(criterioAgrupacion.equals("Cliente")){
@@ -213,7 +213,7 @@ public class SQLCliente {
 			select =  "SELECT " + ps.darTablaClientes()+ ".ID, " + ps.darTablaClientes() + ".NOMBRE ,SUM(" + ps.darTablaFacturaProductos()+".UNIVENDIDAS) AS SUMA_TOT";
 			sql = original + select + from;
 			sql += groupBy;
-sql += minus + select + from + where  + groupBy + " )" + ")";
+			sql += minus + select + from + where  + groupBy + " ))";
 
 		}
 		else if(criterioAgrupacion.equals("Cliente y fecha")){
@@ -221,12 +221,12 @@ sql += minus + select + from + where  + groupBy + " )" + ")";
 			select = "SELECT " + ps.darTablaClientes()+ ".ID, " + ps.darTablaClientes() + ".NOMBRE, TRUNC(" +ps.darTablaFacturas() + ".fecha) ,SUM(" + ps.darTablaFacturaProductos()+".UNIVENDIDAS) AS SUMA_TOT";
 			sql = original + select + from;
 			sql += groupBy;
-			sql += minus + select + from + where  + groupBy + " )" + ")";
+			sql += minus + select + from + where  + groupBy + " ))";
 		}
 		else
 		{
 			sql = original + select + from;
-			sql += minus + select + from + where  + " )" + ")";
+			sql += minus + select + from + where  + " ))";
 		}
 
 		if(criterioOrdenacion.equals("Cliente"))
@@ -248,7 +248,7 @@ sql += minus + select + from + where  + groupBy + " )" + ")";
 	}
 
 	public List<Object[]> darNoConsumoComoGerente(PersistenceManager pm,long idProducto, long idSucursal, Timestamp fechaInicio, Timestamp fechaFinal,
-														String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
+			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
 		List<Object[]> lista;
 		String sql = "";
 		String original = "SELECT * FROM (";
@@ -256,8 +256,8 @@ sql += minus + select + from + where  + groupBy + " )" + ")";
 		String select = " SELECT " + ps.darTablaClientes() + ".ID, " + ps.darTablaClientes() + ".NOMBRE, " + ps.darTablaFacturas() + ".ID AS FACTURA_ID, " + ps.darTablaFacturas() + ".IDSUCURSAL, " + ps.darTablaFacturas() + ".FECHA, " + ps.darTablaFacturas() + ".TOTAL, " + ps.darTablaFacturaProductos() + ".IDPRODUCTO, " + ps.darTablaFacturaProductos() + ".UNIVENDIDAS ";
 		String from =
 				" FROM " + ps.darTablaClientes() +
-						" FULL OUTER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".ID = " + ps.darTablaFacturas() + ".ID" + ps.darTablaClientes() +
-						" FULL OUTER JOIN " + ps.darTablaFacturaProductos() + " ON " + ps.darTablaFacturas() + ".ID = " + ps.darTablaFacturaProductos() + ".IDFACTURA";
+				" FULL OUTER JOIN " + ps.darTablaFacturas() + " ON " + ps.darTablaClientes() + ".ID = " + ps.darTablaFacturas() + ".ID" + ps.darTablaClientes() +
+				" FULL OUTER JOIN " + ps.darTablaFacturaProductos() + " ON " + ps.darTablaFacturas() + ".ID = " + ps.darTablaFacturaProductos() + ".IDFACTURA";
 		String where = " WHERE " + ps.darTablaFacturaProductos() + ".IDPRODUCTO = ? AND " + ps.darTablaFacturas() + ".FECHA BETWEEN ? and ? and " +ps.darTablaFacturas() + ".IdSucursal = ?";
 
 		if (criterioAgrupacion.equals("Cliente")) {
@@ -265,17 +265,17 @@ sql += minus + select + from + where  + groupBy + " )" + ")";
 			select = "SELECT " + ps.darTablaClientes() + ".ID, " + ps.darTablaClientes() + ".NOMBRE ,SUM(" + ps.darTablaFacturaProductos() + ".UNIVENDIDAS) AS SUMA_TOT";
 			sql = original + select + from;
 			sql += groupBy;
-			sql += minus + select + from + where + groupBy + " )" + ")";
+			sql += minus + select + from + where + groupBy + " ))";
 
 		} else if (criterioAgrupacion.equals("Cliente y fecha")) {
 			String groupBy = " GROUP BY " + ps.darTablaClientes() + ".id, " + ps.darTablaClientes() + ".nombre, TRUNC(" + ps.darTablaFacturas() + ".fecha)";
 			select = "SELECT " + ps.darTablaClientes() + ".ID, " + ps.darTablaClientes() + ".NOMBRE, TRUNC(" + ps.darTablaFacturas() + ".fecha) ,SUM(" + ps.darTablaFacturaProductos() + ".UNIVENDIDAS) AS SUMA_TOT";
 			sql = original + select + from;
 			sql += groupBy;
-			sql += minus + select + from + where + groupBy + " )" + ")";
+			sql += minus + select + from + where + groupBy + " ))";
 		} else {
 			sql = original + select + from;
-			sql += minus + select + from + where + " )" + ")";
+			sql += minus + select + from + where + " ))";
 		}
 
 		if (criterioOrdenacion.equals("Cliente"))

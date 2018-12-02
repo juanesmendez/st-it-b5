@@ -1662,7 +1662,16 @@ public class PersistenciaSuperandes {
 			
 			List<Object[]> lista = sqlProducto.darProductosMasVendidoPorSemana(pm);
 			respuesta[0] = lista;
-
+			
+			lista = sqlProducto.darProductoMenosVendidoPorSemana(pm);
+			respuesta[1] = lista;
+			
+			lista = sqlProveedor.darProveedorMasSolicitadoPorSemana(pm);
+			respuesta[2] = lista;
+			
+			lista = sqlProveedor.darProveedorMenosSolicitadoPorSemana(pm);
+			respuesta[3] = lista;
+			
 			tx.commit();
 			return respuesta;
 		}catch(javax.jdo.JDOException e) {
