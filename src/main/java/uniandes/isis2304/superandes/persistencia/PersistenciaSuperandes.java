@@ -1611,7 +1611,7 @@ public class PersistenciaSuperandes {
 				
 				//Consulta como administrador:
 				if(idCliente == 0 && idSucursal == 0){
-					sqlCliente.darConsumoComoAdministrador(idProducto,fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					List<Object[]> lista = sqlCliente.darConsumoComoAdministrador(pm,idProducto,fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 				}else if(idSucursal == 0){ //Consulta como cliente
 					
 				}else{ //Consulta como gerente
