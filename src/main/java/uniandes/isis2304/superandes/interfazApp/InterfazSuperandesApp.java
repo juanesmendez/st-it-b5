@@ -1549,14 +1549,14 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			JComboBox comboBoxAgrupar =  new JComboBox();
 			Timestamp fechaInicio;
 			Timestamp fechaFinal;
-			
+
 			comboBoxAgrupar.addItem("");
 			comboBoxAgrupar.addItem("Fecha");
 
 			comboBoxOrdenar.addItem("");
 			comboBoxOrdenar.addItem("Fecha");
 			comboBoxOrdenar.addItem("Unidades compradas");
-			
+
 			comboBoxOrdenarAscDesc.addItem("");
 			comboBoxOrdenarAscDesc.addItem("Ascendentemente");
 			comboBoxOrdenarAscDesc.addItem("Descendentemente");
@@ -1570,16 +1570,16 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					if(!comboBoxAgrupar.getSelectedItem().toString().equals("")) {
-						
+
 					}
 					if(comboBoxAgrupar.getSelectedItem().toString().equals("")) {
-						
+
 					}
 				}
 			});
-			
-			
-			
+
+
+
 			Object[] message = {
 					"Digite el ID del cliente: ", fieldIdCliente,
 					"Digite el ID del producto: ",fieldIdProducto,
@@ -1652,7 +1652,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			comboBoxOrdenar.addItem("Fecha");
 			comboBoxOrdenar.addItem("Cliente");
 			comboBoxOrdenar.addItem("Unidades compradas");
-			
+
 			comboBoxOrdenarAscDesc.addItem("");
 			comboBoxOrdenarAscDesc.addItem("Ascendentemente");
 			comboBoxOrdenarAscDesc.addItem("Descendentemente");
@@ -1682,7 +1682,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					}
 				}
 			});
-			
+
 			Object[] message = {
 					"Digite el ID del producto: ",fieldIdProducto,
 					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
@@ -1724,11 +1724,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
 
 					List<Object[]> lista = superandes.consultarConsumo(false, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
-					
+
 					if(lista!=null) {
 						panelDatos.actualizarInterfaz(impresionGenerica(lista));
 					}
-					 
+
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
 				}
@@ -1762,7 +1762,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					"Ordenar por: ",comboBoxOrdenar,
 					"Ordenar de forma: ", comboBoxOrdenarAscDesc
 			};
-			
+
 			comboBoxAgrupar.addItem("");
 			comboBoxAgrupar.addItem("Cliente");
 			comboBoxAgrupar.addItem("Cliente y fecha");
@@ -1771,7 +1771,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			comboBoxOrdenar.addItem("Fecha");
 			comboBoxOrdenar.addItem("Cliente");
 			comboBoxOrdenar.addItem("Unidades compradas");
-			
+
 			comboBoxOrdenarAscDesc.addItem("");
 			comboBoxOrdenarAscDesc.addItem("Ascendentemente");
 			comboBoxOrdenarAscDesc.addItem("Descendentemente");
@@ -1865,7 +1865,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			comboBoxOrdenar.addItem("Fecha");
 			comboBoxOrdenar.addItem("Cliente");
 			comboBoxOrdenar.addItem("Unidades compradas");
-			
+
 			comboBoxOrdenarAscDesc.addItem("");
 			comboBoxOrdenarAscDesc.addItem("Ascendentemente");
 			comboBoxOrdenarAscDesc.addItem("Descendentemente");
@@ -1895,7 +1895,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					}
 				}
 			});
-			
+
 			Object[] message = {
 					"Digite el ID del producto: ",fieldIdProducto,
 					"Digite la fecha de inicio (dd/mm/aaaa): ", fieldFechaInicio,
@@ -1937,11 +1937,11 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
 
 					List<Object[]> lista = superandes.consultarConsumo(true, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
-					
+
 					if(lista!=null) {
 						panelDatos.actualizarInterfaz(impresionGenerica(lista));
 					}
-					
+
 				}else {
 					JOptionPane.showMessageDialog(this, "Se deben llenar todos los campos", "Error consultando operacion Superandes", JOptionPane.ERROR_MESSAGE);
 				}
@@ -1977,7 +1977,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					"Ordenar por: ",comboBoxOrdenar,
 					"Ordenar de forma: ", comboBoxOrdenarAscDesc
 			};
-			
+
 			comboBoxAgrupar.addItem("");
 			comboBoxAgrupar.addItem("Cliente");
 			comboBoxAgrupar.addItem("Cliente y fecha");
@@ -1986,7 +1986,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			comboBoxOrdenar.addItem("Fecha");
 			comboBoxOrdenar.addItem("Cliente");
 			comboBoxOrdenar.addItem("Unidades compradas");
-			
+
 			comboBoxOrdenarAscDesc.addItem("");
 			comboBoxOrdenarAscDesc.addItem("Ascendentemente");
 			comboBoxOrdenarAscDesc.addItem("Descendentemente");
@@ -2065,7 +2065,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		try {
 
 			Object[] arregloListas = superandes.consultarFuncionamiento();
-			
+
 			if(arregloListas != null) {
 				panelDatos.actualizarInterfaz(impresionGenericaArregloDeListas(arregloListas));
 			}
@@ -2076,20 +2076,56 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 
 	}
 
-	
+
 
 
 	public void consultarBuenosClientes() {
 
 		try {
 
+			Object[] arregloListas = superandes.consultarBuenosClientes();
 
+			if(arregloListas != null) {
+				panelDatos.actualizarInterfaz(impresionGenericaArregloDeListas2(arregloListas));
+			}
 
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 
 	}
+	
+	public void consultarBuenosClientesV2() {
+		
+		try {
+
+			List<Object[]> lista = superandes.consultarBuenosClientesV2();
+
+			if(lista != null) {
+				panelDatos.actualizarInterfaz("CLIENTES QUE HICIERON AL MENOS UNA COMPRA QUE CONTENIA UN PRODUCTO DE UN COSTO MAYOR A 100000\n\n" + impresionGenerica(lista));
+			}
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	public void consultarBuenosClientesV3() {
+		try {
+
+			List<Object[]> lista = superandes.consultarBuenosClientesV3();
+
+			if(lista != null) {
+				panelDatos.actualizarInterfaz("CLIENTES QUE HAN REALIZADO UNA COMPRA DE UN PRODUCTO DE ELECTRONICS Y TOOLS:\n\n" + impresionGenerica(lista));
+			}
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	
 
 
 	/* ****************************************************************
@@ -2385,7 +2421,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 		}
 		return impresion;
 	}
-	
+
 	private String impresionGenericaArregloDeListas(Object[] arregloListas) {
 		String impresion = "";
 		for(int i=0; i<4;i++) {
@@ -2399,7 +2435,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 						impresion += obj[j].toString() + " " ;
 					}
 					impresion += "\n";
-					
+
 				}
 			}else if(i==1) {
 				List<Object[]> lista = (List<Object[]>)arregloListas[i];
@@ -2411,7 +2447,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 						impresion += obj[j].toString() + " " ;
 					}
 					impresion += "\n";
-					
+
 				}
 			}else if(i==2) {
 				List<Object[]> lista = (List<Object[]>)arregloListas[i];
@@ -2423,9 +2459,9 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 						impresion += obj[j].toString() + " " ;
 					}
 					impresion += "\n";
-					
+
 				}
-				
+
 			}else if(i==3) {
 				List<Object[]> lista = (List<Object[]>)arregloListas[i];
 				impresion += "\nProveedor menos solicitado en cada semana del año:\n\n";
@@ -2436,15 +2472,36 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 						impresion += obj[j].toString() + " " ;
 					}
 					impresion += "\n";
-					
+
 				}
 			}
 		}
-		
+
 		return impresion;
 	}
 
+	
+	private String impresionGenericaArregloDeListas2(Object[] arregloListas) {
+		String impresion = "";
+		for(int i=0; i<3;i++) {
+			if(i==0) {
+				List<Object[]> lista = (List<Object[]>)arregloListas[i];
+				impresion += "Clientes que hicieron al menos una compra por mes:\n\n";
+				for(Object[] obj:lista) {
+					for (int j = 0; j<obj.length;j++)
+					{
 
+						impresion += obj[j].toString() + " " ;
+					}
+					impresion += "\n";
+
+				}
+			}
+		}
+
+		return impresion;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos de la Interacción
 	 *****************************************************************/
