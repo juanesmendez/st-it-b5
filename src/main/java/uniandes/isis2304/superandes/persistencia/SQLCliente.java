@@ -78,6 +78,7 @@ public class SQLCliente {
 				" WHERE " + ps.darTablaFacturaProductos()  +".IDPRODUCTO = ? AND " + ps.darTablaFacturas() + ".FECHA BETWEEN ? and ? ";
 
 		if(criterioAgrupacion.equals("Cliente")){
+			select =  "SELECT " + ps.darTablaClientes()+ ".ID, " + ps.darTablaClientes() + ".NOMBRE, TRUNC(" +ps.darTablaFacturas() + ".fecha) ,SUM(" + ps.darTablaFacturaProductos()+".UNIVENDIDAS) AS SUMA_TOT";
 			sql = select + from;
 			sql += " GROUP BY " + ps.darTablaClientes() + ".id, " + ps.darTablaClientes() + ".nombre";
 
