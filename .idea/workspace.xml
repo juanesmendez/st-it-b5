@@ -3,12 +3,30 @@
   <component name="ChangeListManager">
     <list default="true" id="1c5fd0ca-e604-48c9-92f4-de5313e3d3e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datanucleus.log" beforeDir="false" afterPath="$PROJECT_DIR$/datanucleus.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/negocio/Superandes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/negocio/Superandes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uniandes/isis2304/superandes/persistencia/SQLCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/superandes.log" beforeDir="false" afterPath="$PROJECT_DIR$/superandes.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/java/uniandes/isis2304/superandes/test/TransaccionalidadTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/java/uniandes/isis2304/superandes/test/TransaccionalidadTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/interfazApp/InterfazSuperandesApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Superandes.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/negocio/Superandes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/PersistenciaSuperandes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLBodega.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLBodega.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCarritoCompras.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCarritoCompras.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCategoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCategoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLEstante.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLEstante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLFactura.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLFactura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLFacturaProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLFacturaProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLOrden.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLOrden.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLPedido.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLPedido.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProductoBodega.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProductoBodega.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProductoEstante.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProductoEstante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLPromocion.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLPromocion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProvee.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProvee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProveedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLProveedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLSucursal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLSucursal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLTipoProducto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVende.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVende.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVendeCarrito.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/uniandes/isis2304/superandes/persistencia/SQLVendeCarrito.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -273,7 +291,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543801564581" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543803635931" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -332,7 +350,7 @@
       <workItem from="1540946862832" duration="8115000" />
       <workItem from="1541040855162" duration="698000" />
       <workItem from="1541338308705" duration="5505000" />
-      <workItem from="1543701679777" duration="24027000" />
+      <workItem from="1543701679777" duration="24695000" />
     </task>
     <task id="LOCAL-00001" summary="Añadido RF10v1 en Java. Pre implementación impresión &quot;genérica&quot;">
       <created>1543771499701</created>
@@ -411,18 +429,25 @@
       <option name="project" value="LOCAL" />
       <updated>1543778322890</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Machete Ctrl+C">
+      <created>1543801608351</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1543801608351</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40782000" />
+    <option name="totallyTimeSpent" value="41450000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992126" visible="true" weight="0.18456376" />
-      <window_info id="Structure" order="1" sideWeight="0.5007874" side_tool="true" visible="true" weight="0.18456376" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.18456376" />
+      <window_info id="Structure" order="1" sideWeight="0.50141644" side_tool="true" visible="true" weight="0.18456376" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -432,7 +457,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4986577" visible="true" weight="0.10056657" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.10056657" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -492,7 +517,8 @@
     <MESSAGE value="Corrección de consumarConsumoComoAdministrador, implementación consultarConsumoComoGerente" />
     <MESSAGE value="Corrección noConsumo en interfaz" />
     <MESSAGE value="Corrección noConsumo parentesis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrección noConsumo parentesis" />
+    <MESSAGE value="Machete Ctrl+C" />
+    <option name="LAST_COMMIT_MESSAGE" value="Machete Ctrl+C" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
