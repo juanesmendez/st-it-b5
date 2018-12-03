@@ -96,3 +96,23 @@ Missing IN or OUT parameter at index:: 1
 17:43:38,955 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
 17:43:38,985 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
 17:43:59,800 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando consumo del producto 23
+18:03:31,565 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+18:03:31,566 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+18:03:31,588 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:03:48,749 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando consumo del producto 23
+18:03:59,123 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+18:03:59,124 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+18:03:59,144 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:04:18,556 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando consumo del producto 23
+18:16:58,388 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+18:16:58,389 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+18:16:58,410 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:18:43,323 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+18:18:43,324 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+18:18:43,346 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:19:05,166 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando consumo del producto 23
+18:28:29,398 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Interfaz
+18:28:29,399 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se aplica configuración indicada en el archivo de configuración
+18:28:29,422 (main) INFO  [uniandes.isis2304.superandes.interfazApp.InterfazSuperandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:28:42,318 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando funcionami¡ento
+18:28:47,749 (AWT-EventQueue-0) INFO  [uniandes.isis2304.superandes.negocio.Superandes] - Consultando buenos clientes

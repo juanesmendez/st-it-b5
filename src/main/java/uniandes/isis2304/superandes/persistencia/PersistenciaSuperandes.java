@@ -1636,7 +1636,6 @@ public class PersistenciaSuperandes {
 			if(consulta == null) {
 				throw new Exception("Error consultando consumo como cliente");
 			}
-
 			tx.commit();
 			return consulta;
 		}catch(javax.jdo.JDOException e) {
@@ -1760,12 +1759,13 @@ public class PersistenciaSuperandes {
 	}
 
 	public String consultarConsumoSQL(boolean except, int idCliente, int idSucursal, long idProducto,
-			Timestamp fechaInicio, Timestamp fechaFinal, String criterioOrdenacion, String criterioOrdenacionAscDesc,
+			String fechaInicio, String fechaFinal, String criterioOrdenacion, String criterioOrdenacionAscDesc,
 			String criterioAgrupacion) {
-		
+
+		String fechaInicioBien = "'" + fechaInicio+"'";
+		String fechaFinalBien = "'" + fechaFinal+"'";
 		
 		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx=pm.currentTransaction();
 
 
 			String consulta = "";
@@ -1773,12 +1773,12 @@ public class PersistenciaSuperandes {
 
 				//Consulta como administrador:
 				if(idCliente == 0 && idSucursal == 0){
-					consulta =  sqlCliente.darConsumoComoAdministradorSQL(pm,idProducto,fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					consulta =  sqlCliente.darConsumoComoAdministradorSQL(pm,idProducto,fechaInicioBien,fechaFinalBien, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 				}else if(idSucursal == 0){ //Consulta como cliente
-					consulta = sqlCliente.darConsumoComoClienteSQL(pm,idProducto, idCliente, fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					consulta = sqlCliente.darConsumoComoClienteSQL(pm,idProducto, idCliente, fechaInicioBien,fechaFinalBien, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 
 				}else{ //Consulta como gerente
-					consulta = sqlCliente.darConsumoComoGerenteSQL(pm,idProducto, idSucursal, fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					consulta = sqlCliente.darConsumoComoGerenteSQL(pm,idProducto, idSucursal, fechaInicioBien,fechaFinalBien, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 				}
 				
 				
@@ -1787,10 +1787,10 @@ public class PersistenciaSuperandes {
 				
 				//Consulta como administrador:
 				if(idCliente == 0 && idSucursal == 0){
-					consulta =  sqlCliente.darNoConsumoComoAdministradorSQL(pm,idProducto,fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					consulta =  sqlCliente.darNoConsumoComoAdministradorSQL(pm,idProducto,fechaInicioBien,fechaFinalBien, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 				}
 				else{ //Consulta como gerente
-					consulta =  sqlCliente.darNoConsumoComoGerenteSQL(pm,idProducto, idSucursal, fechaInicio,fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					consulta =  sqlCliente.darNoConsumoComoGerenteSQL(pm,idProducto, idSucursal, fechaInicioBien,fechaFinalBien, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 				}
 			}
 

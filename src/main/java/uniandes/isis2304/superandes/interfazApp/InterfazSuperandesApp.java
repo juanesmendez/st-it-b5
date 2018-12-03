@@ -1920,7 +1920,7 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 					long idProducto = Long.valueOf(fieldIdProducto.getText());
 
 
-					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
+					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText());
 					int day = Integer.valueOf(t.nextToken());
 					int month = Integer.valueOf(t.nextToken());
 					int year = Integer.valueOf(t.nextToken());
@@ -1949,30 +1949,16 @@ public class InterfazSuperandesApp extends JFrame implements ActionListener{
 			}else {
 				if(!fieldIdProducto.getText().equals("") && !fieldFechaInicio.getText().equals("") && !fieldFechaFinal.getText().equals("")) {
 
-
-
-
 					long idProducto = Long.valueOf(fieldIdProducto.getText());
 
 
-					StringTokenizer t = new StringTokenizer(fieldFechaInicio.getText(), "/");
-					int day = Integer.valueOf(t.nextToken());
-					int month = Integer.valueOf(t.nextToken());
-					int year = Integer.valueOf(t.nextToken());
-
-					fechaInicio = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
-					t = new StringTokenizer(fieldFechaFinal.getText(), "/");
-					day = Integer.valueOf(t.nextToken());
-					month = Integer.valueOf(t.nextToken());
-					year = Integer.valueOf(t.nextToken());
-					fechaFinal = Timestamp.valueOf(LocalDateTime.of(year, month, day, 0, 0));
-
+					String fechaInicioString = fieldFechaInicio.getText();
+					String fechaFinalString = fieldFechaFinal.getText();
 					String criterioOrdenacion = (String) comboBoxOrdenar.getSelectedItem();
 					String criterioOrdenacionAscDesc = (String) comboBoxOrdenarAscDesc.getSelectedItem();
 					String criterioAgrupacion = (String) comboBoxAgrupar.getSelectedItem();
 					
-					
-					String query = superandes.consultarConsumoSQL(true, 0, 0, idProducto, fechaInicio, fechaFinal, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
+					String query = superandes.consultarConsumoSQL(true, 0, 0, idProducto, fechaInicioString, fechaFinalString, criterioOrdenacion, criterioOrdenacionAscDesc, criterioAgrupacion);
 					if(query!=null) {
 						panelDatos.actualizarInterfaz(query);
 					}

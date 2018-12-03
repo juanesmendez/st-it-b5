@@ -1,5 +1,8 @@
 package uniandes.isis2304.superandes.negocio;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
@@ -439,11 +442,14 @@ public class Superandes {
 		return (List<Object[]>) ps.consultarBuenosClientesV3() ;
 	}
 
-	public String consultarConsumoSQL(boolean except, int idCliente, int idSucursal, long idProducto, Timestamp fechaInicio,
-			Timestamp fechaFinal, String criterioOrdenacion, String criterioOrdenacionAscDesc,
+	public String consultarConsumoSQL(boolean except, int idCliente, int idSucursal, long idProducto, String fechaInicio,
+			String fechaFinal, String criterioOrdenacion, String criterioOrdenacionAscDesc,
 			String criterioAgrupacion) {
 		
 		log.info("Consultando consumo del producto " + idProducto);
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		StringSelection selection = new StringSelection(ps.consultarConsumoSQL(except,idCliente,idSucursal,idProducto,fechaInicio,fechaFinal,criterioOrdenacion,criterioOrdenacionAscDesc,criterioAgrupacion));
+		clipboard.setContents(selection,selection);
 		return (String) ps.consultarConsumoSQL(except,idCliente,idSucursal,idProducto,fechaInicio,fechaFinal,criterioOrdenacion,criterioOrdenacionAscDesc,criterioAgrupacion);
 	}
 

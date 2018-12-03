@@ -244,6 +244,7 @@ public class SQLCliente {
 		System.out.println(sql);
 		q.setParameters(idProducto,fechaInicio, fechaFinal);
 		lista = (List<Object[]>) q.executeList();
+		List a = lista;
 		return lista;
 	}
 
@@ -334,7 +335,7 @@ public class SQLCliente {
 		return (List<Object[]>)q.executeList();
 	}
 	
-	public String darConsumoComoAdministradorSQL(PersistenceManager pm,long idProducto, Timestamp fechaInicio, Timestamp fechaFinal,
+	public String darConsumoComoAdministradorSQL(PersistenceManager pm,long idProducto, String fechaInicio, String fechaFinal,
 			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
 		List<Object[]> lista;
 		String sql = "";
@@ -375,7 +376,7 @@ public class SQLCliente {
 		}
 	return sql;
 	}
-	public String darConsumoComoGerenteSQL(PersistenceManager pm,long idProducto, long idSucursal, Timestamp fechaInicio, Timestamp fechaFinal,
+	public String darConsumoComoGerenteSQL(PersistenceManager pm,long idProducto, long idSucursal, String fechaInicio, String fechaFinal,
 			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
 		List<Object[]> lista = new ArrayList<Object[]>();
 		String sql = "";
@@ -417,7 +418,7 @@ public class SQLCliente {
 		return sql;
 	}
 	
-	public String darConsumoComoClienteSQL(PersistenceManager pm,long idProducto, long idCliente, Timestamp fechaInicio, Timestamp fechaFinal,
+	public String darConsumoComoClienteSQL(PersistenceManager pm,long idProducto, long idCliente, String fechaInicio, String fechaFinal,
 			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
 		List<Object[]> lista = new ArrayList<Object[]>();
 		String sql = "";
@@ -452,7 +453,7 @@ public class SQLCliente {
 		return sql;
 	}
 	
-	public String darNoConsumoComoAdministradorSQL(PersistenceManager pm,long idProducto, Timestamp fechaInicio, Timestamp fechaFinal,
+	public String darNoConsumoComoAdministradorSQL(PersistenceManager pm,long idProducto, String fechaInicio, String fechaFinal,
 			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
 		List<Object[]> lista;
 		String sql = "";
@@ -500,7 +501,7 @@ public class SQLCliente {
 		return sql;
 	}
 
-	public String darNoConsumoComoGerenteSQL(PersistenceManager pm,long idProducto, long idSucursal, Timestamp fechaInicio, Timestamp fechaFinal,
+	public String darNoConsumoComoGerenteSQL(PersistenceManager pm,long idProducto, long idSucursal, String fechaInicio, String fechaFinal,
 			String criterioOrdenacion, String criterioOrdenacionAscDesc, String criterioAgrupacion) {
 		List<Object[]> lista;
 		String sql = "";
